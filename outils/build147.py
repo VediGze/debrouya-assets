@@ -31,6 +31,12 @@ def poll(pos, titre, texte):
     return card(kicker("Nouveau format",ORANGE)+p(b(titre),size=21,mb=10)+p(texte,size=16,mb=16)+
         f'<p style="margin:0;text-align:center;">{btn("👍 Oui, j’adore",poll_link("oui",pos),TEAL,"#FFFFFF")}{btn("👎 Non, je préfère l’ancien",poll_link("non",pos),"#FFFFFF",TEAL,TEAL)}</p>',
         bg="#FFFFFF",bl=ORANGE,pad=22,mb=28)
+ICON_BASE="img/"
+def social_btn(label, href, icon):
+    return (f'<a href="{href}" target="_blank" style="display:inline-block;background:#FFFFFF;border:2px solid {TEAL};color:{TEAL};text-decoration:none;'
+            f'font-family:{FONT};font-size:16px;font-weight:bold;line-height:22px;border-radius:30px;padding:11px 20px 11px 16px;margin:0 6px 10px 6px;">'
+            f'<img src="{ICON_BASE}{icon}.png" width="22" height="22" alt="" style="display:inline-block;width:22px;height:22px;border:0;vertical-align:middle;margin:0 8px 2px 0;">'
+            f'<span style="vertical-align:middle;">{label}</span></a>')
 def step(n,title):
     return (f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:10px 0 16px 0;"><tr>'
             f'<td width="60" valign="middle" nowrap style="width:60px;min-width:60px;white-space:nowrap;padding:0 14px 0 0;"><div style="width:46px;height:46px;border-radius:23px;background:{ORANGE};color:{INK};text-align:center;font-family:{FONT};font-size:22px;line-height:46px;font-weight:bold;">{n}</div></td>'
@@ -55,7 +61,7 @@ A(p(f"Bienvenue aux {b('28')} nouveaux abonnés qui nous ont rejoints depuis ven
 A(p("Si le contenu te plaît, partage-le : c’est la plus belle façon de nous soutenir.",size=17,mb=12))
 A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("👉 Invite tes amis à s’abonner ici",LINK_SUB,ORANGE,INK)}</p>')
 A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
-A(f'<p style="margin:0 0 28px 0;text-align:center;">{btn("Instagram",LINK_IG,"#FFFFFF",TEAL,TEAL)}{btn("YouTube",LINK_YT,"#FFFFFF",TEAL,TEAL)}</p>')
+A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK_IG,"instagram")}{social_btn("YouTube",LINK_YT,"youtube")}</p>')
 
 # ---------------- FESTIVAL LYANNAJ ----------------
 A(kicker("Rappel",ORANGE)+h3("Bloque tes soirées du 20, 21 et 22 novembre"))
