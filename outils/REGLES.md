@@ -27,7 +27,7 @@
 16. Avant livraison : vérifier que le HTML LearnyBox et le PDF sont identiques (même texte, mêmes images octet pour octet).
 
 ## Livraison
-17. Claude dépose lui-même dans le Drive « aperçu.pdf » + « code LearnyBox.html » dans le MÊME dossier que le Google Doc « LE JOURNAL DÉBROUYA Newsletter #NNN » (dossier du mois où le doc a été rangé, pas le mois en cours), sans sous-dossier ; anciennes versions à la corbeille.
+17. Claude dépose lui-même dans le Drive « NNN - Journal Débrouya - aperçu.pdf » + « NNN - Journal Débrouya - code LearnyBox.html » (numéro en premier, pour le retrouver même quand le nom est coupé) dans le MÊME dossier que le Google Doc « LE JOURNAL DÉBROUYA Newsletter #NNN » (dossier du mois où le doc a été rangé, pas le mois en cours), sans sous-dossier ; anciennes versions à la corbeille.
 18. Jamais de manip manuelle pour Steny quand Claude peut la faire (Drive, Sheets, Apps Script, GitHub).
 19. Prompts pour ChatGPT : complets, un par bloc, prêts à copier-coller.
 20. Sondage nouveau format : boutons oui/non en haut et en bas, votes dans le Sheet « Sondages Journal Débrouya » (onglet Votes), étiquetés format-NNN-haut/bas.
