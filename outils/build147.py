@@ -59,9 +59,8 @@ A(f'<p style="margin:0 0 28px 0;text-align:center;">{btn("Instagram",LINK_IG,"#F
 
 # ---------------- FESTIVAL LYANNAJ ----------------
 A(kicker("Rappel",ORANGE)+h3("Bloque tes soirées du 20, 21 et 22 novembre"))
-A(p("Avant d’entrer dans le sujet du jour, une date à garder dans ton agenda : le Festival Lyannaj revient."))
+A(p("Avant d’entrer dans le sujet du jour, une date à garder dans ton agenda :"))
 A(png("02-festival","Festival Lyannaj, en live sur Zoom et gratuit : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée dévoilée bientôt. En soirée, heure de Paris.",mb=20))
-A(p("Cette année, on change de format : c’est en live sur Zoom, et c’est gratuit. Aux Antilles, dans l’Hexagone ou ailleurs, tu peux y être. La troisième soirée, je t’en reparle très vite."))
 A(p("Pourquoi ce rendez-vous compte ? Parce que c’est le moment de l’année où on fait le point ensemble, avec des acteurs de la Caraïbe qui font avancer le mouvement."))
 A(p("Si tu as avancé cette année, on va célébrer ce que tu as accompli. Et si ton projet n’a pas bougé pendant que d’autres avançaient, c’est ta dernière occasion de l’année pour rattraper le train : récupérer nos dernières stratégies et repartir avec un plan clair."))
 A(card(p(f"Pour l’instant, une seule chose à faire : {b('bloque ces trois soirées')}. Les infos pour t’inscrire arrivent très vite, ici même, dans le Journal.",size=17,mb=0),bg=ORANGE_L,pad=20,mb=30))
@@ -79,11 +78,10 @@ A(card(kicker("Le témoignage de la semaine")+
 
 # ---------------- PARTIE 1 ----------------
 A(gap(14)+kicker("Partie 1")+h3("Combien d'annonces dans tes favoris ?"))
-A(p("Petite question, et réponds honnêtement. Combien d'annonces tu as enregistrées dans tes favoris ? Sur ton téléphone, sur les sites, dans tes captures d'écran ?"))
+A(p("Petite question, et réponds honnêtement. Sur ton téléphone, sur les sites, dans tes captures d'écran :"))
 A(png("03-favoris","Dans tes favoris : 10 ? 30 ? Analysés jusqu'au bout : ? Offres faites : 0."))
-A(p("Dix ? Trente ? Tu as arrêté de compter ? Et parmi elles, combien de biens tu as vraiment analysés jusqu'au bout ? Avec le calcul, la visite, les questions ? Et combien d'offres tu as faites ?"))
-A(p(f"Si la réponse est « zéro », {b('cette édition est pour toi')}."))
-A(p("Parce que tu n'as pas un problème de motivation. Tu cherches. Tu cherches même beaucoup. Ton problème, c'est que chaque bien a un truc."))
+A(p(f"Si ta dernière ligne affiche « zéro », {b('cette édition est pour toi')}."))
+A(p("Parce que tu n'as pas un problème de motivation. Tu cherches. Tu cherches même beaucoup. Ton problème est ailleurs :"))
 A(png("04-un-truc","Chaque bien a un truc : bien placé mais cuisine à refaire ; bon loyer mais 3e étage sans ascenseur ; coche presque tout, mais peut-être mieux le mois prochain."))
 A(png("05-will","Will : Tu vois le schéma ?",mb=24))
 A(p(f"Tu n'es pas en train de chercher {b('un')} bien. Tu es en train de chercher {b('le')} bien. Celui qui n'a aucun défaut."))
@@ -96,8 +94,7 @@ A(kicker("Partie 2")+h3("Ce qu'un prix Nobel a compris"))
 A(p(f"Dans les années 1950, un chercheur américain, {b('Herbert Simon')}, s'est intéressé à la façon dont on prend vraiment nos décisions. Pas dans les manuels. Dans la vraie vie."))
 A(p(f"Son constat : on n'a jamais toutes les informations, ni tout le temps du monde, pour comparer toutes les options possibles. Donc dans la vraie vie, on ne cherche pas l'option parfaite. On fixe un {b('seuil')}, et on retient une option qui le dépasse."))
 A(png("07-seuil","La méthode du seuil, Herbert Simon, prix Nobel d'économie 1978 : on retient la première option qui dépasse le seuil. Satisficing = satisfaire + suffire.",mb=20))
-A(p(f"Il a popularisé un mot pour ça : {i('satisficing')}, un mélange en anglais de « satisfaire » et de « suffire ». Ses recherches sur la prise de décision lui ont valu le {b('prix Nobel d’économie en 1978')}."))
-A(p(f"Bien plus tard, en {b('2002')}, le psychologue {b('Barry Schwartz')} et son équipe ont comparé deux profils : les {i('maximisateurs')}, qui veulent absolument la meilleure option, et les {i('satisficeurs')}, qui se fixent des critères et choisissent ce qui est assez bon."))
+A(p(f"Il a appelé ça le {i('satisficing')}. Bien plus tard, le psychologue {b('Barry Schwartz')} et son équipe ont comparé deux profils :"))
 A(png("08-max-sat","Maximisateurs : moins heureux, moins satisfaits de leur vie, plus de regrets. Satisficeurs : critères fixés, décident, vivent mieux leurs choix. Barry Schwartz et son équipe, 2002.",mb=20))
 A(p("Dans une de leurs études, les maximisateurs étaient même moins satisfaits de leurs propres achats. Ils cherchaient plus. Mais ils vivaient moins bien leurs choix."))
 A(card(p(i("Et concrètement, pour ton projet immobilier, ça veut dire quoi ?"),size=16,color=PEACH,mb=10)+
@@ -118,13 +115,12 @@ A(f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bord
 # ---------------- PARTIE 4 : MÉTHODE ----------------
 A(kicker("Partie 4")+h3("Ta méthode en 4 étapes"))
 A(png("10-will-pouce","Will : Une feuille. Quatre étapes. Dans l'ordre.",mb=16))
-A(p("Prends une feuille, ou une note sur ton téléphone. Et avance dans l'ordre.",size=17,color=MUTED,align="center"))
 A(png("11-marches","Les 4 étapes : 1. Tes 3 critères, 2. Deux colonnes, 3. Règle de décision, 4. Stop au bien rêvé.",mb=30))
 
 A(step("1","Écris tes 3 non-négociables"))
 A(p(f"Avant de rouvrir la moindre annonce, écris les {b('trois')} critères sans lesquels tu ne signes pas. Par exemple :"))
 A(png("12-criteres","Mes 3 non-négociables : budget maximum frais compris ; rentabilité minimale après charges ; la zone, et pourquoi elle. Tout le reste est du bonus : la vue, le carrelage, l'étage.",mb=18))
-A(p(f"Trois. Pas douze. Tout le reste, c'est du {b('bonus')} : agréable si tu l'as, pas disqualifiant si tu ne l'as pas.",mb=32))
+A(p(f"Trois. Pas douze. Le reste est agréable si tu l'as, {b('pas disqualifiant')} si tu ne l'as pas.",mb=32))
 
 A(step("2","Trie les défauts en deux colonnes"))
 A(p("Parce que tous les défauts ne se valent pas."))
@@ -140,15 +136,15 @@ A(p("Et si tu dis non, tu sais pourquoi. La raison est écrite. Pas « j'ai un d
 
 A(step("4","Arrête de comparer avec le bien imaginaire"))
 A(p("Quand tu hésites, demande-toi avec quoi tu compares. Si c'est un autre bien réel, disponible, avec des chiffres : c'est une vraie comparaison. Continue."))
+A(p(f"Mais si tu compares avec « celui qui va peut-être sortir le mois prochain », tu compares avec un bien {b('qui n’existe pas')}.",mb=18))
 A(png("15-imaginaire","Le bien réel a un prix, des défauts, des chiffres. Le bien imaginaire n'a ni prix, ni défaut, ni travaux : il gagne toujours.",mb=18))
-A(p(f"Mais si tu compares avec « celui qui va peut-être sortir le mois prochain », tu compares avec un bien {b('qui n’existe pas')}. Et un bien qui n'existe pas gagnera toujours.",mb=34))
+A(gap(8))
 
 # ---------------- PARTIE 5 : LUDOVIC ----------------
 A(kicker("Partie 5")+h3("Ce que ça change, concrètement"))
 A(p("Imagine Ludovic. Il vit au Lamentin, il a mis de côté un apport, et il veut acheter un appartement à louer."))
 A(png("16-ludovic","Avant, à la recherche du bien parfait : 18 mois de recherche, une dizaine de visites, aucune offre, toujours comparé à un bien imaginaire. Après, avec ses critères écrits : 3 critères, favoris triés, il en reste 2, un chiffré et un écarté, première offre une semaine après.",mb=22))
-A(p(f"Avant, chaque nouveau bien, il le comparait à un appartement idéal qu'il avait dans la tête. Après, il pose ses 3 non-négociables : son budget frais compris, sa rentabilité minimale, et deux communes précises. La plupart de ses favoris ne passent même pas l'étape 1."))
-A(p(f"Il en reste deux. Le premier a une salle de bain à refaire : colonne 1, réparable, il fait chiffrer. Le deuxième est au bord d'une route très passante : colonne 2, définitif, il l'écarte, raison écrite. Une semaine plus tard, il fait sa {b('première offre')}."))
+A(p("Ses deux finalistes ? Le premier a une salle de bain à refaire : réparable, il fait chiffrer. Le deuxième est au bord d'une route très passante : définitif, il l'écarte."))
 A(p("Est-ce que c'est le bien parfait ? Non.",size=19,w="bold",align="center",mb=6))
 A(p(f"Est-ce que c'est un bien qui passe son seuil, avec des défauts connus et chiffrés ? {b('Oui.')}",align="center"))
 A(p(f"Rien n'a changé dans son budget. Ce qui a changé, c'est qu'il sait enfin {b('ce qu’il cherche')}. Et sa recherche a enfin une {b('fin')}."))

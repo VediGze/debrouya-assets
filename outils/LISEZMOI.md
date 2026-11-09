@@ -12,3 +12,7 @@ Règles d'affichage téléphone (à respecter dans tout nouveau bloc) :
 - Casser la détection de date d'Apple Mail : `1&zwnj;er janvier`.
 - Texte dans les illustrations : 20 px minimum (image de 600 px réduite à ~360 px sur téléphone).
 - Images publiées dans `NNN/` de ce dépôt. Dans le HTML, toujours épingler les adresses sur le commit exact : `https://cdn.jsdelivr.net/gh/VediGze/debrouya-assets@<SHA du commit>/NNN/` — jamais `@main`, que jsDelivr garde en cache plusieurs jours (images périmées).
+
+Règles éditoriales du format visuel :
+- Une illustration remplace le texte qu'elle montre : ne jamais répéter dans le texte ce que l'image dit déjà (et inversement).
+- Les visuels parlent au lecteur : « ta liste », « tes critères », « tu fais une offre » — jamais « ma / mes / je », qui ferait croire que c'est la liste de Will.

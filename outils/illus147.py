@@ -113,7 +113,7 @@ out["04-un-truc"]=svg(600,462,g,GREY_L)
 # 06. LE BIEN PARFAIT N'EXISTE PAS ---------------------------------------------------------
 crit=["Vue dégagée","Prix bas","Loyer haut","Zéro travaux","Bien placé","Calme","Parking"]
 g=(f'<rect x="34" y="34" width="250" height="356" rx="16" fill="{WHITE}"/>'
-   + txt(159,72,"Ma liste du bien idéal",19,TEAL,800))
+   + txt(159,72,"Ta liste du bien idéal",19,TEAL,800))
 for k,c in enumerate(crit):
     y=106+k*40
     g+=check(66,y,TEAL,12)+txt(88,y+6,c,18,INK,700,anchor="start")
@@ -168,7 +168,7 @@ def coin(cx,cy): return f'<circle cx="{cx}" cy="{cy}" r="26" fill="{TEAL}"/>'+tx
 def chart(cx,cy): return "".join(f'<rect x="{cx-24+k*18}" y="{cy+20-hh}" width="12" height="{hh}" rx="3" fill="{TEAL}"/>' for k,hh in enumerate([16,28,42]))
 def pin(cx,cy): return f'<path d="M{cx} {cy+28} C{cx-26} {cy} {cx-22} {cy-26} {cx} {cy-26} C{cx+22} {cy-26} {cx+26} {cy} {cx} {cy+28} Z" fill="{TEAL}"/><circle cx="{cx}" cy="{cy-6}" r="9" fill="{WHITE}"/>'
 cards=[(coin,"Budget max","frais compris"),(chart,"Rentabilité","mini, après charges"),(pin,"La zone","et pourquoi elle")]
-g=txt(300,46,"MES 3 NON-NÉGOCIABLES",17,TEAL,800,ls=2)
+g=txt(300,46,"TES 3 NON-NÉGOCIABLES",17,TEAL,800,ls=2)
 for k,(ic,a,b) in enumerate(cards):
     x=24+k*192
     g+=(f'<rect x="{x}" y="70" width="168" height="190" rx="16" fill="{WHITE}" stroke="{TEAL}" stroke-width="3"/>'
@@ -205,12 +205,12 @@ def arrow(x1,y1,x2,y2):
     a=math.atan2(y2-y1,x2-x1);
     return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{INK}" stroke-width="4" stroke-linecap="round"/>'
             f'<path d="M{x2-12*math.cos(a-0.5):.1f} {y2-12*math.sin(a-0.5):.1f} L{x2} {y2} L{x2-12*math.cos(a+0.5):.1f} {y2-12*math.sin(a+0.5):.1f}" stroke="{INK}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
-g=(box(150,28,300,72,"Le bien passe","mes 3 critères ?",WHITE,INK) + arrow(300,104,300,140)
-   + box(150,144,300,72,"Je l’analyse en entier","dans la semaine",TEAL,WHITE)
+g=(box(150,28,300,72,"Le bien passe","tes 3 critères ?",WHITE,INK) + arrow(300,104,300,140)
+   + box(150,144,300,72,"Tu l’analyses en entier","dans la semaine",TEAL,WHITE)
    + arrow(250,220,160,262) + arrow(350,220,440,262)
-   + box(28,266,260,72,"Je fais","une offre",MANGO,WHITE) + box(312,266,260,72,"J’écris pourquoi","je n’en fais pas",WHITE,INK)
-   + txt(300,376,"Chaque bien qui mérite ton attention reçoit une réponse.",16,GREY,700))
-out["14-regle"]=svg(600,400,g,TEAL_L)
+   + box(28,266,260,72,"Tu fais","une offre",MANGO,WHITE) + box(312,266,260,72,"Tu écris pourquoi","tu n’en fais pas",WHITE,INK)
+   + "")
+out["14-regle"]=svg(600,362,g,TEAL_L)
 
 # 15. RÉEL vs IMAGINAIRE ---------------------------------------------------------------------------
 g=(txt(150,52,"LE BIEN RÉEL",16,TEAL,800,ls=2) + txt(450,52,"LE BIEN IMAGINAIRE",16,MANGO_D,800,ls=2)
