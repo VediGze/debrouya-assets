@@ -16,3 +16,7 @@ Règles d'affichage téléphone (à respecter dans tout nouveau bloc) :
 Règles éditoriales du format visuel :
 - Une illustration remplace le texte qu'elle montre : ne jamais répéter dans le texte ce que l'image dit déjà (et inversement).
 - Les visuels parlent au lecteur : « ta liste », « tes critères », « tu fais une offre » — jamais « ma / mes / je », qui ferait croire que c'est la liste de Will.
+
+Poses de Will :
+- `avatar/` : 18 poses détourées (4 d'origine, 8 de base, 6 de saison).
+- `poses.py AAAA-MM-JJ` : donne les poses d'une édition selon sa date d'envoi (rotation sans répéter l'édition précédente, pose de saison à l'accueil pendant les fêtes) ; `historique.json` garde la trace.
