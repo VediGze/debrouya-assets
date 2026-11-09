@@ -31,3 +31,4 @@
 18. Jamais de manip manuelle pour Steny quand Claude peut la faire (Drive, Sheets, Apps Script, GitHub).
 19. Prompts pour ChatGPT : complets, un par bloc, prêts à copier-coller.
 20. Sondage nouveau format : boutons oui/non en haut et en bas, votes dans le Sheet « Sondages Journal Débrouya » (onglet Votes), étiquetés format-NNN-haut/bas.
+21. Boutons réseaux : icônes officielles Instagram et YouTube (dossier commun/ du dépôt) + le nom écrit à côté, liens vers les comptes de Will.
