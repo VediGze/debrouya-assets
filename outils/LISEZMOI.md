@@ -11,4 +11,4 @@ Règles d'affichage téléphone (à respecter dans tout nouveau bloc) :
 - Tester systématiquement avec la simulation « pire cas » (largeurs de colonnes ignorées, écran 320 px).
 - Casser la détection de date d'Apple Mail : `1&zwnj;er janvier`.
 - Texte dans les illustrations : 20 px minimum (image de 600 px réduite à ~360 px sur téléphone).
-- Images publiées dans `NNN/` de ce dépôt, servies via `https://cdn.jsdelivr.net/gh/VediGze/debrouya-assets@main/NNN/`.
+- Images publiées dans `NNN/` de ce dépôt. Dans le HTML, toujours épingler les adresses sur le commit exact : `https://cdn.jsdelivr.net/gh/VediGze/debrouya-assets@<SHA du commit>/NNN/` — jamais `@main`, que jsDelivr garde en cache plusieurs jours (images périmées).
