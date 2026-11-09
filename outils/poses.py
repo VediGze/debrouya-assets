@@ -39,7 +39,10 @@ def choisir(d):
     for slot,pool in POOLS.items():
         if slot=="accueil" and s: out[slot]=s; pris.add(s); continue
         libres=[p for p in pool if p not in dernieres and p not in pris] or [p for p in pool if p not in pris]
-        out[slot]=libres[0]; pris.add(libres[0])
+        # la pose utilisée il y a le plus longtemps (jamais utilisée = prioritaire)
+        last={p:max([k for k,h in enumerate(hist) if p in h["poses"]],default=-1) for p in libres}
+        best=min(libres,key=lambda p:(last[p],pool.index(p)))
+        out[slot]=best; pris.add(best)
     out["fete"]=lab
     return out
 def enregistrer(d,edition,poses):
