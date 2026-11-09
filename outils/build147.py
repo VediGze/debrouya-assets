@@ -84,10 +84,9 @@ A(p(f"Si ta dernière ligne affiche « zéro », {b('cette édition est pour toi
 A(p("Parce que tu n'as pas un problème de motivation. Tu cherches. Tu cherches même beaucoup. Ton problème est ailleurs :"))
 A(png("04-un-truc","Chaque bien a un truc : bien placé mais cuisine à refaire ; bon loyer mais 3e étage sans ascenseur ; coche presque tout, mais peut-être mieux le mois prochain."))
 A(png("05-will","Will : Tu vois le schéma ?",mb=24))
-A(p(f"Tu n'es pas en train de chercher {b('un')} bien. Tu es en train de chercher {b('le')} bien. Celui qui n'a aucun défaut."))
-A(png("06-parfait","Ma liste du bien idéal : vue dégagée, prix bas, loyer haut, zéro travaux, bien placé, calme, parking. Ce bien n'existe pas.",mb=18))
-A(p("Mais je vais te dire une chose que tu sais déjà, au fond.",align="center",mb=4))
-A(punch(f"Ce bien-là {hl('n’existe pas')}.",mb=34))
+A(p(f"Tu n'es pas en train de chercher {b('un')} bien. Tu es en train de chercher {b('le')} bien. Celui qui n'a aucun défaut. Mais je vais te dire une chose que tu sais déjà, au fond :"))
+A(png("06-parfait","Ta liste du bien idéal : vue dégagée, prix bas, loyer haut, zéro travaux, bien placé, calme, parking. Ce bien n'existe pas.",mb=18))
+A(gap(8))
 
 # ---------------- PARTIE 2 ----------------
 A(kicker("Partie 2")+h3("Ce qu'un prix Nobel a compris"))
@@ -96,7 +95,7 @@ A(p(f"Son constat : on n'a jamais toutes les informations, ni tout le temps du m
 A(png("07-seuil","La méthode du seuil, Herbert Simon, prix Nobel d'économie 1978 : on retient la première option qui dépasse le seuil. Satisficing = satisfaire + suffire.",mb=20))
 A(p(f"Il a appelé ça le {i('satisficing')}. Bien plus tard, le psychologue {b('Barry Schwartz')} et son équipe ont comparé deux profils :"))
 A(png("08-max-sat","Maximisateurs : moins heureux, moins satisfaits de leur vie, plus de regrets. Satisficeurs : critères fixés, décident, vivent mieux leurs choix. Barry Schwartz et son équipe, 2002.",mb=20))
-A(p("Dans une de leurs études, les maximisateurs étaient même moins satisfaits de leurs propres achats. Ils cherchaient plus. Mais ils vivaient moins bien leurs choix."))
+A(p(f"Et dans une de leurs études, les maximisateurs étaient même {b('moins satisfaits de leurs propres achats')}."))
 A(card(p(i("Et concrètement, pour ton projet immobilier, ça veut dire quoi ?"),size=16,color=PEACH,mb=10)+
        p("Ta recherche du bien parfait ne te protège pas. Elle te donne l’impression d’être prudent.",color="#FFFFFF",mb=8)+
        p("Mais en vrai, elle te garde sur le banc de touche.",size=21,color="#FFFFFF",w="bold",mb=0),bg=TEAL,pad=24,mb=34))
@@ -105,21 +104,21 @@ A(card(p(i("Et concrètement, pour ton projet immobilier, ça veut dire quoi ?")
 A(kicker("Partie 3")+h3("Chercher le bon bien, pas le bien parfait"))
 A(p(f"Un investissement immobilier, ce n'est pas un concours de beauté. Ce n'est pas « le plus bel appartement de l'île » qui gagne. C'est celui qui {b('fait le travail')} que tu lui demandes."))
 A(p("Et quel travail tu lui demandes ? Ça, c'est toi qui le décides. Avant même de chercher. Tant que tu n'as pas écrit tes critères, chaque annonce devient une comparaison avec la précédente. Et avec la suivante. Et ça ne s'arrête jamais."))
-A(p("Alors que si tu as tes critères sous les yeux, la question change :",mb=10))
-A(p("<s>« Est-ce que c’est le meilleur ? »</s>",size=19,color=MUTED,mb=12))
-A(card(p("« Est-ce que ça passe mon seuil ? »",size=21,color="#FFFFFF",w="bold",mb=6)+p("Une question à laquelle on peut répondre. Par oui ou par non.",size=16,color=PEACH,mb=0),bg=TEAL,pad=22))
+A(p("Alors que si tu as tes critères sous les yeux, la question change :",mb=12))
+A(card(kicker("Avant : la question sans fin",MUTED)+p("« Est-ce que c’est le meilleur ? »",size=19,color=MUTED,w="bold",mb=0),bg=GREY_L,pad=18,mb=10))
+A(card(kicker("Maintenant : la bonne question",PEACH)+p("« Est-ce que ça passe mon seuil ? »",size=21,color="#FFFFFF",w="bold",mb=6)+p("Une question à laquelle on peut répondre. Par oui ou par non.",size=16,color=PEACH,mb=0),bg=TEAL,pad=22))
 A(p(f"Attention, je ne te dis pas de baisser tes exigences. Je te dis de les {b('écrire')}."))
 A(f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 34px 0;"><tr><td style="border-left:6px solid {ORANGE};padding:4px 0 4px 18px;">'
   f'<p style="margin:0;font-family:Georgia,serif;font-size:21px;line-height:1.5;color:{INK};font-style:italic;">Un critère écrit, c\'est une règle. Un critère flou, c\'est une excuse pour ne jamais décider.</p></td></tr></table>')
 
 # ---------------- PARTIE 4 : MÉTHODE ----------------
 A(kicker("Partie 4")+h3("Ta méthode en 4 étapes"))
-A(png("10-will-pouce","Will : Une feuille. Quatre étapes. Dans l'ordre.",mb=16))
+A(png("10-will-pouce","Will : Prends une feuille. Et avance dans l'ordre.",mb=16))
 A(png("11-marches","Les 4 étapes : 1. Tes 3 critères, 2. Deux colonnes, 3. Règle de décision, 4. Stop au bien rêvé.",mb=30))
 
 A(step("1","Écris tes 3 non-négociables"))
 A(p(f"Avant de rouvrir la moindre annonce, écris les {b('trois')} critères sans lesquels tu ne signes pas. Par exemple :"))
-A(png("12-criteres","Mes 3 non-négociables : budget maximum frais compris ; rentabilité minimale après charges ; la zone, et pourquoi elle. Tout le reste est du bonus : la vue, le carrelage, l'étage.",mb=18))
+A(png("12-criteres","Tes 3 non-négociables : budget maximum frais compris ; rentabilité minimale après charges ; la zone, et pourquoi elle. Tout le reste est du bonus : la vue, le carrelage, l'étage.",mb=18))
 A(p(f"Trois. Pas douze. Le reste est agréable si tu l'as, {b('pas disqualifiant')} si tu ne l'as pas.",mb=32))
 
 A(step("2","Trie les défauts en deux colonnes"))

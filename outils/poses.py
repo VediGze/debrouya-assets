@@ -8,8 +8,15 @@ Règles :
 """
 import json, os, sys, datetime as dt
 HERE=os.path.dirname(os.path.abspath(__file__))
-BASE=["menton","pouce","pointe","surpris","bras-croises","telephone","carnet","celebre"]
-FIXES={"accueil":"salut","signature":"clin"}
+# Chaque emplacement a son groupe de poses compatibles avec la bulle ; on prend la première pose
+# du groupe qui n'a servi ni dans l'édition précédente ni ailleurs dans l'édition en cours.
+POOLS={
+ "accueil":  ["salut","celebre","pointe","telephone","bras-croises"],
+ "relance":  ["menton","pointe","surpris","bras-croises","telephone"],
+ "methode":  ["carnet","pouce","menton","pointe","celebre"],
+ "signature":["clin","bras-croises","pouce","celebre","salut"],
+}
+BASE=sorted({p for v in POOLS.values() for p in v})
 # Fenêtres d'utilisation des poses de saison (dates d'envoi incluses). Sources : calendrier scolaire Martinique 2026-2027, jours gras 2027.
 SAISONS=[
     ("noel",      "2026-12-12","2026-12-27","Noël (25 décembre ; vacances aux Antilles dès le 19 décembre)"),
@@ -28,11 +35,13 @@ def choisir(d):
     try: hist=json.load(open(hist_p,encoding="utf-8"))
     except Exception: hist=[]
     dernieres=set(hist[-1]["poses"]) if hist else set()
-    avant=set(hist[-2]["poses"]) if len(hist)>1 else set()
-    libres=[p for p in BASE if p not in dernieres] or BASE
-    libres.sort(key=lambda p:(p in avant, BASE.index(p)))
-    s,lab=saison(d)
-    return {"accueil":s or FIXES["accueil"],"relance":libres[0],"methode":libres[1],"signature":FIXES["signature"] if s else FIXES["signature"],"fete":lab}
+    s,lab=saison(d); pris=set(); out={}
+    for slot,pool in POOLS.items():
+        if slot=="accueil" and s: out[slot]=s; pris.add(s); continue
+        libres=[p for p in pool if p not in dernieres and p not in pris] or [p for p in pool if p not in pris]
+        out[slot]=libres[0]; pris.add(libres[0])
+    out["fete"]=lab
+    return out
 def enregistrer(d,edition,poses):
     hist_p=os.path.join(HERE,"avatar","historique.json")
     try: hist=json.load(open(hist_p,encoding="utf-8"))

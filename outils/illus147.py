@@ -46,10 +46,10 @@ def will_panel(pose, lines, h=370, accent_last=True):
         f'<rect x="316" y="{by+bh/2-12}" width="8" height="26" fill="{WHITE}"/>' + t, TEAL_L)
 
 out={}
-out["00-will-salut"]=will_panel("salut",["Salut","la famille ! 🔥"],h=330)
-out["05-will"]=will_panel("menton",["Tu vois","le schéma ?"],h=340)
-out["10-will-pouce"]=will_panel("pouce",["Une feuille.","Quatre étapes.","Dans l’ordre."])
-out["17-will-clin"]=will_panel("clin",["C’était Will 🔥","Ciao !"],h=330)
+out["00-will-salut"]=will_panel("celebre",["Salut","la famille ! 🔥"],h=330)
+out["05-will"]=will_panel("pointe",["Tu vois","le schéma ?"],h=340)
+out["10-will-pouce"]=will_panel("carnet",["Prends","une feuille.","Et avance","dans l’ordre."])
+out["17-will-clin"]=will_panel("bras-croises",["C’était Will 🔥","Ciao !"],h=330)
 
 # 01. COUVERTURE ----------------------------------------------------------------
 ban=base64.b64encode(open(sys.argv[2],"rb").read()).decode()
@@ -152,7 +152,7 @@ g+=txt(300,398,"Barry Schwartz et son équipe, 2002",15,GREY,700)
 out["08-max-sat"]=svg(600,420,g,WHITE)
 
 # 11. LES 4 MARCHES ---------------------------------------------------------------------------
-g=txt(300,46,"TA MÉTHODE EN 4 ÉTAPES",17,TEAL,800,ls=3)
+g=""
 labels=[("3 critères",""),("Deux","colonnes"),("Règle de","décision"),("Stop au","bien rêvé")]
 base=372
 for k,(l1,l2) in enumerate(labels):
@@ -161,23 +161,23 @@ for k,(l1,l2) in enumerate(labels):
     g+=f'<circle cx="{x+64}" cy="{y}" r="24" fill="{WHITE}" stroke="{fill}" stroke-width="5"/>'+txt(x+64,y+9,str(k+1),24,INK,800)
     g+= (txt(x+64,y+58,l1,20,WHITE,800)+txt(x+64,y+84,l2,20,WHITE,800)) if l2 else txt(x+64,y+64,l1,20,WHITE,800)
 g+=f'<line x1="530" y1="122" x2="530" y2="62" stroke="{INK}" stroke-width="5" stroke-linecap="round"/><path d="M532 62 L574 76 L532 90 Z" fill="{MANGO}"/>'
-out["11-marches"]=svg(600,400,g,TEAL_L)
+out["11-marches"]=svg(600,400,f'<g transform="translate(0 -24)">{g}</g>',TEAL_L)
 
 # 12. LES 3 NON-NÉGOCIABLES ------------------------------------------------------------------
 def coin(cx,cy): return f'<circle cx="{cx}" cy="{cy}" r="26" fill="{TEAL}"/>'+txt(cx,cy+10,"€",28,WHITE,800)
 def chart(cx,cy): return "".join(f'<rect x="{cx-24+k*18}" y="{cy+20-hh}" width="12" height="{hh}" rx="3" fill="{TEAL}"/>' for k,hh in enumerate([16,28,42]))
 def pin(cx,cy): return f'<path d="M{cx} {cy+28} C{cx-26} {cy} {cx-22} {cy-26} {cx} {cy-26} C{cx+22} {cy-26} {cx+26} {cy} {cx} {cy+28} Z" fill="{TEAL}"/><circle cx="{cx}" cy="{cy-6}" r="9" fill="{WHITE}"/>'
-cards=[(coin,"Budget max","frais compris"),(chart,"Rentabilité","mini, après charges"),(pin,"La zone","et pourquoi elle")]
+cards=[(coin,"Budget","maximum","frais compris"),(chart,"Rentabilité","minimale","après charges"),(pin,"Zone","choisie","et pourquoi elle")]
 g=txt(300,46,"TES 3 NON-NÉGOCIABLES",17,TEAL,800,ls=2)
-for k,(ic,a,b) in enumerate(cards):
+for k,(ic,a,a2,b) in enumerate(cards):
     x=24+k*192
-    g+=(f'<rect x="{x}" y="70" width="168" height="190" rx="16" fill="{WHITE}" stroke="{TEAL}" stroke-width="3"/>'
-        + ic(x+84,128) + txt(x+84,198,a,21,INK,800) + txt(x+84,226,b,16,GREY,700))
-g+=txt(300,300,"Tout le reste, c’est du bonus :",18,INK,700)
+    g+=(f'<rect x="{x}" y="70" width="168" height="206" rx="16" fill="{WHITE}" stroke="{TEAL}" stroke-width="3"/>'
+        + ic(x+84,124) + txt(x+84,188,a,21,INK,800) + txt(x+84,213,a2,21,INK,800) + txt(x+84,246,b,17,GREY,700))
+g+=txt(300,316,"Tout le reste, c’est du bonus :",18,INK,700)
 for k,c in enumerate(["la vue","le carrelage","l’étage"]):
     x=96+k*140
-    g+=f'<rect x="{x}" y="318" width="128" height="38" rx="19" fill="{GREY_L}"/>'+txt(x+64,343,c,17,GREY,700)
-out["12-criteres"]=svg(600,384,g,TEAL_L)
+    g+=f'<rect x="{x}" y="334" width="128" height="38" rx="19" fill="{GREY_L}"/>'+txt(x+64,359,c,17,GREY,700)
+out["12-criteres"]=svg(600,400,g,TEAL_L)
 
 # 13. DEUX COLONNES ---------------------------------------------------------------------------
 def col2(x0,title,sub,col,bg,items,mark):
