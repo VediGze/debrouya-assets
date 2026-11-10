@@ -40,6 +40,11 @@ def warn(t): return (f'<tr><td width="30" valign="top" nowrap style="width:30px;
 
 H=[]; A=H.append
 def i(t): return f"<em>{t}</em>"
+def ikicker(icon,t,c=TEAL):
+    # icône dans sa colonne : la 2e ligne du titre s'aligne sous le texte, pas sous l'icône
+    return (f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 10px 0;"><tr>'
+            f'<td width="30" valign="top" nowrap style="width:30px;min-width:30px;white-space:nowrap;padding:0 8px 0 0;font-size:18px;line-height:20px;">{icon}</td>'
+            f'<td valign="top" style="font-family:{FONT};font-size:13px;line-height:20px;letter-spacing:3px;text-transform:uppercase;color:{c};font-weight:bold;">{t}</td></tr></table>')
 def bullets(items, mark="→", color=None):
     color=color or TEAL
     rows="".join(f'<tr><td width="28" valign="top" nowrap style="width:28px;min-width:28px;white-space:nowrap;padding:0 10px 12px 0;font-family:{FONT};font-size:18px;font-weight:bold;color:{color};">{mark}</td><td valign="top" style="padding:0 0 12px 0;font-family:{FONT};font-size:18px;line-height:1.55;color:{INK};">{t}</td></tr>' for t in items)
@@ -50,7 +55,7 @@ def png(name,alt,mb=26): return img(name,alt,mb=mb,ext="jpg" if name in JPG else
 # ---------------- EN-TÊTE ----------------
 A(png("01-hero","Le Journal Débrouya, édition #152 : louer sans t'engager pour 3 ans.",mb=20))
 A(png("00-will-salut","Will : Salut la famille !",mb=20))
-A(p(f"Bienvenue aux {b('[NB ABONNÉS]')} nouveaux abonnés qui nous ont rejoints depuis mardi. On est très heureux de te compter parmi les membres de la communauté des Debrouya.",size=17,mb=14))
+A(p(f"Bienvenue aux {b('46')} nouveaux abonnés qui nous ont rejoints depuis mardi. On est très heureux de te compter parmi les membres de la communauté des Debrouya.",size=17,mb=14))
 A(p("Si le contenu te plaît, partage-le : c’est la plus belle façon de nous soutenir.",size=17,mb=12))
 A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("👉 Invite tes amis à s’abonner ici",LINK_SUB,ORANGE,INK)}</p>')
 A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
@@ -61,8 +66,8 @@ rows="".join(f'<tr><td width="38" valign="top" nowrap style="width:38px;min-widt
 A(card(kicker("Au programme aujourd'hui",PEACH)+gap(6)+f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{rows}</table>',bg=TEAL))
 
 A(card(kicker("Le témoignage de la semaine")+
-       p(f"Merci à {b('[Prénom]')} pour son témoignage, c'est un plaisir de t'avoir avec nous et de te partager nos meilleures ressources chaque semaine :",size=16,mb=16)+
-       f'<div style="border:2px dashed #C9C2B6;border-radius:14px;padding:28px 16px;margin:0 0 16px 0;text-align:center;font-family:{FONT};font-size:16px;color:{MUTED};">[TÉMOIGNAGE À AJOUTER : capture ou texte]</div>'+
+       p(f"Merci à {b('Naomi')} pour son témoignage, c'est un plaisir de t'avoir avec nous et de te partager nos meilleures ressources chaque semaine :",size=16,mb=16)+
+       img("temoignage","Témoignage de Naomi : j'ai enfin sauté le pas et signé mon compromis ce lundi pour l'acquisition de 2 studios.",ext="jpg",radius=14,mb=16)+
        p("(Tu veux toi aussi apparaître dans Le Journal Debrouya ? Envoie-nous ton témoignage en réponse à ce mail. Chaque semaine, on en sélectionne un que l’on partage avec la communauté ❤)",size=14,color=MUTED,mb=0),bl=TEAL))
 
 # ---------------- PARTIE 1 ----------------
@@ -105,7 +110,7 @@ A(p(f"Et oui, tu as bien lu : {b('pas de dépôt de garantie')}, c'est interdit 
 
 A(step("4","Fixe tes charges et sécurise-toi"))
 A(p(f"Dans un bail mobilité, les charges sont {b('forfaitaires')} : tu fixes un montant dans le bail, sans régularisation ensuite. Donc calcule ton forfait à partir de ce que tu paies vraiment. Pas au doigt mouillé."))
-A(card(kicker("💡 Sans dépôt de garantie, sécurise-toi autrement",ORANGE)+
+A(card(ikicker("💡","Sans dépôt de garantie, sécurise-toi autrement",ORANGE)+
        bullets([f"tu peux demander une {b('caution')}, et la {b('garantie Visale')} peut jouer ce rôle gratuitement si ton locataire y est éligible",
                 f"fais un {b('état des lieux')} d'entrée très précis, avec des photos"],color=ORANGE),bg=ORANGE_L,mb=18))
 A(p("Dernier point à connaître, le préavis ne joue pas dans les deux sens :",mb=18))

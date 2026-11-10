@@ -32,3 +32,4 @@
 19. Prompts pour ChatGPT : complets, un par bloc, prêts à copier-coller.
 20. Sondage « nouveau format » : terminé — utilisé uniquement dans la #147 (votes dans le Sheet « Sondages Journal Débrouya »). Ne plus le mettre dans les éditions suivantes, sauf nouvelle demande de Steny.
 21. Boutons réseaux : icônes officielles Instagram et YouTube (dossier commun/ du dépôt) + le nom écrit à côté, liens vers les comptes de Will.
+22. Titre de carte avec icône (💡…) : icône dans sa propre colonne (ikicker), pour que la 2e ligne du titre s'aligne sous le texte et sur les puces, pas sous l'icône.
