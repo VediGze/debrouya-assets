@@ -54,7 +54,6 @@ A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("👉 Invite tes amis �
 A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
 A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK_IG,"instagram")}{social_btn("YouTube",LINK_YT,"youtube")}</p>')
 
-A(poll("haut","Tu aimes ce nouveau Journal ?","On a refait le Journal pour qu’il soit plus agréable à lire. Il est fait pour toi, alors c’est toi qui décides : un clic suffit."))
 prog=["La phrase qu'on répète tous les mois de janvier","Pourquoi ton année 2027 commence avant le 1er janvier","Ta méthode en 4 étapes pour arriver prêt en janvier","Le calendrier qui transforme une envie en projet"]
 rows="".join(f'<tr><td width="38" valign="top" nowrap style="width:38px;min-width:38px;white-space:nowrap;padding:0 12px 12px 0;font-family:{FONT};font-size:20px;font-weight:bold;color:{PEACH};">{k+1}.</td><td valign="top" style="padding:1px 0 12px 0;font-family:{FONT};font-size:17px;line-height:1.45;color:#FFFFFF;">{t}</td></tr>' for k,t in enumerate(prog))
 A(card(kicker("Au programme aujourd'hui",PEACH)+gap(6)+f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{rows}</table>',bg=TEAL))
@@ -141,7 +140,6 @@ A(card(p("Bref. 2027 n'est pas encore là.",size=17,color=PEACH,align="center",m
        p("Mais ton année 2027, elle, se joue déjà.",size=25,color="#FFFFFF",w="bold",align="center",mb=0),bg=TEAL,pad=28,mb=30))
 
 # ---------------- MENTORAT + SIGNATURE ----------------
-A(poll("bas","Alors, ce nouveau format ?","Maintenant que tu l’as lu en entier, dis-nous s’il te plaît. Un clic suffit."))
 A(card(kicker("Tu veux être accompagné ?")+
        p("Je propose un programme de mentorat personnalisé. On regarde ta situation. On définit ta stratégie. On met en place un plan d'action sur mesure.")+
        p(b("Et surtout, on avance ensemble.")) +

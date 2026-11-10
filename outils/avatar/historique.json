@@ -1,3 +1,32 @@
 [
- {"date": "2026-11-10", "edition": 147, "poses": ["celebre", "pointe", "carnet", "bras-croises"]}
+ {
+  "date": "2026-11-10",
+  "edition": 147,
+  "poses": [
+   "celebre",
+   "pointe",
+   "carnet",
+   "bras-croises"
+  ]
+ },
+ {
+  "date": "2026-11-24",
+  "edition": 151,
+  "poses": [
+   "salut",
+   "menton",
+   "pouce",
+   "clin"
+  ]
+ },
+ {
+  "date": "2026-11-27",
+  "edition": 152,
+  "poses": [
+   "telephone",
+   "surpris",
+   "carnet",
+   "bras-croises"
+  ]
+ }
 ]
