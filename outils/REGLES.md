@@ -40,6 +40,7 @@
 27. Accord collectif : avec « nombreux », passer au « vous » (« Vous avez été nombreux à répondre »), même dans un journal au « tu ». Jamais « tu as été nombreux ».
 28. Bouton orange : pas d'émoji clair (ticket, 👉 jaune…) qui disparaît sur le fond orange ; préférer une flèche « → » couleur du texte.
 29. Ordre des actus en tête : l'actu avec une action à faire et une date limite (événement, inscription) passe avant les actus « pour info » (résultat de vote, remerciements).
+30. Témoignage reçu en capture d'écran : Claude lit la capture et retranscrit le texte en citation dans le mail (fautes de frappe et espaces corrigés, mots inchangés), au lieu de coller une image illisible sur téléphone.
 
 ## Relecture obligatoire avant de rendre (à refaire jusqu'à ne plus rien trouver)
 Passe 1 — Texte : extraire tout le texte du mail dans l'ordre de lecture et le relire phrase par phrase :
