@@ -18,7 +18,7 @@ def rings(x,y,w,color=GREY_L): return "".join(f'<circle cx="{x+w*k/4}" cy="{y}" 
 def cal(x,y,w,h,head,headfill,body=""):
     return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{WHITE}"/>'
             f'<path d="M{x} {y+14} a14 14 0 0 1 14 -14 h{w-28} a14 14 0 0 1 14 14 v30 h-{w} z" fill="{headfill}"/>'
-            + txt(x+w/2,y+31,head,16,WHITE,800,ls=1) + body)
+            + txt(x+w/2,y+31,head,18,WHITE,800) + body)
 def house(cx,cy,s=1,col=TEAL,door=WHITE,dash=False):
     st=f'fill="none" stroke="{col}" stroke-width="{4/s:.1f}" stroke-dasharray="{10/s:.0f} {8/s:.0f}"' if dash else f'fill="{col}"'
     g=(f'<polygon points="{cx-46},{cy-6} {cx},{cy-46} {cx+46},{cy-6}" {st}/>'
@@ -69,7 +69,7 @@ H=540
 g=(f'<image href="data:image/jpeg;base64,{ban}" x="0" y="0" width="600" height="229" preserveAspectRatio="xMidYMid slice"/>'
    f'<path d="M0 200 C120 182 240 226 360 206 S540 188 600 204 V{H} H0 Z" fill="{TEAL_M}" opacity="0.55"/>'
    f'<path d="M0 214 C120 196 240 240 360 220 S540 202 600 218 V{H} H0 Z" fill="{TEAL}"/>'
-   + txt(300,272,"ÉDITION #148",15,PEACH,800,ls=4)
+   + txt(300,272,"ÉDITION #148",18,PEACH,800,ls=4)
    + txt(300,320,"Chronique d’une",38,WHITE,800)
    + txt(300,362,"interdiction annoncée.",32,PEACH,800))
 for k,(l,c) in enumerate(DPE):
@@ -82,7 +82,7 @@ out["01-hero"]=svg(600,H,g,TEAL)
 
 # 02. RÉSULTAT DU VOTE
 oui,non=P["oui"],P["non"]; pc=round(100*oui/(oui+non))
-g=(txt(300,50,"TU AS VOTÉ POUR LE NOUVEAU FORMAT",16,TEAL,800,ls=2)
+g=(txt(300,50,"VOUS AVEZ VOTÉ POUR LE NOUVEAU FORMAT",18,TEAL,800,ls=1.5)
    + txt(300,140,f"{pc} %",84,MANGO,800) + txt(300,186,"de « oui, j’adore »",24,INK,800)
    + f'<rect x="60" y="216" width="480" height="30" rx="15" fill="{GREY_L}"/>'
    + f'<rect x="60" y="216" width="{480*pc/100:.0f}" height="30" rx="15" fill="{TEAL}"/>'
@@ -90,67 +90,68 @@ g=(txt(300,50,"TU AS VOTÉ POUR LE NOUVEAU FORMAT",16,TEAL,800,ls=2)
 out["02-vote"]=svg(600,316,g,MANGO_L)
 
 # 03. FESTIVAL LYANNAJ
-g=(txt(300,46,"LYANNAJ FEST LIVE",15,MANGO,800,ls=4) + txt(300,92,"3 soirées en live, gratuites",30,INK,800)
-   + f'<rect x="96" y="112" width="408" height="38" rx="19" fill="{TEAL}"/>' + txt(300,138,"19 h – 23 h Paris · 14 h Antilles · 15 h Guyane",16,WHITE,800))
+g=(txt(300,46,"LYANNAJ FEST LIVE",18,MANGO,800,ls=3) + txt(300,92,"3 soirées en live, gratuites",30,INK,800)
+   + f'<rect x="40" y="110" width="520" height="42" rx="21" fill="{TEAL}"/>' + txt(300,138,"19 h – 23 h Paris · 14 h Antilles · 15 h Guyane",19,WHITE,800))
 days=[("VEN. 20 NOV.","Soirée","immobilier",TEAL,INK),("SAM. 21 NOV.","Soirée","business",TEAL,INK),("DIM. 22 NOV.","Soirée","VIP",MANGO_D,MANGO_D)]
 for k,(d,a,b,c,fc) in enumerate(days):
     x=24+k*192
     g+=cal(x,176,168,150,d,c, txt(x+84,256,a,22,INK,800)+txt(x+84,284,b,22,fc,800)+rings(x,176,168))
-g+=txt(300,360,"La soirée VIP est réservée aux inscrits des deux premières.",15,GREY,700)
-out["03-festival"]=svg(600,384,g,MANGO_L)
+g+=txt(300,362,"Soirée VIP : conditions d’accès",19,INK,700)+txt(300,388,"envoyées aux inscrits.",19,INK,700)
+out["03-festival"]=svg(600,414,g,MANGO_L)
 
 # 04. CE QUI T'ATTEND
-items=[("Will et les coachs","immobilier et business"),("Des experts","financement, aides, IA"),("Environ 100","témoignages en direct"),("Remise des diplômes","le vendredi 20 novembre"),("Tes questions","en direct dans le chat")]
-g=txt(300,46,"CE QUI T’ATTEND",16,TEAL,800,ls=3)
-for k,(a,b) in enumerate(items):
-    y=74+k*66
-    g+=(f'<rect x="40" y="{y}" width="520" height="56" rx="14" fill="{WHITE}"/>'+check(74,y+28)
-        +txt(102,y+25,a,19,INK,800,anchor="start")+txt(102,y+47,b,17,GREY,700,anchor="start"))
-out["04-programme"]=svg(600,422,g,TEAL_L)
+items=[["Will et les coachs","immobilier et business"],["Des experts du financement,","des aides et de l’IA"],["Vendredi : la remise des diplômes,","une centaine de membres","racontent leur projet en direct"],["Tes questions, en direct","dans le chat"]]
+g=txt(300,46,"CE QUI T’ATTEND",18,TEAL,800,ls=1.5); y=72
+for lines in items:
+    h=34+30*len(lines)
+    g+=f'<rect x="36" y="{y}" width="528" height="{h}" rx="14" fill="{WHITE}"/>'+check(70,y+h/2)
+    g+="".join(txt(98,y+38+j*30,l,21,INK,800 if j==0 else 600,anchor="start") for j,l in enumerate(lines))
+    y+=h+10
+out["04-programme"]=svg(600,y+22,g,TEAL_L)
 
 # 05. CALENDRIER HEXAGONE vs ANTILLES (avec la légende des lettres)
-g=txt(300,44,"LA LETTRE DE TON DPE",16,TEAL,800,ls=2)
+g=txt(300,44,"LA LETTRE DE TON DPE",18,TEAL,800,ls=1.5)
 for k,(l,c) in enumerate(DPE):
     x=58+k*70
     g+=f'<rect x="{x}" y="62" width="64" height="44" rx="10" fill="{c}"/>'+txt(x+32,92,l,22,WHITE,800)
 g+=txt(58,138,"A : très économe",18,INK,700,anchor="start")+txt(542,138,"G : passoire énergétique",18,INK,700,anchor="end")
 g+=f'<line x1="40" y1="166" x2="560" y2="166" stroke="{TEAL_M}" stroke-width="2"/>'
-g+=txt(300,204,"À PARTIR DE QUAND TU NE PEUX PLUS LOUER",16,TEAL,800,ls=1.5)
+g+=txt(300,204,"À PARTIR DE QUAND TU NE PEUX PLUS LOUER",18,TEAL,800,ls=1.5)
 def lane(y,title,col,marks):
     s=txt(40,y,title,20,col,800,anchor="start")+f'<line x1="60" y1="{y+46}" x2="560" y2="{y+46}" stroke="{GREY_L}" stroke-width="8" stroke-linecap="round"/>'
     for yr,lab,c in marks:
         x=70+(yr-2024)*44
-        s+=f'<rect x="{x-50}" y="{y+29}" width="100" height="34" rx="17" fill="{c}"/>'+txt(x,y+52,lab+" interdit",17,WHITE,800)+txt(x,y+92,str(yr),19,INK,800)
+        s+=f'<rect x="{x-56}" y="{y+28}" width="112" height="36" rx="18" fill="{c}"/>'+txt(x,y+52,lab+" interdit",18,WHITE,800)+txt(x,y+92,str(yr),20,INK,800)
     return s
 g+=lane(244,"Hexagone",GREY,[(2025,"G","#D9482B"),(2028,"F","#E57638"),(2034,"E","#F2A33A")])
 g+=f'<rect x="20" y="358" width="560" height="140" rx="16" fill="{WHITE}"/>'
 g+=lane(392,"Guadeloupe et Martinique",TEAL,[(2028,"G","#D9482B"),(2031,"F","#E57638")])
-g+=txt(300,532,"Les interdictions s’additionnent : en 2031, F et G sont interdits.",17,INK,700)
-out["05-calendrier"]=svg(600,560,g,TEAL_L)
+g+=txt(300,536,"Les interdictions s’additionnent :",20,INK,700)+txt(300,563,"en 2031, F et G sont interdits.",20,INK,700)
+out["05-calendrier"]=svg(600,590,g,TEAL_L)
 
 # 07. LE BAIL SIGNÉ CETTE ANNÉE
-g=txt(300,46,"UN BAIL VIDE DE 3 ANS SIGNÉ EN 2026",16,TEAL,800,ls=2)
+g=txt(300,46,"UN BAIL VIDE DE 3 ANS SIGNÉ EN 2026",18,TEAL,800,ls=1.5)
 x0=50; sc=500/5  # 2026..2031
 def X(y): return x0+(y-2026)*sc
 g+=f'<line x1="{x0}" y1="190" x2="{x0+500}" y2="190" stroke="{GREY_L}" stroke-width="6"/>'
-for yr in range(2026,2032): g+=f'<line x1="{X(yr)}" y1="180" x2="{X(yr)}" y2="200" stroke="{GREY}" stroke-width="3"/>'+txt(X(yr),226,str(yr),16,GREY,700)
-g+=f'<rect x="{X(2026.08)}" y="104" width="{X(2029.08)-X(2026.08)}" height="48" rx="12" fill="{TEAL}"/>'+txt((X(2026.08)+X(2028))/2,135,"Ton bail",19,WHITE,800)+txt((X(2028)+X(2029.08))/2,135,"→ 2029",17,WHITE,800)
+for yr in range(2026,2032): g+=f'<line x1="{X(yr)}" y1="180" x2="{X(yr)}" y2="200" stroke="{GREY}" stroke-width="3"/>'+txt(X(yr),228,str(yr),18,GREY,700)
+g+=f'<rect x="{X(2026.08)}" y="104" width="{X(2029.08)-X(2026.08)}" height="48" rx="12" fill="{TEAL}"/>'+txt((X(2026.08)+X(2028))/2,135,"Ton bail",19,WHITE,800)
 g+=f'<line x1="{X(2028)}" y1="80" x2="{X(2028)}" y2="200" stroke="#D9482B" stroke-width="5" stroke-dasharray="8 6"/>'
-g+=f'<rect x="{X(2028)-82}" y="250" width="164" height="56" rx="12" fill="#D9482B"/>'+txt(X(2028),274,"1er janv. 2028",17,WHITE,800)+txt(X(2028),296,"G interdit",17,WHITE,800)
-g+=f'<line x1="{X(2028)}" y1="200" x2="{X(2028)}" y2="250" stroke="#D9482B" stroke-width="3"/>'
-g+=txt(300,346,"La date limite tombe pendant ce bail-ci.",19,INK,800)
-out["07-bail"]=svg(600,372,g,WHITE)
+g+=f'<rect x="{X(2028)-82}" y="250" width="164" height="56" rx="12" fill="#D9482B"/>'+txt(X(2028),274,"1er janv. 2028",18,WHITE,800)+txt(X(2028),297,"G interdit",18,WHITE,800)
+g+=f'<line x1="{X(2028)}" y1="236" x2="{X(2028)}" y2="250" stroke="#D9482B" stroke-width="3"/>'
+g+=txt(300,346,"En 2029, à la fin de ce bail,",19,INK,800)+txt(300,372,"un logement classé G ne pourra plus être reloué.",19,INK,800)
+out["07-bail"]=svg(600,398,g,WHITE)
 
 # 08. OÙ EN EST LE PROJET DE LOI
-steps=[("Sénat","adopté le 8 juillet 2026",TEAL,"✓"),("Assemblée","encore en discussion",MANGO,"…"),("Loi votée","pas encore",GREY,"?")]
-g=txt(300,46,"LE PROJET DE LOI « RELANCE LOGEMENT »",16,TEAL,800,ls=1)
+steps=[("Sénat",["adopté le","8 juillet 2026"],TEAL,"✓"),("Assemblée",["encore en","discussion"],MANGO,"…"),("Loi votée",["pas encore"],GREY,"?")]
+g=txt(300,46,"LE PROJET DE LOI « RELANCE LOGEMENT »",18,TEAL,800,ls=1)
 for k,(a,b,c,m) in enumerate(steps):
     x=100+k*200
     if k<2: g+=f'<line x1="{x+36}" y1="120" x2="{x+164}" y2="120" stroke="{GREY_L}" stroke-width="6"/>'
-    g+=f'<circle cx="{x}" cy="120" r="34" fill="{c}"/>'+txt(x,132,m,32,WHITE,800)+txt(x,190,a,20,INK,800)+txt(x,216,b,15,GREY,700)
-g+=(f'<rect x="40" y="250" width="520" height="64" rx="14" fill="{WHITE}" stroke="{MANGO}" stroke-width="3"/>'
-    + txt(300,278,"Tant qu’il n’est pas voté et promulgué,",18,INK,800)+txt(300,302,"c’est la loi actuelle qui s’applique.",18,INK,800))
-out["08-projet"]=svg(600,340,g,MANGO_L)
+    g+=f'<circle cx="{x}" cy="120" r="34" fill="{c}"/>'+txt(x,132,m,32,WHITE,800)+txt(x,190,a,20,INK,800)+"".join(txt(x,218+j*22,l,18,GREY,700) for j,l in enumerate(b))
+g+=(f'<rect x="40" y="268" width="520" height="70" rx="14" fill="{WHITE}" stroke="{MANGO}" stroke-width="3"/>'
+    + txt(300,298,"Tant qu’il n’est pas voté et promulgué,",19,INK,800)+txt(300,324,"c’est la loi actuelle qui s’applique.",19,INK,800))
+out["08-projet"]=svg(600,366,g,MANGO_L)
 
 # 10. LES 4 MARCHES
 g=""
@@ -165,9 +166,9 @@ g+=f'<line x1="530" y1="122" x2="530" y2="62" stroke="{INK}" stroke-width="5" st
 out["10-marches"]=svg(600,400,f'<g transform="translate(0 -24)">{g}</g>',TEAL_L)
 
 # 11. TON DPE : 3 CHOSES À NOTER
-g=(f'<rect x="40" y="30" width="250" height="320" rx="12" fill="{WHITE}"/>'+txt(165,66,"Diagnostic de",16,GREY,700)+txt(165,88,"performance énergétique",16,GREY,700)
+g=(f'<rect x="40" y="30" width="250" height="320" rx="12" fill="{WHITE}"/>'+txt(165,66,"Diagnostic de",17,GREY,700)+txt(165,88,"performance énergétique",17,GREY,700)
    + dpe_scale(66,108,190,26,6,fs=16))
-notes=[("La classe","la lettre"),("La date","du diagnostic"),("La validité","10 ans")]
+notes=[("Sa classe :","la lettre de A à G"),("La date","du diagnostic"),("Sa durée","de validité : 10 ans")]
 for k,(a,b) in enumerate(notes):
     y=70+k*94
     g+=(f'<rect x="312" y="{y}" width="256" height="78" rx="14" fill="{TEAL}"/>'
@@ -176,23 +177,23 @@ for k,(a,b) in enumerate(notes):
 out["11-dpe"]=svg(600,380,g,TEAL_L)
 
 # 12. DEUX DATES CÔTE À CÔTE
-g=(txt(300,46,"POUR CHAQUE BIEN, DEUX DATES",16,TEAL,800,ls=2)
+g=(txt(300,46,"POUR CHAQUE BIEN, DEUX DATES",18,TEAL,800,ls=1.5)
    + f'<rect x="24" y="76" width="268" height="150" rx="18" fill="{WHITE}"/>'+txt(158,116,"L’échéance",22,INK,800)+txt(158,144,"de ton bail",22,INK,800)+txt(158,172,"en cours",22,INK,800)
    + f'<rect x="308" y="76" width="268" height="150" rx="18" fill="{WHITE}"/>'+txt(442,116,"La date limite",22,INK,800)+txt(442,144,"de ta classe",22,INK,800)
-   + f'<rect x="330" y="166" width="104" height="40" rx="10" fill="#D9482B"/>'+txt(382,193,"G : 2028",17,WHITE,800)
-   + f'<rect x="446" y="166" width="104" height="40" rx="10" fill="#E57638"/>'+txt(498,193,"F : 2031",17,WHITE,800)
-   + f'<rect x="60" y="250" width="480" height="66" rx="16" fill="{MANGO}"/>'+txt(300,278,"Échéance après la date limite ?",19,INK,800)+txt(300,304,"Le sujet tombe pendant ce bail-ci.",18,INK,700))
+   + f'<rect x="326" y="164" width="112" height="44" rx="10" fill="#D9482B"/>'+txt(382,193,"G : 2028",19,WHITE,800)
+   + f'<rect x="446" y="164" width="112" height="44" rx="10" fill="#E57638"/>'+txt(502,193,"F : 2031",19,WHITE,800)
+   + f'<rect x="60" y="250" width="480" height="66" rx="16" fill="{MANGO}"/>'+txt(300,278,"Échéance après la date limite ?",19,INK,800)+txt(300,304,"Fais tes travaux avant la fin de ce bail.",18,INK,700))
 out["12-dates"]=svg(600,340,g,TEAL_L)
 
 # 13. AVANT / APRÈS
 def colL(x0,title,color,rows,badge,bfill,btxt):
-    g=(txt(x0+135,52,title[0],15,color,800,ls=2)+txt(x0+135,80,title[1],21,color,800))
+    g=(txt(x0+135,52,title[0],17,color,800,ls=2)+txt(x0+135,80,title[1],21,color,800))
     g+=f'<line x1="{x0+20}" y1="120" x2="{x0+20}" y2="{120+116*2}" stroke="{color}" stroke-width="4"/>'
     for k,lines in enumerate(rows):
         y=114+k*116
         g+=f'<circle cx="{x0+20}" cy="{y+6}" r="10" fill="{color}"/>'
-        g+="".join(txt(x0+40,y+13+j*25,l,18,INK,800 if j==0 else 600,anchor="start") for j,l in enumerate(lines))
-    g+=f'<rect x="{x0}" y="470" width="270" height="80" rx="16" fill="{bfill}"/>'+txt(x0+135,504,badge[0],22,btxt,800)+txt(x0+135,532,badge[1],17,btxt,700)
+        g+="".join(txt(x0+40,y+13+j*26,l,19,INK,800 if j==0 else 600,anchor="start") for j,l in enumerate(lines))
+    g+=f'<rect x="{x0}" y="470" width="270" height="80" rx="16" fill="{bfill}"/>'+txt(x0+135,504,badge[0],22,btxt,800)+txt(x0+135,534,badge[1],19,btxt,700)
     return g
 g=(f'<rect x="300" y="0" width="300" height="580" fill="{TEAL_L}"/>'
    + colL(16,("AVANT","Tu n’as rien anticipé"),GREY,[["Février 2029 :","tu ne peux plus","relouer."],["Tu cherches des","artisans, le logement","reste vide."],["Au total : 5 mois","sans locataire."]],("3 750 €","de loyers perdus"),GREY_L,INK)

@@ -48,7 +48,7 @@ def ikicker(icon,t,c=TEAL):
 def bullets(items, mark="→", color=None):
     color=color or TEAL
     rows="".join(f'<tr><td width="28" valign="top" nowrap style="width:28px;min-width:28px;white-space:nowrap;padding:0 10px 12px 0;font-family:{FONT};font-size:18px;font-weight:bold;color:{color};">{mark}</td><td valign="top" style="padding:0 0 12px 0;font-family:{FONT};font-size:18px;line-height:1.55;color:{INK};">{t}</td></tr>' for t in items)
-    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 14px 0;">{rows}</table>'
+    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0;">{rows}</table>'
 JPG={"00-will-salut","06-will","09-will-methode","17-will-fin"}
 def png(name,alt,mb=26): return img(name,alt,mb=mb,ext="jpg" if name in JPG else "png")
 
@@ -57,7 +57,7 @@ LINK_FEST="https://lynj.fr/festoptin"
 # ---------------- EN-TÊTE ----------------
 A(png("01-hero","Le Journal Débrouya, édition #148 : chronique d'une interdiction annoncée.",mb=20))
 A(png("00-will-salut","Will : Salut la famille !",mb=20))
-A(p(f"Bienvenue aux {b('76')} nouveaux abonnés qui nous ont rejoints depuis mardi. On est très heureux de te compter parmi les membres de la communauté des Debrouya.",size=17,mb=14))
+A(p(f"Bienvenue aux {b('76')} nouveaux abonnés qui nous ont rejoints depuis mardi ! Si tu en fais partie, on est très heureux de te compter parmi les membres de la communauté des Débrouya.",size=17,mb=14))
 A(p("Si le contenu te plaît, partage-le : c’est la plus belle façon de nous soutenir.",size=17,mb=12))
 A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("👉 Invite tes amis à s’abonner ici",LINK_SUB,ORANGE,INK)}</p>')
 A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
@@ -66,26 +66,26 @@ A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK
 # ---------------- FESTIVAL ----------------
 A(kicker("À ne pas manquer",ORANGE)+h3("Le Lyannaj Fest Live, c'est dans une semaine"))
 A(p("Vendredi prochain, on se retrouve en live, depuis chez toi. Aux Antilles, en Guyane, dans l'Hexagone ou ailleurs : tu peux y être.",mb=18))
-A(png("03-festival","Lyannaj Fest Live, 3 soirées en live et gratuites, de 19 h à 23 h heure de Paris, soit 14 h aux Antilles et 15 h en Guyane : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée VIP réservée aux inscrits des deux premières soirées.",mb=18))
-A(p(f"Chaque soirée, plusieurs intervenants se succèdent, chacun sur un sujet. Le dimanche, la soirée VIP se fait en {b('petit comité')}, avec un expert par thème."))
-A(png("04-programme","Ce qui t'attend : Will et les coachs immobilier et business, des experts en financement, aides et IA, environ 100 témoignages en direct, la remise des diplômes le vendredi 20 novembre, et tes questions en direct dans le chat.",mb=18))
+A(png("03-festival","Lyannaj Fest Live, 3 soirées en live et gratuites, de 19 h à 23 h heure de Paris, soit 14 h aux Antilles et 15 h en Guyane : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée VIP, dont les conditions d'accès sont envoyées aux inscrits.",mb=18))
+A(p(f"Vendredi, on parle {b('immobilier')} : premier achat, construction, terrain familial, investir à distance. Samedi, place au {b('business')} : gagner du temps et de la marge, déléguer, l'IA, le marketing local, la reprise d'entreprise. Et dimanche, la soirée {b('VIP')} se fait en petit comité, avec un expert par thème."))
+A(png("04-programme","Ce qui t'attend : Will et les coachs immobilier et business ; des experts du financement, des aides et de l'IA ; vendredi, la remise des diplômes en direct, où une centaine de membres racontent leur projet ; tes questions en direct dans le chat.",mb=18))
 A(card(p(f"C'est gratuit, mais {b('uniquement sur inscription')} : une fois inscrit, tu reçois ton lien d'accès par e-mail et sur WhatsApp.",size=17,mb=16)+
        f'<p style="margin:0;text-align:center;">{btn("Je réserve ma place gratuite&nbsp;→",LINK_FEST,ORANGE,INK)}</p>',bg=ORANGE_L,pad=22,mb=34))
 
 # ---------------- MERCI POUR LES VOTES ----------------
-A(kicker("Le verdict")+h3("Tu as voté, merci !"))
+A(kicker("Le nouveau format")+h3("Votre verdict"))
 A(p("Mardi, on vous a demandé si vous aimiez le nouveau format du Journal. Vous avez été nombreux à répondre, et le verdict est clair :",mb=18))
-A(png("02-vote","Résultat du vote sur le nouveau format : 88 % de oui. Merci à toutes celles et ceux qui ont voté.",mb=18))
-A(p(f"Le nouveau format est donc là pour rester. Et tu peux continuer à nous dire ce que tu en penses en répondant à ce mail : {b('on lit tout')}.",mb=34))
+A(png("02-vote","Vous avez voté pour le nouveau format : 88 % de « oui, j'adore ». Merci à toutes celles et ceux qui ont voté.",mb=18))
+A(p(f"Le nouveau format est donc là pour rester, et on va continuer à l'améliorer.",mb=34))
 
 prog=["La date que tout propriétaire bailleur aux Antilles devrait avoir dans son agenda","Ce que dit vraiment la loi chez nous (et pourquoi notre calendrier n'est pas celui de l'Hexagone)","Ta méthode en 4 étapes pour ne pas te faire surprendre","L'exemple chiffré : anticiper ou subir"]
 rows="".join(f'<tr><td width="38" valign="top" nowrap style="width:38px;min-width:38px;white-space:nowrap;padding:0 12px 12px 0;font-family:{FONT};font-size:20px;font-weight:bold;color:{PEACH};">{k+1}.</td><td valign="top" style="padding:1px 0 12px 0;font-family:{FONT};font-size:17px;line-height:1.45;color:#FFFFFF;">{t}</td></tr>' for k,t in enumerate(prog))
 A(card(kicker("Au programme aujourd'hui",PEACH)+gap(6)+f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">{rows}</table>',bg=TEAL))
 
 A(card(kicker("Le témoignage de la semaine")+
-       p(f"Merci à {b('Annick')} pour son témoignage, c'est un plaisir de t'avoir avec nous et de te partager nos meilleures ressources chaque semaine :",size=16,mb=16)+
+       p(f"Merci à {b('Annick')} pour son témoignage ! Annick, c'est un plaisir de t'avoir avec nous et de te partager nos meilleures ressources chaque semaine :",size=16,mb=16)+
        img("temoignage","Témoignage d'Annick : aujourd'hui, je viens de signer mon acte authentique de vente. C'est ma première acquisition et ce ne sera pas la dernière.",ext="jpg",radius=14,mb=16)+
-       p("(Tu veux toi aussi apparaître dans Le Journal Debrouya ? Envoie-nous ton témoignage en réponse à ce mail. Chaque semaine, on en sélectionne un que l’on partage avec la communauté ❤)",size=14,color=MUTED,mb=0),bl=TEAL))
+       p("(Tu veux toi aussi apparaître dans Le Journal Débrouya ? Envoie-nous ton témoignage en réponse à ce mail. Chaque semaine, on en sélectionne un que l’on partage avec la communauté ❤)",size=14,color=MUTED,mb=0),bl=TEAL))
 
 # ---------------- PARTIE 1 ----------------
 A(gap(14)+kicker("Partie 1")+h3("Une mauvaise nouvelle, annoncée à l'avance"))
@@ -102,7 +102,7 @@ A(png("05-calendrier","La lettre de ton DPE va de A, très économe, à G, passo
 A(p(f"Ça concerne les logements loués comme {b('résidence principale')}, vides ou meublés. Et ça s'applique aux nouveaux baux, mais aussi aux baux {b('renouvelés')} ou {b('reconduits tacitement')} après ces dates."))
 A(p("Concrètement : tu ne pourras plus signer un nouveau bail sur un logement qui n'atteint pas le niveau exigé. Et si ton locataire est déjà en place, une fois son bail reconduit après ces dates, il pourra te demander de mettre le logement aux normes. S'il n'obtient rien, il peut saisir le juge, qui peut ordonner les travaux, réduire le loyer ou en suspendre le paiement."))
 A(p("2028, ça paraît loin. Mais regarde :",mb=18))
-A(png("07-bail","Un bail vide de 3 ans signé en 2026 court jusqu'en 2029 : la date limite du 1er janvier 2028 pour la classe G tombe pendant ce bail.",mb=24))
+A(png("07-bail","Un bail vide de 3 ans signé en 2026 court jusqu'en 2029. Le 1er janvier 2028, la classe G est interdite : en 2029, à la fin de ce bail, un logement classé G ne pourra plus être reloué.",mb=24))
 A(png("06-will","Will : Tu vois où je veux en venir ?",mb=24))
 A(punch(f"Le compte à rebours a déjà commencé.<br>Pour certains biens, il se joue {hl('sur le bail que tu signes cette année')}.",size=21,mb=34))
 
@@ -118,20 +118,20 @@ A(kicker("Partie 4")+h3("Ta méthode en 4 étapes"))
 A(png("09-will-methode","Will : Une lettre. Deux dates. Et c'est toi qui décides.",mb=30))
 
 A(step("1","Ressors ton DPE et lis-le vraiment"))
-A(p("Retrouve le DPE de chacun de tes biens. Normalement, il fait partie du dossier de diagnostics remis au moment de l'achat. Et note trois choses :",mb=18))
-A(png("11-dpe","Sur ton DPE, note trois choses : la classe, c'est-à-dire la lettre ; la date du diagnostic ; sa validité, 10 ans.",mb=18))
-A(p(f"Si tu n'en as pas, ou s'il n'est plus valable, fais-en réaliser un par un {b('diagnostiqueur certifié')}. De toute façon, tu en as besoin pour louer : la classe énergie doit figurer dans tes annonces, et le DPE fait partie des documents à remettre à ton locataire avec le bail.",mb=32))
+A(p("Retrouve le DPE de chacun de tes biens, et note trois choses :",mb=18))
+A(png("11-dpe","Sur ton DPE, note trois choses : sa classe, la lettre de A à G ; la date du diagnostic ; sa durée de validité, 10 ans.",mb=18))
+A(p(f"Si tu as acheté après le 1er juillet 2024, il est normalement dans le dossier de diagnostics remis à l'achat. Avant cette date, il n'était pas obligatoire chez nous : tu n'en as peut-être pas. Dans ce cas, ou s'il n'est plus valable, fais-en réaliser un par un {b('diagnostiqueur certifié')}. De toute façon, tu en as besoin pour louer : la classe énergie doit figurer dans tes annonces, et le DPE fait partie des documents à remettre à ton locataire avec le bail.",mb=32))
 
 A(step("2","Calcule ton compte à rebours, bail par bail"))
-A(png("12-dates","Pour chaque bien, deux dates : l'échéance de ton bail en cours, et la date limite de ta classe, 2028 pour G, 2031 pour F. Si l'échéance tombe après la date limite, le sujet arrive pendant ce bail-ci.",mb=18))
+A(png("12-dates","Pour chaque bien, deux dates : l'échéance de ton bail en cours, et la date limite de ta classe, 2028 pour G, 2031 pour F. Si l'échéance tombe après la date limite, fais tes travaux avant la fin de ce bail.",mb=18))
 A(p(f"Et si ton logement est classé {b('E ou mieux')}, tu es tranquille pour ce calendrier-là. Note-le quand même : c'est un vrai plus pour la valeur de ton bien.",mb=32))
 
 A(step("3","Demande ce qui fait vraiment bouger ta lettre"))
 A(p("Ne te lance pas dans des travaux au hasard. Demande d'abord au diagnostiqueur quels travaux feraient changer ta classe, et dans quel ordre les faire."))
 A(p(f"Ensuite, fais faire plusieurs {b('devis')}. Et pose à chaque artisan la seule question qui compte : {i('« Avec ces travaux, je passe à quelle classe ? »')}"))
 A(card(ikicker("💡","Les bons réflexes",ORANGE)+
-       bullets([f"tu peux te faire conseiller gratuitement par {b('France Rénov’')}, le service public de la rénovation de l'habitat",
-                f"programme le chantier {b('entre deux locataires')}, pour ne pas faire de travaux dans un logement occupé"],color=ORANGE),bg=ORANGE_L,mb=32))
+       bullets([f"Tu peux te faire conseiller gratuitement par {b('France Rénov’')}, le service public de la rénovation de l'habitat",
+                f"Programme le chantier {b('entre deux locataires')}, pour ne pas faire de travaux dans un logement occupé"],color=ORANGE),bg=ORANGE_L,mb=32))
 
 A(step("4","Si tu achètes, regarde la lettre avant de faire ton offre"))
 A(p(f"Un logement classé G ou F, ce n'est pas forcément un mauvais achat. Mais c'est un achat qui arrive {b('avec des travaux')}, dans un délai fixé par la loi. Donc avant de faire une offre, intègre ces travaux dans ton calcul de rentabilité. Avec des devis, pas au doigt mouillé."))
@@ -157,7 +157,7 @@ A(card(kicker("Tu veux être accompagné ?")+
        p("...et je te recontacterai pour en discuter. <em>Aucun engagement. Juste une conversation.</em>",size=15,color=MUTED,align="center",mb=0),bl=ORANGE,pad=22,mb=28))
 A(png("17-will-fin","C'était Will. Ciao !",mb=22))
 A(f'<div style="border-top:1px solid #E3DBCF;margin:0 0 16px 0;"></div>')
-A(p("Qu'as-tu pensé de cette édition ? Si tu apprécies le Journal Debrouya, pense à le partager autour de toi. Dis-nous ce que tu en penses en répondant à ce mail. (On lit tous les mails !)",size=14,color=MUTED,align="center"))
+A(p("Qu'as-tu pensé de cette édition ? Dis-le-nous en répondant à ce mail (on lit tous les mails !). Et si tu apprécies le Journal Débrouya, pense à le partager autour de toi.",size=14,color=MUTED,align="center"))
 
 body="\n".join(H)
 body=re.sub(r" ([?!:;»])",r"&nbsp;\1",body).replace("« ","«&nbsp;")
