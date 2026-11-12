@@ -63,20 +63,20 @@ A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("👉 Invite tes amis �
 A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
 A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK_IG,"instagram")}{social_btn("YouTube",LINK_YT,"youtube")}</p>')
 
-# ---------------- MERCI POUR LES VOTES ----------------
-A(kicker("Le verdict")+h3("Tu as voté, merci !"))
-A(p("Mardi, on t'a demandé si tu aimais le nouveau format du Journal. Tu as été nombreux à répondre, et le verdict est clair :",mb=18))
-A(png("02-vote","Résultat du vote sur le nouveau format : 88 % de oui. Merci à toutes celles et ceux qui ont voté.",mb=18))
-A(p(f"Le nouveau format est donc là pour rester. Et tu peux continuer à nous dire ce que tu en penses en répondant à ce mail : {b('on lit tout')}.",mb=34))
-
 # ---------------- FESTIVAL ----------------
 A(kicker("À ne pas manquer",ORANGE)+h3("Le Lyannaj Fest Live, c'est dans une semaine"))
 A(p("Vendredi prochain, on se retrouve en live, depuis chez toi. Aux Antilles, en Guyane, dans l'Hexagone ou ailleurs : tu peux y être.",mb=18))
 A(png("03-festival","Lyannaj Fest Live, 3 soirées en live et gratuites, de 19 h à 23 h heure de Paris, soit 14 h aux Antilles et 15 h en Guyane : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée VIP réservée aux inscrits des deux premières soirées.",mb=18))
 A(p(f"Chaque soirée, plusieurs intervenants se succèdent, chacun sur un sujet. Le dimanche, la soirée VIP se fait en {b('petit comité')}, avec un expert par thème."))
 A(png("04-programme","Ce qui t'attend : Will et les coachs immobilier et business, des experts en financement, aides et IA, environ 100 témoignages en direct, la remise des diplômes le vendredi 20 novembre, et tes questions en direct dans le chat.",mb=18))
-A(card(p(f"Pourquoi t'inscrire maintenant ? Parce que c'est gratuit, mais l'accès se fait {b('sur inscription')} : tu reçois ton lien par e-mail et sur WhatsApp.",size=17,mb=16)+
-       f'<p style="margin:0;text-align:center;">{btn("🎟️ Je réserve ma place gratuite",LINK_FEST,ORANGE,INK)}</p>',bg=ORANGE_L,pad=22,mb=34))
+A(card(p(f"C'est gratuit, mais {b('uniquement sur inscription')} : une fois inscrit, tu reçois ton lien d'accès par e-mail et sur WhatsApp.",size=17,mb=16)+
+       f'<p style="margin:0;text-align:center;">{btn("Je réserve ma place gratuite&nbsp;→",LINK_FEST,ORANGE,INK)}</p>',bg=ORANGE_L,pad=22,mb=34))
+
+# ---------------- MERCI POUR LES VOTES ----------------
+A(kicker("Le verdict")+h3("Tu as voté, merci !"))
+A(p("Mardi, on vous a demandé si vous aimiez le nouveau format du Journal. Vous avez été nombreux à répondre, et le verdict est clair :",mb=18))
+A(png("02-vote","Résultat du vote sur le nouveau format : 88 % de oui. Merci à toutes celles et ceux qui ont voté.",mb=18))
+A(p(f"Le nouveau format est donc là pour rester. Et tu peux continuer à nous dire ce que tu en penses en répondant à ce mail : {b('on lit tout')}.",mb=34))
 
 prog=["La date que tout propriétaire bailleur aux Antilles devrait avoir dans son agenda","Ce que dit vraiment la loi chez nous (et pourquoi notre calendrier n'est pas celui de l'Hexagone)","Ta méthode en 4 étapes pour ne pas te faire surprendre","L'exemple chiffré : anticiper ou subir"]
 rows="".join(f'<tr><td width="38" valign="top" nowrap style="width:38px;min-width:38px;white-space:nowrap;padding:0 12px 12px 0;font-family:{FONT};font-size:20px;font-weight:bold;color:{PEACH};">{k+1}.</td><td valign="top" style="padding:1px 0 12px 0;font-family:{FONT};font-size:17px;line-height:1.45;color:#FFFFFF;">{t}</td></tr>' for k,t in enumerate(prog))
@@ -98,7 +98,7 @@ A(p(f"Le problème, c'est qu'une interdiction annoncée, on a vite fait de la ra
 # ---------------- PARTIE 2 ----------------
 A(kicker("Partie 2")+h3("Ce que dit la loi chez nous"))
 A(p(f"La loi Climat et Résilience du {b('22 août 2021')} a ajouté un critère à la définition du logement décent : un niveau minimal de performance énergétique. Et chez nous, le calendrier est {b('décalé')} par rapport à l'Hexagone :",mb=18))
-A(png("05-calendrier","Louer une passoire, le calendrier. Hexagone : classe G interdite en 2025, F en 2028, E en 2034. Guadeloupe et Martinique : G en 2028, F en 2031.",mb=18))
+A(png("05-calendrier","La lettre de ton DPE va de A, très économe, à G, passoire énergétique. À partir de quand tu ne peux plus louer : dans l'Hexagone, G interdit en 2025, F en 2028, E en 2034 ; en Guadeloupe et en Martinique, G interdit en 2028, F en 2031. Les interdictions s'additionnent : en 2031, F et G sont interdits.",mb=18))
 A(p(f"Ça concerne les logements loués comme {b('résidence principale')}, vides ou meublés. Et ça s'applique aux nouveaux baux, mais aussi aux baux {b('renouvelés')} ou {b('reconduits tacitement')} après ces dates."))
 A(p("Concrètement : tu ne pourras plus signer un nouveau bail sur un logement qui n'atteint pas le niveau exigé. Et si ton locataire est déjà en place, une fois son bail reconduit après ces dates, il pourra te demander de mettre le logement aux normes. S'il n'obtient rien, il peut saisir le juge, qui peut ordonner les travaux, réduire le loyer ou en suspendre le paiement."))
 A(p("2028, ça paraît loin. Mais regarde :",mb=18))
@@ -115,8 +115,7 @@ A(p(f"Et regarde bien la condition, même dans la version la plus souple : il fa
 
 # ---------------- PARTIE 4 : MÉTHODE ----------------
 A(kicker("Partie 4")+h3("Ta méthode en 4 étapes"))
-A(png("09-will-methode","Will : Une lettre. Deux dates. Et c'est toi qui décides.",mb=16))
-A(png("10-marches","Les 4 étapes : 1. Ton DPE, 2. Ton compte à rebours, 3. Ce qui fait bouger la lettre, 4. Si tu achètes.",mb=30))
+A(png("09-will-methode","Will : Une lettre. Deux dates. Et c'est toi qui décides.",mb=30))
 
 A(step("1","Ressors ton DPE et lis-le vraiment"))
 A(p("Retrouve le DPE de chacun de tes biens. Normalement, il fait partie du dossier de diagnostics remis au moment de l'achat. Et note trois choses :",mb=18))
@@ -142,7 +141,7 @@ A(p("Et si les chiffres ne tiennent plus une fois les travaux comptés, tu as ta
 A(kicker("Partie 5")+h3("L'exemple chiffré, pour que ce soit clair"))
 A(p(f"Tu possèdes un T2 en Martinique, classé {b('G')}, loué vide {b('750 €')} par mois. Le bail a été signé le 1er février 2026, pour 3 ans : il arrive à échéance le 31 janvier 2029. Ton locataire te prévient qu'il part à cette date.",mb=8))
 A(p("(Un exemple fictif aux chiffres ronds : la durée d'un chantier et le temps pour relouer dépendent de ton bien et de tes artisans.)",size=14,color=MUTED))
-A(png("13-exemple","Avant, rien d'anticipé : en février 2029 impossible de relouer, le logement reste vide 5 mois pendant qu'on cherche les artisans, 3 750 € de loyers perdus. Après, compte à rebours : DPE et devis pendant le bail, chantier dès le départ du locataire, 2 mois sans locataire, 1 500 € de loyers perdus.",mb=18))
+A(png("13-exemple","Avant, tu n'as rien anticipé : en février 2029 tu ne peux plus relouer, tu cherches des artisans et le logement reste vide, au total 5 mois sans locataire, 3 750 € de loyers perdus. Après, tu as anticipé : pendant le bail tu fais faire ton DPE et tes devis, quand ton locataire part le chantier démarre tout de suite, au total 2 mois sans locataire, 1 500 € de loyers perdus.",mb=18))
 A(card(p(f"{b('2 250 €')} de loyers préservés, juste en t'y prenant à l'avance. Et un logement qui repart en location au bon niveau.",size=18,color="#FFFFFF",mb=0),bg=TEAL,pad=22))
 A(card(ikicker("⚠️","Un dernier piège",ORANGE)+
        p(f"Si ton T2 sort de ces travaux classé {b('F')}, ce n'est pas fini : ton prochain bail de 3 ans arrivera à échéance en 2032, donc après le 1er janvier 2031. Si c'est possible, vise directement {b('E ou mieux')}, pour ne pas refaire un chantier quelques années plus tard.",mb=0),bl=ORANGE,mb=24))

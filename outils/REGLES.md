@@ -33,3 +33,10 @@
 20. Sondage « nouveau format » : terminé — utilisé uniquement dans la #147 (votes dans le Sheet « Sondages Journal Débrouya »). Ne plus le mettre dans les éditions suivantes, sauf nouvelle demande de Steny.
 21. Boutons réseaux : icônes officielles Instagram et YouTube (dossier commun/ du dépôt) + le nom écrit à côté, liens vers les comptes de Will.
 22. Titre de carte avec icône (💡…) : icône dans sa propre colonne (ikicker), pour que la 2e ligne du titre s'aligne sous le texte et sur les puces, pas sous l'icône.
+23. Textes dans les visuels : des phrases complètes et naturelles (« Février 2029 : tu ne peux plus relouer. »), jamais du style télégraphique (« Logement vide / pour chercher artisans », « × 750 € / de loyer »).
+24. Un visuel doit se comprendre sans connaissance préalable : si l'image repose sur un code (lettres du DPE, sigles…), elle l'explique elle-même (légende « A : très économe… G : passoire énergétique », « G interdit » plutôt que « G » seul).
+25. Pas d'image « sommaire » qui ne fait que répéter les titres qui suivent (ex. l'escalier 1-2-3-4 avant les 4 étapes) : on la supprime.
+26. Pose « telephone » de Will : l'écran affiche la couverture de l'édition (outils/ecran.py pose + 01-hero → will-telephone-NNN.png), jamais un écran blanc.
+27. Accord collectif : avec « nombreux », passer au « vous » (« Vous avez été nombreux à répondre »), même dans un journal au « tu ». Jamais « tu as été nombreux ».
+28. Bouton orange : pas d'émoji clair (ticket, 👉 jaune…) qui disparaît sur le fond orange ; préférer une flèche « → » couleur du texte.
+29. Ordre des actus en tête : l'actu avec une action à faire et une date limite (événement, inscription) passe avant les actus « pour info » (résultat de vote, remerciements).

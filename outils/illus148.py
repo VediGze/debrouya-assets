@@ -36,7 +36,7 @@ AV=os.path.join(HERE,"avatar")
 def will_panel(pose, lines, h=370, accent_last=True):
     n=len(lines); size=31 if n<=3 else 27; lh=size+9
     bh=lh*n+56; by=(h-bh)/2
-    data=base64.b64encode(open(os.path.join(AV,f"will-{pose}.png"),"rb").read()).decode()
+    data=base64.b64encode(open(pose if pose.endswith(".png") else os.path.join(AV,f"will-{pose}.png"),"rb").read()).decode()
     sz=h-20
     t="".join(txt(450, by+44+k*lh, l, size, TEAL if (accent_last and k==n-1) else INK, 800) for k,l in enumerate(lines))
     return svg(600,h,
@@ -108,19 +108,25 @@ for k,(a,b) in enumerate(items):
         +txt(102,y+25,a,19,INK,800,anchor="start")+txt(102,y+47,b,17,GREY,700,anchor="start"))
 out["04-programme"]=svg(600,422,g,TEAL_L)
 
-# 05. CALENDRIER HEXAGONE vs ANTILLES
-g=txt(300,46,"LOUER UNE PASSOIRE : LE CALENDRIER",16,TEAL,800,ls=2)
+# 05. CALENDRIER HEXAGONE vs ANTILLES (avec la légende des lettres)
+g=txt(300,44,"LA LETTRE DE TON DPE",16,TEAL,800,ls=2)
+for k,(l,c) in enumerate(DPE):
+    x=58+k*70
+    g+=f'<rect x="{x}" y="62" width="64" height="44" rx="10" fill="{c}"/>'+txt(x+32,92,l,22,WHITE,800)
+g+=txt(58,138,"A : très économe",18,INK,700,anchor="start")+txt(542,138,"G : passoire énergétique",18,INK,700,anchor="end")
+g+=f'<line x1="40" y1="166" x2="560" y2="166" stroke="{TEAL_M}" stroke-width="2"/>'
+g+=txt(300,204,"À PARTIR DE QUAND TU NE PEUX PLUS LOUER",16,TEAL,800,ls=1.5)
 def lane(y,title,col,marks):
     s=txt(40,y,title,20,col,800,anchor="start")+f'<line x1="60" y1="{y+46}" x2="560" y2="{y+46}" stroke="{GREY_L}" stroke-width="8" stroke-linecap="round"/>'
     for yr,lab,c in marks:
-        x=60+(yr-2024)*500/10
-        s+=f'<circle cx="{x}" cy="{y+46}" r="16" fill="{c}"/>'+txt(x,y+53,lab,17,WHITE,800)+txt(x,y+90,str(yr),18,INK,800)
+        x=70+(yr-2024)*44
+        s+=f'<rect x="{x-50}" y="{y+29}" width="100" height="34" rx="17" fill="{c}"/>'+txt(x,y+52,lab+" interdit",17,WHITE,800)+txt(x,y+92,str(yr),19,INK,800)
     return s
-g+=lane(86,"Hexagone",GREY,[(2025,"G","#D9482B"),(2028,"F","#E57638"),(2034,"E","#F2A33A")])
-g+=f'<rect x="20" y="200" width="560" height="140" rx="16" fill="{WHITE}"/>'
-g+=lane(226,"Guadeloupe et Martinique",TEAL,[(2028,"G","#D9482B"),(2031,"F","#E57638")])
-g+=txt(300,376,"Après ces dates, ces logements ne sont plus « décents » pour être loués.",15,GREY,700)
-out["05-calendrier"]=svg(600,400,g,TEAL_L)
+g+=lane(244,"Hexagone",GREY,[(2025,"G","#D9482B"),(2028,"F","#E57638"),(2034,"E","#F2A33A")])
+g+=f'<rect x="20" y="358" width="560" height="140" rx="16" fill="{WHITE}"/>'
+g+=lane(392,"Guadeloupe et Martinique",TEAL,[(2028,"G","#D9482B"),(2031,"F","#E57638")])
+g+=txt(300,532,"Les interdictions s’additionnent : en 2031, F et G sont interdits.",17,INK,700)
+out["05-calendrier"]=svg(600,560,g,TEAL_L)
 
 # 07. LE BAIL SIGNÉ CETTE ANNÉE
 g=txt(300,46,"UN BAIL VIDE DE 3 ANS SIGNÉ EN 2026",16,TEAL,800,ls=2)
@@ -181,16 +187,17 @@ out["12-dates"]=svg(600,340,g,TEAL_L)
 # 13. AVANT / APRÈS
 def colL(x0,title,color,rows,badge,bfill,btxt):
     g=(txt(x0+135,52,title[0],15,color,800,ls=2)+txt(x0+135,80,title[1],21,color,800))
-    g+=f'<line x1="{x0+24}" y1="120" x2="{x0+24}" y2="{110+96*3}" stroke="{color}" stroke-width="4"/>'
-    for k,(t1,t2) in enumerate(rows):
-        y=110+k*96
-        g+=f'<circle cx="{x0+24}" cy="{y+10}" r="10" fill="{color}"/>'+txt(x0+46,y+18,t1,19,INK,800,anchor="start")+txt(x0+46,y+44,t2,18,INK,600,anchor="start")
-    g+=f'<rect x="{x0}" y="500" width="270" height="80" rx="16" fill="{bfill}"/>'+txt(x0+135,534,badge[0],22,btxt,800)+txt(x0+135,562,badge[1],17,btxt,700)
+    g+=f'<line x1="{x0+20}" y1="120" x2="{x0+20}" y2="{120+116*2}" stroke="{color}" stroke-width="4"/>'
+    for k,lines in enumerate(rows):
+        y=114+k*116
+        g+=f'<circle cx="{x0+20}" cy="{y+6}" r="10" fill="{color}"/>'
+        g+="".join(txt(x0+40,y+13+j*25,l,18,INK,800 if j==0 else 600,anchor="start") for j,l in enumerate(lines))
+    g+=f'<rect x="{x0}" y="470" width="270" height="80" rx="16" fill="{bfill}"/>'+txt(x0+135,504,badge[0],22,btxt,800)+txt(x0+135,532,badge[1],17,btxt,700)
     return g
-g=(f'<rect x="300" y="0" width="300" height="610" fill="{TEAL_L}"/>'
-   + colL(18,("AVANT","Rien d’anticipé"),GREY,[("Février 2029","impossible de relouer"),("Logement vide","à chercher des artisans"),("5 mois","sans locataire"),("× 750 €","de loyer")],("3 750 €","de loyers perdus"),GREY_L,INK)
-   + colL(312,("APRÈS","Compte à rebours"),TEAL,[("Pendant le bail","DPE et devis"),("Au départ","chantier tout de suite"),("2 mois","sans locataire"),("× 750 €","de loyer")],("1 500 €","de loyers perdus"),MANGO,INK))
-out["13-exemple"]=svg(600,610,g,WHITE)
+g=(f'<rect x="300" y="0" width="300" height="580" fill="{TEAL_L}"/>'
+   + colL(16,("AVANT","Tu n’as rien anticipé"),GREY,[["Février 2029 :","tu ne peux plus","relouer."],["Tu cherches des","artisans, le logement","reste vide."],["Au total : 5 mois","sans locataire."]],("3 750 €","de loyers perdus"),GREY_L,INK)
+   + colL(312,("APRÈS","Tu as anticipé"),TEAL,[["Pendant le bail,","tu fais faire ton","DPE et tes devis."],["Ton locataire part :","le chantier démarre","tout de suite."],["Au total : 2 mois","sans locataire."]],("1 500 €","de loyers perdus"),MANGO,INK))
+out["13-exemple"]=svg(600,580,g,WHITE)
 dest=sys.argv[1]; os.makedirs(dest,exist_ok=True)
 with sync_playwright() as p:
     b=p.chromium.launch(executable_path="/usr/bin/google-chrome",args=["--no-sandbox"])
