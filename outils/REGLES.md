@@ -41,6 +41,10 @@
 28. Bouton orange : pas d'émoji clair (ticket, 👉 jaune…) qui disparaît sur le fond orange ; préférer une flèche « → » couleur du texte.
 29. Ordre des actus en tête : l'actu avec une action à faire et une date limite (événement, inscription) passe avant les actus « pour info » (résultat de vote, remerciements).
 30. Témoignage reçu en capture d'écran : Claude lit la capture et retranscrit le texte en citation dans le mail (fautes de frappe et espaces corrigés, mots inchangés), au lieu de coller une image illisible sur téléphone.
+31. Avant d'ajouter une actu datée (événement, festival, renvoi « on en a parlé récemment »), vérifier la date d'envoi prévue de l'édition dans les notes de workflow : l'actu doit être encore valable ce jour-là, et l'édition citée doit déjà être partie.
+32. Une règle chiffrée (arrêt maladie, retraite, aides…) doit dire à qui elle s'applique (salarié du privé, fonctionnaire, indépendant) : beaucoup de lecteurs antillais sont fonctionnaires.
+33. Sommes et pourcentages : espace insécable avant « € » et « % » ; mettre en exposant « 8<sup>e</sup> » ; une seule sorte d'apostrophe dans le mail.
+34. Le programme « Au programme aujourd'hui » reprend mot pour mot les titres de toutes les parties, y compris l'exemple.
 
 ## Relecture obligatoire avant de rendre (à refaire jusqu'à ne plus rien trouver)
 Passe 1 — Texte : extraire tout le texte du mail dans l'ordre de lecture et le relire phrase par phrase :
@@ -57,3 +61,4 @@ Passe 2 — Visuels : regarder chaque image en grand, une par une :
 Passe 3 — Rendu : aperçu téléphone 390 px + pire cas 320 px, contrôle de chaque tranche ; boutons lisibles (émoji visible sur la couleur).
 Passe 4 — Ordre et cohérence d'ensemble : actu urgente avant l'info, titres de section vs contenu, dates relatives (« mardi », « vendredi prochain ») justes pour la date d'envoi.
 Recommencer les passes tant qu'une passe trouve quelque chose.
+Passe 5 — Sous-agents : faire relire par des sous-agents indépendants (un pour le texte et les faits, un pour les visuels et le rendu), appliquer ce qui est fondé, puis une contre-relecture finale par un nouveau sous-agent.

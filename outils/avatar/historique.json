@@ -38,5 +38,15 @@
    "carnet",
    "bras-croises"
   ]
+ },
+ {
+  "date": "2026-12-01",
+  "edition": 153,
+  "poses": [
+   "celebre",
+   "pointe",
+   "pouce",
+   "clin"
+  ]
  }
 ]
