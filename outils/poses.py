@@ -10,11 +10,12 @@ import json, os, sys, datetime as dt
 HERE=os.path.dirname(os.path.abspath(__file__))
 # Chaque emplacement a son groupe de poses compatibles avec la bulle ; on prend la première pose
 # du groupe qui n'a servi ni dans l'édition précédente ni ailleurs dans l'édition en cours.
+# « celebre » est retirée des tirages : ses deux bras sont coupés par les bords de l'image source (coupure visible dans le cadre).
 POOLS={
- "accueil":  ["salut","celebre","pointe","telephone","bras-croises"],
+ "accueil":  ["salut","pointe","telephone","bras-croises"],
  "relance":  ["menton","pointe","surpris","bras-croises","telephone"],
- "methode":  ["carnet","pouce","menton","pointe","celebre"],
- "signature":["clin","bras-croises","pouce","celebre","salut"],
+ "methode":  ["carnet","pouce","menton","pointe"],
+ "signature":["clin","bras-croises","pouce","salut"],
 }
 BASE=sorted({p for v in POOLS.values() for p in v})
 # Fenêtres d'utilisation des poses de saison (dates d'envoi incluses). Sources : calendrier scolaire Martinique 2026-2027, jours gras 2027.

@@ -65,7 +65,7 @@ PH=lambda t: f'<span style="background:#FFF3A0;color:#B00020;font-weight:bold;">
 A(png("01-hero","Le Journal Débrouya, édition #153 : ton salaire s'arrête, tes loyers non.",mb=20))
 A(png("00-will-salut","Will : Salut la famille !",mb=20))
 nb=b(NB) if NB else PH("[NB ABONNÉS]")
-A(p(f"Bienvenue aux {nb} nouveaux abonnés qui nous ont rejoints depuis vendredi ! Si tu en fais partie, on est très heureux de te compter parmi les membres de la communauté des Débrouya.",size=17,mb=14))
+A(p(f"Bienvenue aux {nb} nouveaux abonnés qui nous ont rejoints depuis la dernière édition ! Si tu en fais partie, on est très heureux de te compter parmi les membres de la communauté des Débrouya.",size=17,mb=14))
 A(p("Si le contenu te plaît, partage-le : c’est la plus belle façon de nous soutenir.",size=17,mb=12))
 A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("Invite tes amis à&nbsp;s’abonner&nbsp;→",LINK_SUB,ORANGE,INK)}</p>')
 A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
@@ -79,7 +79,7 @@ if TEM:
     paras=TEM["paras"]
     q="".join(f'<p style="margin:0 0 {14 if k<len(paras)-1 else 0}px 0;font-family:Georgia,serif;font-size:18px;line-height:1.55;color:{INK};font-style:italic;">{t}</p>' for k,t in enumerate(paras))
     q+=f'<p style="margin:14px 0 0 0;font-family:{FONT};font-size:18px;font-weight:bold;color:{INK};">{TEM["prenom"]}</p>'
-    tem=(p(f"Merci à {b(TEM['prenom'])} pour son témoignage ! {TEM['prenom']}, c'est un plaisir de t'avoir avec nous et de te partager nos meilleures ressources chaque semaine :",size=16,mb=16)+
+    tem=(p(f"Merci à {b(TEM['prenom'])} pour son témoignage ! {TEM['prenom']}, c'est un plaisir de t'avoir avec nous et de partager avec toi nos meilleures ressources chaque semaine. Son message :",size=16,mb=16)+
          f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 16px 0;"><tr><td style="border-left:4px solid {ORANGE};padding:2px 0 2px 16px;">{q}</td></tr></table>')
 else:
     tem=p(PH("[TÉMOIGNAGE À AJOUTER]"),size=16,mb=16)
@@ -161,17 +161,23 @@ A(card(p("C'est ça, une deuxième jambe.",size=17,color=PEACH,align="center",mb
 
 # ---------------- MENTORAT + SIGNATURE ----------------
 A(card(kicker("Tu veux être accompagné ?")+
-       p("Je propose un programme de mentorat personnalisé. On regarde ta situation. On définit ta stratégie. On met en place un plan d'action sur mesure.")+
+       p("Je te propose un programme de mentorat personnalisé. On regarde ta situation. On définit ta stratégie. On met en place un plan d'action sur mesure.")+
        p(b("Et surtout, on avance ensemble.")) +
        p("Intéressé ? Réponds simplement à ce mail avec le mot :",mb=12)+
        f'<p style="margin:0 0 14px 0;text-align:center;"><span style="display:inline-block;background:{ORANGE};color:{INK};border-radius:30px;padding:14px 30px;font-family:{FONT};font-size:22px;letter-spacing:2px;font-weight:bold;">MENTORAT</span></p>'+
        p("…et je te recontacterai pour en discuter. <em>Aucun engagement. Juste une conversation.</em>",size=15,color=MUTED,align="center",mb=0),bl=ORANGE,pad=22,mb=28))
 A(png("17-will-fin","C'était Will. Ciao !",mb=22))
 A(f'<div style="border-top:1px solid #E3DBCF;margin:0 0 16px 0;"></div>')
-A(p("Qu'as-tu pensé de cette édition ? Dis-le-nous en répondant à ce mail (on lit tous les mails !).",size=14,color=MUTED,align="center"))
+A(p("Qu'as-tu pensé de cette édition ? Dis-le-nous en répondant à ce mail (on lit tout !).",size=14,color=MUTED,align="center"))
 
 body="\n".join(H)
-body=body.replace("’","'")
+def _txt(m):
+    t=m.group(1).replace("'","’")
+    t=re.sub(r"(\d) (?=[^\W\d_])",r"\1&nbsp;",t)
+    t=re.sub(r"\b(\w+(?:-\w+)+)\b",r'<span style="white-space:nowrap;">\1</span>',t)
+    t=re.sub(r" ([\u2600-\u27BF\U0001F300-\U0001FAFF][\u2600-\u27BF\U0001F300-\U0001FAFF\uFE0F\U0001F3FB-\U0001F3FF]*)",r'&nbsp;<span style="white-space:nowrap;">\1</span>',t)
+    return ">"+t+"<"
+body=re.sub(r">([^<]+)<",_txt,body)
 body=re.sub(r"(\d) ([€%])",r"\1&nbsp;\2",body)
 body=re.sub(r" ([?!:;»])",r"&nbsp;\1",body).replace("« ","«&nbsp;")
 html=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><title>Journal Débrouya #153</title></head>

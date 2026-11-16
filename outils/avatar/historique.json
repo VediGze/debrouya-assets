@@ -20,6 +20,16 @@
   ]
  },
  {
+  "date": "2026-11-17",
+  "edition": 149,
+  "poses": [
+   "bras-croises",
+   "pointe",
+   "carnet",
+   "salut"
+  ]
+ },
+ {
   "date": "2026-11-24",
   "edition": 151,
   "poses": [
@@ -43,7 +53,7 @@
   "date": "2026-12-01",
   "edition": 153,
   "poses": [
-   "celebre",
+   "salut",
    "pointe",
    "pouce",
    "clin"

@@ -36,12 +36,16 @@ AV=os.path.join(HERE,"avatar")
 def will_panel(pose, lines, h=370, accent_last=True):
     n=len(lines); size=31 if n<=3 else 27; lh=size+9
     bh=lh*n+56; by=(h-bh)/2
-    data=base64.b64encode(open(pose if pose.endswith(".png") else os.path.join(AV,f"will-{pose}.png"),"rb").read()).decode()
+    fp=pose if pose.endswith(".png") else os.path.join(AV,f"will-{pose}.png")
+    data=base64.b64encode(open(fp,"rb").read()).decode()
+    from PIL import Image as _I
+    _im=_I.open(fp); _bot=_im.getbbox()[3]/_im.size[1]   # bas réel du personnage : on le colle au bas du cadre
     sz=h-20
+    yimg=h-sz*_bot
     top=by+(bh-((n-1)*lh+0.72*size))/2+0.72*size
     t="".join(txt(450, top+k*lh, l, size, TEAL if (accent_last and k==n-1) else INK, 800) for k,l in enumerate(lines))
     return svg(600,h,
-        f'<image href="data:image/png;base64,{data}" x="-8" y="{h-sz}" width="{sz}" height="{sz}"/>'
+        f'<image href="data:image/png;base64,{data}" x="-8" y="{yimg}" width="{sz}" height="{sz}"/>'
         f'<rect x="318" y="{by}" width="264" height="{bh}" rx="28" fill="{WHITE}" stroke="{INK}" stroke-width="3"/>'
         f'<path d="M320 {by+bh/2-14} L284 {by+bh/2+4} L320 {by+bh/2+16}" fill="{WHITE}" stroke="{INK}" stroke-width="3" stroke-linejoin="round"/>'
         f'<rect x="316" y="{by+bh/2-12}" width="8" height="26" fill="{WHITE}"/>' + t, TEAL_L)
@@ -53,7 +57,7 @@ IJ=P.get("ij_max","42,97 €")
 out["00-will-salut"]=will_panel(P["accueil"],["Salut","la famille ! 🔥"],h=330)
 out["06-will"]=will_panel(P["relance"],["Tu vois où","je veux en","venir ?"])
 out["09-will-methode"]=will_panel(P["methode"],["Prêt ?","On y va."])
-out["17-will-fin"]=will_panel(P["signature"],["C’était Will 🔥","Ciao !"],h=330)
+out["17-will-fin"]=will_panel(P["signature"],["C’était Will.","Ciao ! 🔥"],h=330)
 
 # 01. COUVERTURE : salaire qui s'arrête, loyers qui continuent
 ban=base64.b64encode(open(sys.argv[2],"rb").read()).decode()

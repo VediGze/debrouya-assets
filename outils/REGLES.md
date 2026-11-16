@@ -45,8 +45,11 @@
 32. Une règle chiffrée (arrêt maladie, retraite, aides…) doit dire à qui elle s'applique (salarié du privé, fonctionnaire, indépendant) : beaucoup de lecteurs antillais sont fonctionnaires.
 33. Sommes et pourcentages : espace insécable avant « € » et « % » ; mettre en exposant « 8<sup>e</sup> » ; une seule sorte d'apostrophe dans le mail.
 34. Le programme « Au programme aujourd'hui » reprend mot pour mot les titres de toutes les parties, y compris l'exemple.
-
-## Relecture obligatoire avant de rendre (à refaire jusqu'à ne plus rien trouver)
+35. Poses de Will : le personnage est collé au bas du cadre (calcul automatique du bas réel de la pose). Pose « celebre » exclue (bras coupés par les bords de l'image source) ; « nouvel-an » touche aussi les deux bords : vérifier le cadre avant de l'utiliser.
+36. Typographie du mail : apostrophes courbes ’ partout (comme dans les images), insécable entre un nombre et son mot (« 10&nbsp;ans », « 4&nbsp;étapes »), mots à trait d'union protégés contre la coupure (peut-être, e-mail, Rejoins-nous…), émojis jamais seuls en début de ligne.
+37. Bloc témoignage : « Merci à X pour son témoignage ! X, c'est un plaisir de t'avoir avec nous et de partager avec toi nos meilleures ressources chaque semaine. Son message : » ; témoignage anonymisé (prénom seul, aucun nom ni initiale).
+38. Accueil : « depuis la dernière édition » (jamais « depuis vendredi/mardi » quand un autre jour de la semaine est cité plus bas).
+ avant de rendre (à refaire jusqu'à ne plus rien trouver)
 Passe 1 — Texte : extraire tout le texte du mail dans l'ordre de lecture et le relire phrase par phrase :
 - accords tu/vous (« tu » = un lecteur ; groupe = « vous » ; « Bienvenue aux N abonnés… si tu en fais partie »), 3e personne → 2e personne (« Merci à Annick… Annick, c'est un plaisir de t'avoir »)
 - phrases bancales (« parce que… mais »), répétitions avec le pied de mail, logique des enchaînements
