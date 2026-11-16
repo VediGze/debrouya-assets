@@ -83,7 +83,7 @@ def bullets(items, mark="→", color=None):
     color=color or TEAL
     rows="".join(f'<tr><td width="28" valign="top" nowrap style="width:28px;min-width:28px;white-space:nowrap;padding:0 10px 12px 0;font-family:{FONT};font-size:18px;font-weight:bold;color:{color};">{mark}</td><td valign="top" style="padding:0 0 12px 0;font-family:{FONT};font-size:18px;line-height:1.55;color:{INK};">{t}</td></tr>' for t in items)
     return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 6px 0;">{rows}</table>'
-JPG={"00-will-salut","06-will","09-will-methode","17-will-fin"}
+JPG={"01-hero","00-will-salut","06-will","09-will-methode","17-will-fin"}
 def png(name,alt,mb=26): return img(name,alt,mb=mb,ext="jpg" if name in JPG else "png")
 
 
