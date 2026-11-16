@@ -74,13 +74,13 @@ def bubble(x,y,w,lines,size=19,fill=WHITE,col=INK):
 
 # 03. FESTIVAL LYANNAJ (rappel)
 g=(txt(300,48,"LYANNAJ FEST LIVE",20,MANGO,800,ls=3) + txt(300,96,"3 soirées en live, gratuites",30,INK,800)
-   + f'<rect x="30" y="114" width="540" height="76" rx="20" fill="{TEAL}"/>' + txt(300,145,"19 h – 23 h à Paris",20,WHITE,800)+txt(300,175,"14 h – 18 h aux Antilles · 15 h – 19 h en Guyane",18,WHITE,700))
+   + f'<rect x="30" y="114" width="540" height="110" rx="20" fill="{TEAL}"/>' + txt(300,146,"14 h – 18 h aux Antilles",22,WHITE,800)+txt(300,177,"15 h – 19 h en Guyane",22,WHITE,800)+txt(300,207,"19 h – 23 h dans l’Hexagone",20,PEACH,700))
 days=[("VEN. 20 NOV.","Soirée","immobilier",TEAL,INK),("SAM. 21 NOV.","Soirée","business",TEAL,INK),("DIM. 22 NOV.","Soirée","VIP",MANGO_D,MANGO_D)]
 for k,(dd,a,b2,c,fc) in enumerate(days):
     x=24+k*192
-    g+=cal(x,212,168,150,dd,c, txt(x+84,292,a,22,INK,800)+txt(x+84,320,b2,22,fc,800)+rings(x,212,168))
-g+=txt(300,400,"Soirée VIP : conditions d’accès",20,INK,700)+txt(300,428,"envoyées aux inscrits.",20,INK,700)
-out["03-festival"]=svg(600,454,g,MANGO_L)
+    g+=cal(x,246,168,150,dd,c, txt(x+84,326,a,22,INK,800)+txt(x+84,354,b2,22,fc,800)+rings(x,246,168))
+g+=txt(300,434,"Soirée VIP : conditions d’accès",20,INK,700)+txt(300,462,"envoyées aux inscrits.",20,INK,700)
+out["03-festival"]=svg(600,488,g,MANGO_L)
 
 # 04. CE QUI T'ATTEND
 items=[["Will et les coachs","immobilier et business"],["Des experts du financement,","des aides et de l’IA"],["Vendredi : la remise des diplômes,","où une centaine de membres","racontent leur projet"],["Tes questions, en direct","dans le chat"]]
@@ -120,7 +120,7 @@ rows=[("Tes enfants",["À parts égales."],TEAL),
       ("Ton conjoint marié",["Un quart en pleine propriété,","ou l’usufruit de tout,","selon ta famille."],TEAL),
       ("Ton compagnon,","même pacsé",MANGO)]
 g=txt(300,48,"SANS TESTAMENT, QUI HÉRITE ?",20,TEAL,800,ls=1.5); y=70
-for who,what,c in [("Tes enfants",["À parts égales."],TEAL),("Ton conjoint marié",["Si tous vos enfants sont communs :","un quart de tes biens ou l’usufruit","de tout, au choix. Sinon : un quart."],TEAL),("Ton partenaire pacsé",["Rien. Seulement le droit de rester","un an, gratuitement, dans votre logement."],MANGO),("Ton concubin",["Rien du tout."],MANGO)]:
+for who,what,c in [("Tes enfants",["À parts égales."],TEAL),("Ton conjoint marié",["Si tous vos enfants sont communs :","un quart de tes biens ou l’usufruit","de tout, au choix. Si l’un est né","d’une autre union : un quart."],TEAL),("Ton partenaire pacsé",["Rien. Seulement le droit de rester","un an, gratuitement, dans votre logement."],MANGO),("Ton concubin",["Rien du tout."],MANGO)]:
     h=40+30*len(what)+30
     g+=f'<rect x="24" y="{y}" width="552" height="{h}" rx="16" fill="{WHITE}"/><rect x="24" y="{y}" width="10" height="{h}" fill="{c}"/>'
     g+=txt(52,y+38,who,21,c if c==MANGO else TEAL,800,anchor="start")
@@ -170,7 +170,7 @@ def col2(x0,title,color,rows,badge,bfill,btxt,rowfill):
     g+=f'<rect x="{x0}" y="394" width="270" height="88" rx="16" fill="{bfill}"/>'+"".join(txt(x0+135,430+j*30,l,20,btxt,800 if j==0 else 700) for j,l in enumerate(badge))
     return g
 g=(f'<rect x="300" y="0" width="300" height="508" fill="{TEAL_L}"/>'
-   + col2(16,("Si rien","n’est organisé"),"#5F6B70",[["Les papiers dorment","dans une armoire."],["Ses enfants ignorent","le crédit du T2."],["Marc veut la garder,","ses sœurs veulent vendre."]],["La maison attend,","volets fermés."],GREY_L,INK,"#F4F1EC")
+   + col2(16,("Si rien","n’est organisé"),"#5F6B70",[["Les papiers dorment","dans une armoire."],["Ses enfants ignorent","le crédit du T2."],["Marc tient à la maison,","ses sœurs veulent vendre."]],["La maison attend,","volets fermés."],GREY_L,INK,"#F4F1EC")
    + col2(314,("Si Josette","s’est organisée"),TEAL,[["Elle a fait un dossier,","et tous savent où il est."],["Elle a réuni la famille,","chacun a dit ce qu’il veut."],["Avec son notaire, elle a","prévu qui reçoit quoi."]],["Chacun sait ce","que Josette voulait."],MANGO,INK,WHITE))
 out["12-josette"]=svg(600,508,g,WHITE)
 dest=sys.argv[1]; os.makedirs(dest,exist_ok=True)

@@ -80,8 +80,8 @@ A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK
 
 # ---------------- FESTIVAL (rappel) ----------------
 A(kicker("Cette semaine",ORANGE)+h3("Le Lyannaj Fest Live commence ce vendredi"))
-A(p("On t'en parlait dans la dernière édition : dès ce vendredi, on se retrouve en live. Aux Antilles, en Guyane, dans l'Hexagone ou ailleurs, tu peux suivre depuis chez toi.",mb=18))
-A(png("03-festival","Lyannaj Fest Live, 3 soirées en live et gratuites, de 19 h à 23 h heure de Paris, soit de 14 h à 18 h aux Antilles et de 15 h à 19 h en Guyane : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée VIP, dont les conditions d'accès sont envoyées aux inscrits.",mb=18))
+A(p("On t'en parlait dans la dernière édition : on y est presque ! Aux Antilles, en Guyane, dans l'Hexagone ou ailleurs, tu peux suivre le live depuis chez toi.",mb=18))
+A(png("03-festival","Lyannaj Fest Live, 3 soirées en live et gratuites, de 14 h à 18 h aux Antilles, de 15 h à 19 h en Guyane, de 19 h à 23 h dans l'Hexagone : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée VIP, dont les conditions d'accès sont envoyées aux inscrits.",mb=18))
 A(p("Au menu du vendredi : premier achat, construction, terrain familial, investir à distance. Le samedi : gagner du temps et de la marge, déléguer, l'IA, le marketing local, la reprise d'entreprise. Et le dimanche, c'est en petit comité, avec un expert par thème."))
 A(png("04-programme","Ce qui t'attend : Will et les coachs immobilier et business ; des experts du financement, des aides et de l'IA ; vendredi, la remise des diplômes, où une centaine de membres racontent leur projet ; tes questions en direct dans le chat.",mb=18))
 A(card(p(f"Pour y accéder, {b('il suffit de t’inscrire')} : tu reçois ensuite ton lien par e-mail et sur WhatsApp. Déjà inscrit ? Garde un œil sur tes messages.",size=17,mb=16)+
@@ -128,7 +128,7 @@ A(p(P_LOI2018,mb=34))
 
 # ---------------- PARTIE 3 ----------------
 A(kicker("Partie 3")+h3(T3))
-A(p(f"Un patrimoine, ce n'est pas seulement ce que tu possèdes. C'est aussi ce que tu laisses {b('en état de marche')}. Prends un appartement : sa valeur sur le papier est la même dans les deux cas. Ce qui change, c'est ce que tu as préparé :",mb=18))
+A(p(f"Un patrimoine, ce n'est pas seulement ce que tu possèdes. C'est aussi ce que tu laisses {b('en état de marche')}. Prends un appartement, et imagine deux façons de le transmettre : sur le papier, sa valeur est la même dans les deux cas. Ce qui change, c'est ce que tu as préparé :",mb=18))
 A(png("05-heritages","Même bien, deux héritages. Rien d'organisé : les papiers sont introuvables, personne ne connaît tes souhaits, tes héritiers ne se parlent plus ; c'est un conflit avec un toit dessus. Tout est organisé : les papiers sont en ordre, chacun sait ce que tu voulais, tes héritiers savent quoi en faire ; c'est un revenu pour ceux d'après.",mb=24))
 A(p(f"Et la différence ne se joue pas le jour de l'enterrement. Elle se joue {b('aujourd’hui')}, pendant que tu peux encore décider, expliquer et organiser."))
 A(p("Mais attention, je ne te demande pas de devenir notaire, ni de passer tes week-ends dans la paperasse. Je te demande juste d'ajouter une question à ta façon d'investir :",mb=10))
@@ -164,9 +164,9 @@ A(p(f"Je ne te dis pas que c'est la seule règle. Je te dis que c'est une questi
 
 # ---------------- PARTIE 5 ----------------
 A(kicker("Partie 5")+h3(T5))
-A(p("Prenons un exemple fictif, pour que tu visualises. Imagine Josette, 62 ans, qui vit à Sainte-Anne, en Guadeloupe. Elle a sa maison, et un T2 qu'elle loue au Gosier, dont le crédit n'est pas fini."))
+A(p("Prenons un exemple fictif, pour que tu visualises. Imagine Josette, 62 ans, qui vit à Sainte-Anne, en Guadeloupe. Elle a sa maison, et un T2 en location au Gosier, qu'elle n'a pas fini de rembourser."))
 A(p("Elle a aussi trois enfants : Marc, qui habite à deux pas de chez elle, et deux filles installées dans l'Hexagone. Le jour où elle part, voici ce qui change selon qu'elle s'est organisée ou non :",mb=18))
-A(png("12-josette","Si rien n'est organisé : les papiers dorment dans une armoire, ses enfants ignorent le crédit du T2, Marc veut la garder et ses sœurs veulent vendre ; la maison attend, volets fermés. Si Josette s'est organisée : elle a fait un dossier, et tous savent où il est ; elle a réuni la famille, chacun a dit ce qu'il veut ; avec son notaire, elle a prévu qui reçoit quoi ; chacun sait ce que Josette voulait.",mb=18))
+A(png("12-josette","Si rien n'est organisé : les papiers dorment dans une armoire, ses enfants ignorent le crédit du T2, Marc tient à la maison et ses sœurs veulent vendre ; la maison attend, volets fermés. Si Josette s'est organisée : elle a fait un dossier, et tous savent où il est ; elle a réuni la famille, chacun a dit ce qu'il veut ; avec son notaire, elle a prévu qui reçoit quoi ; chacun sait ce que Josette voulait.",mb=18))
 A(p("Sans rien d'organisé, ses trois enfants héritent à parts égales, en indivision, de la maison et du T2. Personne n'a tort. Mais personne ne peut trancher."))
 A(p("Si elle s'est organisée, elle sait déjà que ses filles ne comptent pas revenir vivre en Guadeloupe et que Marc tient à la maison. Et ce qu'elle a prévu respecte la part que la loi réserve à chacun de ses enfants."))
 A(p("Est-ce que ça garantit zéro tension ? Non, je ne vais pas te mentir. Mais une famille qui devine et une famille qui sait, c'est toute la différence entre une maison qui vit et une maison qui ferme.",mb=24))
