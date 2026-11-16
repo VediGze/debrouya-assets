@@ -49,7 +49,11 @@
 36. Typographie du mail : apostrophes courbes ’ partout (comme dans les images), insécable entre un nombre et son mot (« 10&nbsp;ans », « 4&nbsp;étapes »), mots à trait d'union protégés contre la coupure (peut-être, e-mail, Rejoins-nous…), émojis jamais seuls en début de ligne.
 37. Bloc témoignage : « Merci à X pour son témoignage ! X, c'est un plaisir de t'avoir avec nous et de partager avec toi nos meilleures ressources chaque semaine. Son message : » ; témoignage anonymisé (prénom seul, aucun nom ni initiale).
 38. Accueil : « depuis la dernière édition » (jamais « depuis vendredi/mardi » quand un autre jour de la semaine est cité plus bas).
- avant de rendre (à refaire jusqu'à ne plus rien trouver)
+39. Aération du texte (lecture sur téléphone) : 1 à 2 phrases par paragraphe, 4-5 lignes maximum à 390 px ; toute énumération de 2 éléments ou plus passe en liste à flèches, introduite par une phrase dont les éléments s'enchaînent grammaticalement ; 1 à 2 mots en gras par bloc maximum, jamais sur ce qu'une image ou un encadré met déjà en avant ; phrases-chocs isolées ; espace identique (18 px) entre paragraphes, et après une liste.
+40. Couverture (01-hero) toujours en JPG (~200 Ko) : en PNG elle pèse 1,4 Mo. Aucune image du mail au-dessus de ~300 Ko. Le dépôt d'images doit rester sous ~40 Mo (limite jsDelivr 50 Mo par version) : poses de Will stockées en 900 px.
+41. Après chaque publication, tester dans un vrai navigateur que TOUTES les images du mail se chargent depuis jsDelivr (pas seulement comparer les fichiers dans GitHub). Juste après un push, jsDelivr peut répondre 404 « Failed to fetch the requested commit » sur certains fichiers et garder cette erreur en cache : purger chaque fichier en erreur (https://purge.jsdelivr.net/gh/VediGze/debrouya-assets@<SHA>/<fichier>) puis retester jusqu'à 100 % OK avant de livrer.
+
+## Relecture obligatoire avant de rendre (à refaire jusqu'à ne plus rien trouver)
 Passe 1 — Texte : extraire tout le texte du mail dans l'ordre de lecture et le relire phrase par phrase :
 - accords tu/vous (« tu » = un lecteur ; groupe = « vous » ; « Bienvenue aux N abonnés… si tu en fais partie »), 3e personne → 2e personne (« Merci à Annick… Annick, c'est un plaisir de t'avoir »)
 - phrases bancales (« parce que… mais »), répétitions avec le pied de mail, logique des enchaînements
