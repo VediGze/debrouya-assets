@@ -7,8 +7,42 @@ LINK_SUB="https://www.mouvementlyannaj.com/lm-journal-debrouya-v2/"
 LINK_IG="https://www.instagram.com/william.synesius?igsh=MXBzM2V3eWV2MHppOQ=="
 LINK_YT="https://youtube.com/@williamsynesius?si=BuRt8bjDLE6m0Dnf"
 
-def p(t,size=18,color=INK,w="normal",align="left",mb=20):
+def p(t,size=18,color=INK,w="normal",align="left",mb=18):
     return f'<p style="margin:0 0 {mb}px 0;font-family:{FONT};font-size:{size}px;line-height:1.6;color:{color};font-weight:{w};text-align:{align};">{t}</p>'
+def _phrases(t):
+    """Découpe en phrases, sans couper à l'intérieur d'une balise HTML ni de guillemets « ».""" 
+    out=[];cur="";depth=0;guil=0;i=0
+    while i<len(t):
+        c=t[i];cur+=c
+        if t.startswith("<",i):
+            j=t.index(">",i); tag=t[i:j+1]; cur+=t[i+1:j+1]; i=j+1
+            if tag.startswith("</"): depth-=1
+            elif not tag.endswith("/>") and not tag.startswith("<br"): depth+=1
+            continue
+        if c=="«": guil+=1
+        if c=="»": guil-=1
+        if c in ".!?…" and depth==0 and guil==0:
+            k=i+1
+            while k<len(t) and t[k] in ".!?…»)": cur+=t[k]; k+=1
+            if k<len(t) and t[k]==" " and k+1<len(t) and (t[k+1].isupper() or t[k+1] in "«(<"):
+                out.append(cur.strip()); cur=""; i=k+1; continue
+            i=k; continue
+        i+=1
+    if cur.strip(): out.append(cur.strip())
+    return out
+def P(t,size=18,color=INK,w="normal",align="left",mb=18,maxc=170):
+    """Paragraphe aéré : 1 à 2 phrases courtes par bloc, comme dans le doc d'origine."""
+    if "|" in t:
+        blocs=[x.strip() for x in t.split("|")]
+        return "".join(p(x,size,color,w,align,mb if k==len(blocs)-1 else 18) for k,x in enumerate(blocs))
+    ph=_phrases(t); blocs=[]; cur=""
+    vis=lambda s: len(re.sub(r"<[^>]+>","",s))
+    for s_ in ph:
+        if cur and (vis(cur)>=90 or vis(s_)>=90 or vis(cur)+vis(s_)>140 or cur.count(". ")+cur.count("? ")+cur.count("! ")>=1):
+            blocs.append(cur); cur=s_
+        else: cur=(cur+" "+s_).strip()
+    if cur: blocs.append(cur)
+    return "".join(p(x,size,color,w,align,mb if k==len(blocs)-1 else 18) for k,x in enumerate(blocs))
 def b(t): return f'<strong>{t}</strong>'
 def gap(h): return f'<div style="height:{h}px;line-height:{h}px;font-size:1px;">&nbsp;</div>'
 def img(name, alt, mb=26, ext="png", radius=0):
@@ -48,7 +82,7 @@ def ikicker(icon,t,c=TEAL):
 def bullets(items, mark="→", color=None):
     color=color or TEAL
     rows="".join(f'<tr><td width="28" valign="top" nowrap style="width:28px;min-width:28px;white-space:nowrap;padding:0 10px 12px 0;font-family:{FONT};font-size:18px;font-weight:bold;color:{color};">{mark}</td><td valign="top" style="padding:0 0 12px 0;font-family:{FONT};font-size:18px;line-height:1.55;color:{INK};">{t}</td></tr>' for t in items)
-    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0;">{rows}</table>'
+    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 6px 0;">{rows}</table>'
 JPG={"00-will-salut","06-will","09-will-methode","17-will-fin"}
 def png(name,alt,mb=26): return img(name,alt,mb=mb,ext="jpg" if name in JPG else "png")
 
@@ -65,6 +99,7 @@ P_LOI_ALT=T_.get("loi_alt","Sans testament, qui hérite ? Tes enfants, à parts 
 P_INDIVISION=T_.get("indivision","Et tous tes héritiers deviennent propriétaires de tes biens <strong>ensemble</strong>. C'est ce qu'on appelle l'<strong>indivision</strong> : chacun a sa part, mais personne ne possède un morceau précis. Et pour vendre un bien en indivision, il faut en principe l'accord de <strong>tout le monde</strong>.")
 P_LOI2018=T_.get("loi2018","Et le sujet est tellement présent chez nous qu'en <strong>2018</strong>, le Parlement a voté une loi spécialement pour l'outre-mer, pour faciliter la sortie de ces indivisions familiales. Quand il faut une loi spéciale pour débloquer des maisons de famille, c'est qu'il y a un gros problème.")
 P_TESTAMENT=T_.get("testament","Tu peux le garder chez toi, ou le confier à un notaire. Le notaire peut le faire inscrire au <strong>Fichier central des dispositions de dernières volontés</strong>, pour qu'il soit retrouvé le jour venu. Tu peux aussi faire un <strong>testament authentique</strong>, directement chez le notaire. Le tarif réglementé de sa rédaction est de <strong>113,19 € HT</strong>.")
+P_COUPLE_LISTE=T_.get("couple_liste",[])
 P_COUPLE=T_.get("couple","Et si tu es en couple sans être marié, cette étape est la plus urgente de toutes. Avec, en plus, une vraie discussion à avoir avec ton notaire sur la fiscalité, parce que tout ne se règle pas avec un testament.")
 
 LINK_FEST="https://lynj.fr/festoptin"
@@ -72,19 +107,22 @@ LINK_FEST="https://lynj.fr/festoptin"
 A(png("01-hero","Le Journal Débrouya, édition #149 : ce qu'il restera après toi.",mb=20))
 A(png("00-will-salut","Will : Salut la famille !",mb=20))
 nb=b(NB) if NB else PH("[NB ABONNÉS]")
-A(p(f"Bienvenue aux {nb} nouveaux abonnés qui nous ont rejoints depuis la dernière édition ! Si tu en fais partie, on est très heureux de te compter parmi les membres de la communauté des Débrouya.",size=17,mb=14))
-A(p("Si le contenu te plaît, partage-le : c’est la plus belle façon de nous soutenir.",size=17,mb=12))
+A(P(f"Bienvenue aux {nb} nouveaux abonnés qui nous ont rejoints depuis la dernière édition ! Si tu en fais partie, on est très heureux de te compter parmi les membres de la communauté des Débrouya.",size=17,mb=14))
+A(P("Si le contenu te plaît, partage-le : c’est la plus belle façon de nous soutenir.",size=17,mb=12))
 A(f'<p style="margin:0 0 18px 0;text-align:center;">{btn("Invite tes amis à&nbsp;s’abonner&nbsp;→",LINK_SUB,ORANGE,INK)}</p>')
-A(p("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
+A(P("📲 Tu veux accéder à nos derniers contenus avant tout le monde ? Rejoins-nous sur :",size=16,color=MUTED,align="center",mb=10))
 A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK_IG,"instagram")}{social_btn("YouTube",LINK_YT,"youtube")}</p>')
 
 # ---------------- FESTIVAL (rappel) ----------------
 A(kicker("Cette semaine",ORANGE)+h3("Le Lyannaj Fest Live commence ce vendredi"))
-A(p("On t'en parlait dans la dernière édition : on y est presque ! Aux Antilles, en Guyane, dans l'Hexagone ou ailleurs, tu peux suivre le live depuis chez toi.",mb=18))
+A(P("On t'en parlait dans la dernière édition : on y est presque ! Aux Antilles, en Guyane, dans l'Hexagone ou ailleurs, tu peux suivre le live depuis chez toi.",mb=18))
 A(png("03-festival","Lyannaj Fest Live, 3 soirées en live et gratuites, de 14 h à 18 h aux Antilles, de 15 h à 19 h en Guyane, de 19 h à 23 h dans l'Hexagone : vendredi 20 novembre, soirée immobilier ; samedi 21 novembre, soirée business ; dimanche 22 novembre, soirée VIP, dont les conditions d'accès sont envoyées aux inscrits.",mb=18))
-A(p("Au menu du vendredi : premier achat, construction, terrain familial, investir à distance. Le samedi : gagner du temps et de la marge, déléguer, l'IA, le marketing local, la reprise d'entreprise. Et le dimanche, c'est en petit comité, avec un expert par thème."))
+A(P("Au programme de ces trois soirées :",mb=12))
+A(bullets([f"{b('Vendredi')} : premier achat, construction, terrain familial, investir à distance.",
+           f"{b('Samedi')} : gagner du temps et de la marge, déléguer, l'IA, le marketing local, la reprise d'entreprise.",
+           f"{b('Dimanche')} : en petit comité, avec un expert par thème."],color=ORANGE)+gap(10))
 A(png("04-programme","Ce qui t'attend : Will et les coachs immobilier et business ; des experts du financement, des aides et de l'IA ; vendredi, la remise des diplômes, où une centaine de membres racontent leur projet ; tes questions en direct dans le chat.",mb=18))
-A(card(p(f"Pour y accéder, {b('il suffit de t’inscrire')} : tu reçois ensuite ton lien par e-mail et sur WhatsApp. Déjà inscrit ? Garde un œil sur tes messages.",size=17,mb=16)+
+A(card(p(f"Pour y accéder, {b('il suffit de t’inscrire')} : tu reçois ensuite ton lien par e-mail et sur WhatsApp.",size=17,mb=12)+p("Déjà inscrit ? Garde un œil sur tes messages.",size=17,mb=16)+
        f'<p style="margin:0;text-align:center;">{btn("Je réserve ma place gratuite&nbsp;→",LINK_FEST,ORANGE,INK)}</p>',bg=ORANGE_L,pad=22,mb=34))
 
 T1="La maison aux volets fermés"; T2="Ce qui se passe vraiment quand on n'a rien organisé"; T3="Un héritage, ça se construit de ton vivant"; T4="Ta méthode en 4 étapes pour transmettre un patrimoine, pas un conflit"; T5="Ce que ça change, concrètement"
@@ -105,84 +143,90 @@ A(card(kicker("Le témoignage de la semaine")+tem+
 
 # ---------------- PARTIE 1 ----------------
 A(gap(14)+kicker("Partie 1")+h3(T1))
-A(p("Tu la connais, cette maison. Elle est peut-être au bord d'une route de ta commune, ou même dans ta propre famille."))
-A(p("Une belle case, ou une maison en béton construite à la sueur de son front. Avec les volets fermés depuis des années. La peinture s'en va. Les herbes gagnent la cour. Le toit commence à fatiguer."))
-A(p(f"Et quand tu demandes à qui elle est, on te fait toujours la même réponse : {i('« C’est la maison de la famille. Mais tu sais… ils ne sont pas d’accord. »')} Pourquoi ?",mb=18))
+A(P("Tu la connais, cette maison. Elle est peut-être au bord d'une route de ta commune, ou même dans ta propre famille."))
+A(P("Une belle case, ou une maison en béton construite à la sueur de son front. Avec les volets fermés depuis des années.|La peinture s'en va.<br>Les herbes gagnent la cour.<br>Le toit commence à fatiguer."))
+A(P(f"Et quand tu demandes à qui elle est, on te fait toujours la même réponse : {i('« C’est la maison de la famille. Mais tu sais… ils ne sont pas d’accord. »')}|{b('Pourquoi ?')}",mb=18))
 A(png("02-volets","Ce qui bloque : un frère veut la garder, une sœur veut vendre, un cousin dans l'Hexagone ne répond plus aux messages. Et pendant ce temps, la maison se dégrade.",mb=24))
-A(p("Maintenant, pose-toi une question. La personne qui a construit cette maison, est-ce qu'elle voulait ça ? Bien sûr que non."))
-A(p("Elle a travaillé toute sa vie. Elle a mis de côté, sou après sou, pour que ses enfants aient un toit. Quelque chose de solide.",mb=8))
+A(P("Maintenant, pose-toi une question. La personne qui a construit cette maison, est-ce qu'elle voulait ça ? Bien sûr que non."))
+A(P("Elle a travaillé toute sa vie. Elle a mis de côté, sou après sou, pour que ses enfants aient un toit. Quelque chose de solide.",mb=26))
 A(punch(f"Elle voulait laisser un {b('héritage')}.<br>Et elle a laissé un {hl('problème')}.",size=22,mb=16))
-A(p(f"Pas parce qu'elle a mal investi. Mais parce qu'elle n'a {b('rien organisé')}.",mb=34))
+A(P(f"Pas parce qu'elle a mal investi. Mais parce qu'elle n'a {b('rien organisé')}.",mb=34))
 
 # ---------------- PARTIE 2 ----------------
 A(kicker("Partie 2")+h3(T2))
-A(p("Toi qui lis ce journal, pourquoi as-tu envie d'investir ? Pour tes loyers, ta retraite, ta liberté ? Ce sont toutes de bonnes raisons."))
-A(p(f"Mais il y a une question qu'on se pose rarement au moment d'acheter : {i('« Ce bien, il devient quoi le jour où je ne suis plus là ? »')}"))
-A(p(f"Elle est importante. Pourtant, on l'évite, parce que penser à sa propre mort, ça ne fait plaisir à personne. Alors on se dit : {i('« Les enfants se débrouilleront. »')}"))
-A(p(f"Sauf que sans rien d'écrit, ce n'est pas toi qui décides comment ça se passe. C'est la {b('loi')}. Et la loi applique une règle générale, pas ta volonté :",mb=18))
+A(P("Toi qui lis ce journal, pourquoi as-tu envie d'investir ? Pour tes loyers, ta retraite, ta liberté ? Ce sont toutes de bonnes raisons."))
+A(P(f"Mais il y a une question qu'on se pose rarement au moment d'acheter : {i('« Ce bien, il devient quoi le jour où je ne suis plus là ? »')}"))
+A(P(f"Elle est importante. Pourtant, on l'évite, parce que penser à sa propre mort, ça ne fait plaisir à personne. Alors on se dit : {i('« Les enfants se débrouilleront. »')}"))
+A(P(f"Sauf que sans rien d'écrit, ce n'est pas toi qui décides comment ça se passe. C'est la loi. Et la loi applique une règle générale, pas ta volonté :",mb=18))
 A(png("03-loi",P_LOI_ALT,mb=18))
-A(p(P_INDIVISION,mb=24))
+A(P(P_INDIVISION,mb=24))
 A(png("06-will","Will : Tu vois où je veux en venir ?",mb=24))
-A(p("La maison aux volets fermés, ce n'est pas un accident. C'est souvent ce qui arrive quand on laisse la loi décider à sa place."))
-A(p(P_LOI2018,mb=34))
+A(P("La maison aux volets fermés, ce n'est pas un accident. C'est souvent ce qui arrive quand on laisse la loi décider à sa place."))
+A(P(P_LOI2018[0],mb=12))
+A(f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 18px 0;"><tr><td style="border-left:4px solid {TEAL};padding:2px 0 2px 14px;">{P(P_LOI2018[1],mb=0)}</td></tr></table>')
+A(P(P_LOI2018[2],mb=34))
 
 # ---------------- PARTIE 3 ----------------
 A(kicker("Partie 3")+h3(T3))
-A(p(f"Un patrimoine, ce n'est pas seulement ce que tu possèdes. C'est aussi ce que tu laisses {b('en état de marche')}. Prends un appartement, et imagine deux façons de le transmettre : sur le papier, sa valeur est la même dans les deux cas. Ce qui change, c'est ce que tu as préparé :",mb=18))
+A(P(f"Un patrimoine, ce n'est pas seulement ce que tu possèdes. C'est aussi ce que tu laisses {b('en état de marche')}. Prends un appartement, et imagine deux façons de le transmettre : sur le papier, sa valeur est la même dans les deux cas. Ce qui change, c'est ce que tu as préparé :",mb=18))
 A(png("05-heritages","Même bien, deux héritages. Rien d'organisé : les papiers sont introuvables, personne ne connaît tes souhaits, tes héritiers ne se parlent plus ; c'est un conflit avec un toit dessus. Tout est organisé : les papiers sont en ordre, chacun sait ce que tu voulais, tes héritiers savent quoi en faire ; c'est un revenu pour ceux d'après.",mb=24))
-A(p(f"Et la différence ne se joue pas le jour de l'enterrement. Elle se joue {b('aujourd’hui')}, pendant que tu peux encore décider, expliquer et organiser."))
-A(p("Mais attention, je ne te demande pas de devenir notaire, ni de passer tes week-ends dans la paperasse. Je te demande juste d'ajouter une question à ta façon d'investir :",mb=10))
+A(P(f"Et la différence ne se joue pas le jour de l'enterrement. Elle se joue {b('aujourd’hui')}, pendant que tu peux encore décider, expliquer et organiser."))
+A(P("Mais attention, je ne te demande pas de devenir notaire, ni de passer tes week-ends dans la paperasse. Je te demande juste d'ajouter une question à ta façon d'investir :",mb=10))
 A(punch("« Ce que je construis pourra-t-il continuer sans moi ? »",size=22,mb=34))
 
 # ---------------- PARTIE 4 ----------------
 A(kicker("Partie 4")+h3(T4))
 A(png("09-will-methode","Will : Prends une feuille. On avance dans l'ordre.",mb=30))
 A(step("1","Fais ton dossier « si je pars demain »"))
-A(p("Accorde-toi une heure, pas plus, et rassemble au même endroit :",mb=18))
+A(P("Accorde-toi une heure, pas plus, et rassemble au même endroit :",mb=18))
 A(png("10-dossier","À rassembler : la liste de tes biens avec leur adresse ; tes titres de propriété et tes actes notariés ; tes crédits en cours, avec le nom de chaque banque ; tes baux, tes locataires, et qui gère chaque bien.",mb=18))
-A(p(f"Puis dis à une personne de confiance {b('où')} se trouve ce dossier. Parce qu'un patrimoine que personne ne retrouve, c'est un patrimoine qui commence déjà à se perdre.",mb=32))
+A(P(f"Puis dis à une personne de confiance {b('où')} se trouve ce dossier. Parce qu'un patrimoine que personne ne retrouve, c'est un patrimoine qui commence déjà à se perdre.",mb=32))
 
 A(step("2","Écris ta volonté au lieu de laisser la règle générale décider"))
-A(p(f"Le testament, ce n'est pas réservé aux gens riches. C'est juste un papier qui dit ce que {b('toi')}, tu veux."))
-A(p(f"Le plus simple, c'est le {b('testament olographe')}. Il doit être {b('écrit de ta main du début à la fin')}, {b('daté')} précisément (jour, mois, année) et {b('signé')} : rien de tapé à l'ordinateur."))
-A(p(P_TESTAMENT))
-A(p("Seule limite : un testament ne permet pas de tout faire. En France, une partie de ton patrimoine revient obligatoirement à tes enfants :",mb=18))
+A(P(f"Le testament, ce n'est pas réservé aux gens riches. C'est juste un papier qui dit ce que {b('toi')}, tu veux."))
+A(P(f"Le plus simple, c'est le {b('testament olographe')}. Il doit être :",mb=10))
+A(bullets(["écrit de ta main du début à la fin ;","daté précisément (jour, mois, année) ;","signé."],color=TEAL))
+A(P(b("Rien de tapé à l’ordinateur.")))
+A(P(P_TESTAMENT))
+A(P("Seule limite : un testament ne permet pas de tout faire. En France, une partie de ton patrimoine revient obligatoirement à tes enfants :",mb=18))
 A(png("11-reserve","Selon le nombre d'enfants, la part réservée : la moitié de ta succession avec 1 enfant, les deux tiers avec 2 enfants, les trois quarts à partir de 3 enfants. Le reste, la quotité disponible, tu la donnes à qui tu veux.",mb=18))
-A(p(P_COUPLE,mb=32))
+A(P(P_COUPLE,mb=10))
+A(bullets(P_COUPLE_LISTE,color=TEAL)+gap(14))
 
 A(step("3","Parle à ta famille de ton vivant"))
-A(p("C'est l'étape la plus difficile. Et c'est peut-être la plus importante. Pas besoin d'annoncer ce qu'il y a sur tes comptes."))
-A(p(f"Tes proches ont juste besoin de savoir trois choses : {b('ce qui existe')}, {b('où sont les papiers')} et {b('ce que tu souhaites')}."))
-A(p("Et surtout, écoute-les. Parce que peut-être que ton fils installé dans l'Hexagone ne veut pas de la maison. Peut-être que ta fille, elle, rêve de la reprendre."))
-A(p("Ces choses-là, mieux vaut les découvrir autour d'une table, avec toi, que dans le bureau du notaire, sans toi.",mb=32))
+A(P("C'est l'étape la plus difficile. Et c'est peut-être la plus importante. Pas besoin d'annoncer ce qu'il y a sur tes comptes."))
+A(P("Tes proches ont juste besoin de savoir trois choses :",mb=10))
+A(bullets(["ce qui existe ;","où sont les papiers ;","ce que tu souhaites."],color=TEAL))
+A(P(f"Et surtout, {b('écoute-les')}.|Parce que peut-être que ton fils installé dans l'Hexagone ne veut pas de la maison.|Peut-être que ta fille, elle, rêve de la reprendre."))
+A(P(f"Ces choses-là, mieux vaut les découvrir {b('autour d’une table, avec toi')}, que dans le bureau du notaire, sans toi.",mb=32))
 
 A(step("4","À chaque achat, pense « transmissible »"))
-A(p("Avant ton prochain investissement, ajoute cette question à ton analyse, en version concrète :",mb=10))
+A(P("Avant ton prochain investissement, ajoute cette question à ton analyse, en version concrète :",mb=10))
 A(punch("« Si je pars dans dix ans, ce bien sera-t-il facile à transmettre, ou facile à disputer ? »",size=20,mb=20))
-A(p("Un exemple : une grande maison pour trois enfants, ça se partage mal. Trois petits logements, beaucoup mieux."))
-A(p(f"Je ne te dis pas que c'est la seule règle. Je te dis que c'est une question à te poser {b('avant')} de signer, pas après. Et pour les outils plus poussés, comme la donation-partage, c'est avec ton notaire que ça se calibre, en fonction de ta famille.",mb=34))
+A(P("Un exemple : une grande maison pour trois enfants, ça se partage mal. Trois petits logements, beaucoup mieux."))
+A(P(f"Je ne te dis pas que c'est la seule règle. Je te dis que c'est une question à te poser {b('avant')} de signer, pas après. Et pour les outils plus poussés, comme la donation-partage, c'est avec ton notaire que ça se calibre, en fonction de ta famille.",mb=34))
 
 # ---------------- PARTIE 5 ----------------
 A(kicker("Partie 5")+h3(T5))
-A(p("Prenons un exemple fictif, pour que tu visualises. Imagine Josette, 62 ans, qui vit à Sainte-Anne, en Guadeloupe. Elle a sa maison, et un T2 en location au Gosier, qu'elle n'a pas fini de rembourser."))
-A(p("Elle a aussi trois enfants : Marc, qui habite à deux pas de chez elle, et deux filles installées dans l'Hexagone. Le jour où elle part, voici ce qui change selon qu'elle s'est organisée ou non :",mb=18))
+A(P("Prenons un exemple fictif, pour que tu visualises. Imagine Josette, 62 ans, qui vit à Sainte-Anne, en Guadeloupe. Elle a sa maison, et un T2 en location au Gosier, qu'elle n'a pas fini de rembourser."))
+A(P("Elle a aussi trois enfants : Marc, qui habite à deux pas de chez elle, et deux filles installées dans l'Hexagone. Le jour où elle part, voici ce qui change selon qu'elle s'est organisée ou non :",mb=18))
 A(png("12-josette","Si rien n'est organisé : les papiers dorment dans une armoire, ses enfants ignorent le crédit du T2, Marc tient à la maison et ses sœurs veulent vendre ; la maison attend, volets fermés. Si Josette s'est organisée : elle a fait un dossier, et tous savent où il est ; elle a réuni la famille, chacun a dit ce qu'il veut ; avec son notaire, elle a prévu qui reçoit quoi ; chacun sait ce que Josette voulait.",mb=18))
-A(p("Sans rien d'organisé, ses trois enfants héritent à parts égales, en indivision, de la maison et du T2. Personne n'a tort. Mais personne ne peut trancher."))
-A(p("Si elle s'est organisée, elle sait déjà que ses filles ne comptent pas revenir vivre en Guadeloupe et que Marc tient à la maison. Et ce qu'elle a prévu respecte la part que la loi réserve à chacun de ses enfants."))
-A(p("Est-ce que ça garantit zéro tension ? Non, je ne vais pas te mentir. Mais une famille qui devine et une famille qui sait, c'est toute la différence entre une maison qui vit et une maison qui ferme.",mb=24))
+A(P(f"{b('Sans rien d’organisé')}, ses trois enfants héritent à parts égales, en indivision, de la maison et du T2. Personne n'a tort. Mais personne ne peut trancher."))
+A(P(f"{b('Si elle s’est organisée')}, elle sait déjà que ses filles ne comptent pas revenir vivre en Guadeloupe et que Marc tient à la maison. Et ce qu'elle a prévu respecte la part que la loi réserve à chacun de ses enfants."))
+A(P("Est-ce que ça garantit zéro tension ? Non, je ne vais pas te mentir. Mais une famille qui devine et une famille qui sait, c'est toute la différence entre une maison qui vit et une maison qui ferme.",mb=24))
 A(card(p("Bref. Tu n'investis pas seulement pour tes vieux jours. Tu investis aussi pour ceux qui viendront après toi.",size=17,color=PEACH,align="center",mb=10)+
        p("Alors fais en sorte qu'ils reçoivent un héritage.<br>Pas&nbsp;un&nbsp;problème.",size=22,color="#FFFFFF",w="bold",align="center",mb=0),bg=TEAL,pad=28,mb=30))
 
 # ---------------- MENTORAT + SIGNATURE ----------------
 A(card(kicker("Tu veux être accompagné ?")+
-       p("Je te propose un programme de mentorat personnalisé. On regarde ta situation. On définit ta stratégie. On met en place un plan d'action sur mesure.")+
+       p("Je te propose un programme de mentorat personnalisé :",mb=10)+bullets(["On regarde ta situation.","On définit ta stratégie.","On met en place un plan d'action sur mesure."],color=ORANGE)+
        p(b("Et surtout, on avance ensemble.")) +
        p("Intéressé ? Réponds simplement à ce mail avec le mot :",mb=12)+
        f'<p style="margin:0 0 14px 0;text-align:center;"><span style="display:inline-block;background:{ORANGE};color:{INK};border-radius:30px;padding:14px 30px;font-family:{FONT};font-size:22px;letter-spacing:2px;font-weight:bold;">MENTORAT</span></p>'+
        p("…et je te recontacterai pour en discuter. <em>Aucun engagement. Juste une conversation.</em>",size=15,color=MUTED,align="center",mb=0),bl=ORANGE,pad=22,mb=28))
 A(png("17-will-fin","C'était Will. Ciao !",mb=22))
 A(f'<div style="border-top:1px solid #E3DBCF;margin:0 0 16px 0;"></div>')
-A(p("Qu'as-tu pensé de cette édition ? Dis-le-nous en répondant à ce mail (on lit tout !).",size=14,color=MUTED,align="center"))
+A(P("Qu'as-tu pensé de cette édition ? Dis-le-nous en répondant à ce mail (on lit tout !).",size=14,color=MUTED,align="center"))
 body="\n".join(H)
 def _txt(m):
     t=m.group(1).replace("'","’")

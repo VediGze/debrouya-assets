@@ -9,9 +9,17 @@
  },
  "textes": {
   "loi_alt": "Sans testament, qui hérite ? Tes enfants, à parts égales. Ton conjoint marié : si vos enfants sont tous communs, un quart de tes biens ou l'usufruit de tout, au choix ; si l'un d'eux est né d'une autre union, un quart de tes biens. Ton partenaire pacsé : rien, seulement le droit de rester un an, gratuitement, dans votre logement. Ton concubin : rien du tout.",
-  "indivision": "Et tous tes héritiers deviennent propriétaires de tes biens <strong>ensemble</strong>. C'est ce qu'on appelle l'<strong>indivision</strong> : chacun a sa part, mais personne ne possède un morceau précis. Pour vendre un bien en indivision, il faut en principe l'accord de <strong>tout le monde</strong>. À défaut, c'est le passage par le notaire, puis par le juge.",
-  "loi2018": "Et le sujet est tellement présent chez nous qu'en <strong>2018</strong>, le Parlement a voté une loi rien que pour l'outre-mer : quand une succession est ouverte depuis plus de dix ans, les héritiers qui détiennent ensemble plus de la moitié des droits peuvent vendre ou partager en passant par le notaire. Ce régime court jusqu'à fin 2038. Quand il faut une loi spéciale pour débloquer des maisons de famille, c'est qu'il y a un gros problème.",
-  "testament": "Tu peux le garder chez toi, ou le confier à un notaire, qui peut le faire inscrire au <strong>Fichier central des dispositions de dernières volontés</strong> pour qu'il soit retrouvé le jour venu. Autre option : le <strong>testament authentique</strong>, rédigé directement chez le notaire. Son prix est fixé par l'État : tu paies le même tarif quel que soit le notaire.",
-  "couple": "Et si tu es en couple sans être marié, cette étape est la plus urgente de toutes. Parles-en aussi avec ton notaire, car la fiscalité change tout : si tu es pacsé, ce que tu lègues à ton partenaire par testament n'est pas taxé ; en concubinage, l'État en prend 60 %, après un petit abattement."
+  "indivision": "Et tous tes héritiers deviennent propriétaires de tes biens <strong>ensemble</strong>. C'est ce qu'on appelle l'<strong>indivision</strong> : chacun a sa part, mais personne ne possède un morceau précis.|Pour vendre un bien en indivision, il faut en principe l'accord de <strong>tout le monde</strong>. À défaut, c'est le passage par le notaire, puis par le juge.",
+  "loi2018": [
+   "Et le sujet est tellement présent chez nous qu'en 2018, le Parlement a voté une loi rien que pour l'outre-mer :",
+   "quand une succession est ouverte depuis plus de dix ans, les héritiers qui détiennent ensemble plus de la moitié des droits peuvent vendre ou partager en passant par le notaire.|Ce régime court jusqu'à fin 2038.",
+   "Quand il faut une loi spéciale pour débloquer des maisons de famille, c'est qu'il y a <strong>un gros problème</strong>."
+  ],
+  "testament": "Tu peux le garder chez toi, ou le confier à un notaire, qui peut le faire inscrire au Fichier central des dispositions de dernières volontés pour qu'il soit retrouvé le jour venu.|Autre option : le <strong>testament authentique</strong>, rédigé directement chez le notaire. Son prix est fixé par l'État : tu paies le même tarif quel que soit le notaire.",
+  "couple": "Et si tu es en couple sans être marié, cette étape est <strong>la plus urgente de toutes</strong>.|Parles-en aussi avec ton notaire, car la fiscalité change tout :",
+  "couple_liste": [
+   "si tu es <strong>pacsé</strong>, ce que tu lègues à ton partenaire par testament n'est pas taxé ;",
+   "en <strong>concubinage</strong>, l'État en prend 60 %, après un petit abattement."
+  ]
  }
 }
