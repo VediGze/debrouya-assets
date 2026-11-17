@@ -85,7 +85,7 @@ g+=(f'<path d="M0 520 C60 506 120 532 180 520 S300 506 360 520 S480 534 540 520 
 out["01-hero"]=svg(600,H,g,TEAL)
 
 # 02. TU ACHÈTES LIBRE
-g=txt(300,50,"TU ACHÈTES LIBRE : LES PREMIERS MOIS",21,TEAL,800,ls=0.5); y=74
+g=""; y=24
 for k,l in enumerate(["Tu fais les petits travaux.","Tu publies l’annonce.","Tu fais les visites.","Tu choisis ton locataire."]):
     g+=f'<rect x="24" y="{y}" width="552" height="58" rx="14" fill="{WHITE}"/><circle cx="58" cy="{y+29}" r="18" fill="{MANGO}"/>'+txt(58,y+37,str(k+1),21,WHITE,800)+txt(92,y+37,l,23,INK,700,anchor="start")
     y+=66
@@ -94,7 +94,7 @@ out["02-vide"]=svg(600,y+118,g,MANGO_L)
 
 # 03. CE QUE LE LOCATAIRE EN PLACE T'APPORTE
 items=[("Un loyer encaissé","dès le premier mois."),("Un locataire dont tu connais","les paiements depuis des mois."),("Un prix souvent","plus bas.")]
-g=txt(300,50,"CE QUE LE LOCATAIRE EN PLACE T’APPORTE",21,TEAL,800,ls=0.5); y=74
+g=""; y=24
 for a_,b2 in items:
     g+=f'<rect x="24" y="{y}" width="552" height="90" rx="14" fill="{WHITE}"/>'+check(62,y+45,TEAL,r=18)+txt(98,y+40,a_,23,INK,800,anchor="start")+txt(98,y+72,b2,22,INK,600,anchor="start")
     y+=100
@@ -112,11 +112,11 @@ g+=txt(300,y+20,"Ce sont des repères nationaux,",21,INK,600)+txt(300,y+50,"pas 
 out["04-decote"]=svg(600,y+76,g,TEAL_L)
 
 # 05. LE JOUR OÙ TU ACHÈTES
-rows=[("Le bail",["Il continue avec toi, aux mêmes","conditions : loyer, durée, clauses."],"ok"),
+rows=[("Le bail",["Il continue avec toi, avec le même loyer,","la même durée et les mêmes clauses."],"ok"),
       ("Le garant du locataire",["Son engagement reste en principe","valable, sauf clause contraire."],"ok"),
-      ("L’assurance impayés du vendeur",["Elle ne te suit pas forcément :","demande le contrat avant de signer."],"warn"),
+      ("L’assurance impayés du vendeur",["Elle ne te suit pas forcément, alors","demande le contrat avant de signer."],"warn"),
       ("Le dépôt de garantie",["C’est toi qui le rendras au locataire,","même si tu ne l’as jamais reçu."],"warn")]
-g=txt(300,50,"LE JOUR OÙ TU ACHÈTES",21,TEAL,800,ls=1); y=74
+g=""; y=24
 for who,what,st in rows:
     h=52+32*len(what)
     g+=f'<rect x="24" y="{y}" width="552" height="{h}" rx="14" fill="{WHITE}"/>'
@@ -125,21 +125,20 @@ for who,what,st in rows:
     y+=h+10
 out["05-loi"]=svg(600,y+14,g,TEAL_L)
 
-# 07. DÉLAIS (LOCATION VIDE)
-g=txt(300,50,"LOCATION VIDE : LES DÉLAIS APRÈS L’ACHAT",21,TEAL,800,ls=0.5)
-cards=[("Pour le vendre libre",["Si le bail finit moins de 3 ans après","ton achat, ton congé ne prend effet","qu’à la fin du bail renouvelé une fois."]),
-       ("Pour y habiter ou loger un proche",["Si le bail finit moins de 2 ans après","ton achat, ton congé ne prend effet","que 2 ans après ton achat."])]
-y=74
+# 07. DÉLAIS (LOCATION VIDE) — phrases courtes, faciles à lire à voix haute
+cards=[("Tu veux le vendre libre ?",["Si le bail se termine moins de 3 ans","après ton achat, tu attends la fin","du bail suivant."]),
+       ("Tu veux y habiter, ou y loger un proche ?",["Si le bail se termine moins de 2 ans","après ton achat, tu dois attendre","2 ans à compter de l’achat."])]
+g=""; y=24
 for title,lines in cards:
     h=56+32*len(lines)
     g+=f'<rect x="24" y="{y}" width="552" height="{h}" rx="14" fill="{WHITE}"/><rect x="24" y="{y}" width="10" height="{h}" fill="{MANGO}"/>'
     g+=txt(50,y+38,title,22,MANGO_D,800,anchor="start")+"".join(txt(50,y+72+j*32,l,21,INK,600,anchor="start") for j,l in enumerate(lines))
     y+=h+12
-g+=f'<rect x="24" y="{y}" width="552" height="88" rx="14" fill="{TEAL}"/>'+txt(300,y+38,"Dans tous les cas, préviens ton locataire",21,WHITE,800)+txt(300,y+68,"au moins 6 mois avant la fin du bail.",21,WHITE,700)
+g+=f'<rect x="24" y="{y}" width="552" height="88" rx="14" fill="{TEAL}"/>'+txt(300,y+38,"Et dans tous les cas, préviens ton locataire",21,WHITE,800)+txt(300,y+68,"au moins 6 mois avant la fin du bail.",21,WHITE,700)
 out["07-delais"]=svg(600,y+112,g,MANGO_L)
 
 # 10. LE DOSSIER À DEMANDER
-items=[("Le bail signé","et ses éventuels avenants."),("L’état des lieux d’entrée","signé à l’arrivée du locataire."),("Les paiements des 12 derniers mois :","quittances ou relevés de compte."),("Le montant du dépôt de garantie","versé par le locataire à son entrée."),("L’acte de caution du garant,","s’il y en a un.")]
+items=[("Le bail signé","et ses éventuels avenants."),("L’état des lieux d’entrée","signé à l’arrivée du locataire."),("Les paiements des 12 derniers mois,","avec les quittances ou les relevés."),("Le montant du dépôt de garantie","versé par le locataire à son entrée."),("L’acte de caution du garant,","s’il y en a un.")]
 g=""; y=24
 for a_,b2 in items:
     g+=f'<rect x="24" y="{y}" width="552" height="86" rx="14" fill="{WHITE}"/>'+check(60,y+43,TEAL,r=17)+txt(92,y+38,a_,22,INK,800,anchor="start")+txt(92,y+70,b2,21,INK,600,anchor="start")
@@ -147,7 +146,7 @@ for a_,b2 in items:
 out["10-dossier"]=svg(600,y+14,g,TEAL_L)
 
 # 11. LIRE LE BAIL : 3 POINTS (numéros dessinés)
-rows=[("La date de fin du bail,","pour savoir où tu en es."),("Le type de location :","vide ou meublée, les règles changent."),("Le loyer,","comparé à ceux du quartier.")]
+rows=[("La date de fin du bail,","pour savoir où tu en es."),("Le type de location, vide ou meublée,","car les règles ne sont pas les mêmes."),("Le loyer,","comparé à ceux du quartier.")]
 g=""; y=24
 for k,(a_,b2) in enumerate(rows):
     g+=f'<rect x="24" y="{y}" width="552" height="90" rx="14" fill="{WHITE}"/><circle cx="64" cy="{y+45}" r="22" fill="{MANGO}"/>'+txt(64,y+54,str(k+1),23,WHITE,800)+txt(102,y+40,a_,23,INK,800,anchor="start")+txt(102,y+72,b2,22,INK,600,anchor="start")
