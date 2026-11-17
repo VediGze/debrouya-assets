@@ -58,5 +58,15 @@
    "pouce",
    "clin"
   ]
+ },
+ {
+  "date": "2026-12-04",
+  "edition": 154,
+  "poses": [
+   "telephone",
+   "menton",
+   "carnet",
+   "bras-croises"
+  ]
  }
 ]

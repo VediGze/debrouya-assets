@@ -1,0 +1,26 @@
+{
+ "temoignage": {
+  "prenom": "Sandra",
+  "paras": [
+   "Enfin, après de nombreuses négociations et allers-retours des banques, je viens d'avoir notre accord pour l'acquisition de mon petit immeuble, wahou !",
+   "La conseillère a été féroce, mais nous a obtenu des conditions plutôt bonnes sans apport. La suite très vite !! 🤩",
+   "Voilà, je voulais partager cette étape avec toute la team !"
+  ]
+ },
+ "textes": {
+  "decote_intro": "Les sites spécialisés donnent des ordres de grandeur :",
+  "decote_alt": "De combien le prix baisse, en général : la plupart des logements loués vides, 10 à 15 % ; studio ou petite surface louée vide, 5 à 10 %. Ce sont des repères nationaux, pas des chiffres antillais.",
+  "loi_alt": "Le jour où tu achètes : le bail continue avec toi, aux mêmes conditions (loyer, durée, clauses) ; l’engagement du garant du locataire reste en principe valable, sauf clause contraire ; l’assurance impayés du vendeur ne te suit pas forcément, demande le contrat avant de signer ; le dépôt de garantie, c’est toi qui le rendras au locataire, même si tu ne l’as jamais reçu.",
+  "meuble": "En meublé, il n'y a pas de délai spécial après l'achat : tu peux donner congé pour la fin du bail, avec 3 mois de préavis.|Autre protection : un locataire âgé aux revenus modestes ne peut pas être congédié aussi facilement.|Renseigne-toi auprès de ton notaire ou de l'ADIL (l'agence départementale d'information sur le logement) avant d'acheter.",
+  "loyer": "En cours de bail, seule la révision annuelle sur l'indice des loyers est possible, si le bail la prévoit. Et si le DPE est F ou G, le loyer ne peut pas augmenter du tout.|Alors fais ton calcul de rentabilité avec <strong>le loyer réel</strong>, pas avec celui que tu espères.",
+  "depot_nego": "Et surtout, règle la question du <strong>dépôt de garantie</strong> noir sur blanc. Fais prévoir dans l'acte que le vendeur te le reverse le jour de la vente.|En pratique, le notaire le retient sur la somme versée au vendeur. Comme ça, le jour où le locataire partira, tu ne le sortiras pas de ta poche.|Sans ça, c'est toi qui le rendras, et tu devras le réclamer au vendeur.",
+  "relais": [
+   "envoie tes <strong>coordonnées</strong> au locataire : c'est une obligation pour toi ;",
+   "donne-lui par écrit le nouveau compte sur lequel verser le loyer ;",
+   "assure le logement à ton nom (assurance propriétaire non occupant) : en copropriété, c'est obligatoire ;",
+   "si l'assurance impayés du vendeur ne te suit pas, souscris la tienne tout de suite."
+  ],
+  "depot_ex": "Et le dépôt de garantie (ici 700 €, le maximum en location vide) : prévu dans l'acte, il t'est reversé dès la vente.",
+  "delais_alt": "Location vide, les délais après l’achat. Pour le vendre libre : si le bail finit moins de 3 ans après ton achat, ton congé ne prend effet qu’à la fin du bail renouvelé une fois. Pour y habiter ou loger un proche : si le bail finit moins de 2 ans après ton achat, ton congé ne prend effet que 2 ans après ton achat. Dans tous les cas, préviens ton locataire au moins 6 mois avant la fin du bail."
+ }
+}
