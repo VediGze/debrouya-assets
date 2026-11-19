@@ -27,7 +27,7 @@
 16. Avant livraison : vérifier que le HTML LearnyBox et le PDF sont identiques (même texte, mêmes images octet pour octet).
 
 ## Livraison
-17. Claude dépose lui-même dans le Drive, dans un SOUS-DOSSIER « NNN - Journal Débrouya » (numéro en premier) créé dans le même dossier de mois que le Google Doc « LE JOURNAL DÉBROUYA Newsletter #NNN » (pas forcément le mois en cours) : « NNN - Journal Débrouya - aperçu.pdf » + « NNN - Journal Débrouya - code LearnyBox.html ». Le Google Doc reste à sa place. Anciennes versions à la corbeille.
+17. Claude dépose lui-même dans le Drive, dans un SOUS-DOSSIER « NNN - Journal Débrouya » (numéro en premier) créé dans le même dossier de mois que le Google Doc « LE JOURNAL DÉBROUYA Newsletter #NNN » (pas forcément le mois en cours) : « NNN - Journal Débrouya - aperçu.pdf » + « NNN - Journal Débrouya - code LearnyBox.html ». Le Google Doc de l'édition est DÉPLACÉ dans ce sous-dossier (il ne reste pas à l'extérieur). Anciennes versions à la corbeille.
 18. Jamais de manip manuelle pour Steny quand Claude peut la faire (Drive, Sheets, Apps Script, GitHub).
 19. Prompts pour ChatGPT : complets, un par bloc, prêts à copier-coller.
 20. Sondage « nouveau format » : terminé — utilisé uniquement dans la #147 (votes dans le Sheet « Sondages Journal Débrouya »). Ne plus le mettre dans les éditions suivantes, sauf nouvelle demande de Steny.
@@ -55,7 +55,10 @@
 42. Fluidité : le texte se lit d'une traite, à voix haute, comme Will qui raconte. Chaque partie s'ouvre par une phrase-pont avec la précédente ; chaque image est amenée par une phrase qui donne envie de la regarder et suivie d'une conséquence (sans répéter l'image) ; connecteurs logiques variés ; pas de phrases « d'annonce » creuses (« Les sites spécialisés donnent des ordres de grandeur : ») ; découper pour le téléphone ne doit jamais casser l'enchaînement. Processus : texte de l'article écrit au balisage (article NNN.md : §, →, !!, [IMAGE], [ENCADRÉ], ##, ###), réécriture « transitions » par un sous-agent, puis relecture « à voix haute » par un autre sous-agent qui corrige le fichier, avant les relectures habituelles.
 43. Deux-points : Steny les déteste. Aucun deux-points dans le texte du mail, remplacé par un connecteur, une virgule ou un point (« Résultat, … », « Concrètement, … »). Seule exception : la phrase qui introduit une liste à flèches. Même règle dans les textes des images autant que possible.
 44. Phrases creuses interdites : pas de phrase qui ne fait qu'annoncer la suite ou une image (« Le dernier point, on s'y arrête une seconde. », « Pour te donner un ordre d'idée : », « Avant de foncer, il faut connaître les règles du jeu. »). Pas de titre d'image qui répète la phrase juste avant (supprimer le titre : la phrase d'amorce suffit). Textes des images en phrases courtes, faciles à lire à voix haute (« Tu veux le vendre libre ? Si le bail se termine… »).
- avant de rendre (à refaire jusqu'à ne plus rien trouver)
+45. Le lecteur est le propriétaire. Quand une image ou une phrase décrit le locataire, parler de lui à la 3e personne (« Ton locataire a 30 ans ou moins »), jamais « Tu as 30 ans ».
+46. Mail envoyé le jour d'un événement en ligne : dire « aujourd'hui » plutôt que « ce soir » (19 h à Paris = 14 h aux Antilles) et donner les trois horaires (Antilles, Guyane, Hexagone).
+
+## Relecture obligatoire avant de rendre (à refaire jusqu'à ne plus rien trouver)
 Passe 1 — Texte : extraire tout le texte du mail dans l'ordre de lecture et le relire phrase par phrase :
 - accords tu/vous (« tu » = un lecteur ; groupe = « vous » ; « Bienvenue aux N abonnés… si tu en fais partie »), 3e personne → 2e personne (« Merci à Annick… Annick, c'est un plaisir de t'avoir »)
 - phrases bancales (« parce que… mais »), répétitions avec le pied de mail, logique des enchaînements
