@@ -78,5 +78,25 @@
    "carnet",
    "bras-croises"
   ]
+ },
+ {
+  "date": "2026-12-08",
+  "edition": 155,
+  "poses": [
+   "salut",
+   "pointe",
+   "pouce",
+   "clin"
+  ]
+ },
+ {
+  "date": "2026-12-11",
+  "edition": 156,
+  "poses": [
+   "telephone",
+   "surpris",
+   "carnet",
+   "bras-croises"
+  ]
  }
 ]
