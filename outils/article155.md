@@ -20,7 +20,7 @@
 § Alors au lieu de te dire *« je finirai tout, un jour »*, demande-toi plutôt *« quelle partie je peux mettre au travail en premier ? »*.
 § Pour y arriver plus vite, il faudra peut-être emprunter. Je ne te dis pas de t’endetter à tout prix, mais de **comparer** le coût d’un crédit avec celui de plusieurs années sans aucun loyer.
 ## Ta méthode en 4 étapes pour remettre ton chantier au&nbsp;travail
-§ Pour choisir la partie à lancer en premier, puis la financer, pas besoin de tout chambouler.
+§ Et pour remettre ton chantier au travail, inutile de tout finir d’un coup.
 [IMAGE 09-will-methode]
 ### Étape 1 — Fais le compte de ce qui&nbsp;dort
 § Commence par additionner tout ce que tu as déjà mis dans la construction, terrain à part. Ressors les factures, les relevés et les devis payés, et même si c’est approximatif, écris un chiffre.

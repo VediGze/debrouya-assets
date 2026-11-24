@@ -28,13 +28,15 @@ rows=[("",["Il ne te rapporte aucun loyer."]),("",["Il ne t’apporte ni confort
 out["02-dort"]=rowcards(rows,MANGO_L,icon_fn=lambda cx,cy,k,h: cross(cx,cy,MANGO,r=18),size_l=21)
 
 # 03 LE PERMIS
-g=txt(300,52,"TON PERMIS N’EST PLUS VALABLE…",18,MANGO_D,800,ls=1)
-for k,(big,l1,l2) in enumerate([("3 ans","si les travaux n’ont pas","commencé dans ce délai,"),("1 an","ou si, passé ce délai, ils","s’arrêtent plus d’un an.")]):
-    y=76+k*124
-    g+=(f'<rect x="24" y="{y}" width="552" height="108" rx="16" fill="{WHITE}"/>'
-        + f'<rect x="44" y="{y+14}" width="112" height="80" rx="14" fill="{TEAL}"/>' + txt(100,y+64,big,28,WHITE,800)
-        + txt(180,y+48,l1,21,INK,700,anchor="start")+txt(180,y+80,l2,21,INK,700,anchor="start"))
-out["03-permis"]=svg(600,76+2*124+12,g,MANGO_L)
+g=txt(300,50,"TON PERMIS N’EST PLUS VALABLE DANS DEUX CAS",18,MANGO_D,800,ls=1)
+cas=[("1","Les travaux n’ont pas commencé","dans les 3 ans qui suivent son obtention."),
+     ("2","Passé ces 3 ans, le chantier s’arrête","pendant plus d’un an d’affilée.")]
+for k,(n,l1,l2) in enumerate(cas):
+    y=74+k*112
+    g+=(f'<rect x="24" y="{y}" width="552" height="98" rx="16" fill="{WHITE}"/>'
+        + f'<circle cx="66" cy="{y+49}" r="22" fill="{TEAL}"/>' + txt(66,y+57,n,23,WHITE,800)
+        + txt(106,y+42,l1,21,INK,800,anchor="start")+txt(106,y+72,l2,20,INK,600,anchor="start"))
+out["03-permis"]=svg(600,74+2*112+14,g,MANGO_L)
 
 # 04 À L'ABRI OU À L'ARRÊT
 def piggy(cx,cy,col=GREY):

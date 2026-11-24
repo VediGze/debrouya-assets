@@ -120,7 +120,7 @@ A(f'<p style="margin:0 0 28px 0;text-align:center;">{social_btn("Instagram",LINK
 import re as _re
 ALTS={
 "02-dort":"Ton argent ne te rapporte aucun loyer. Il ne t’apporte ni confort, ni toit. Et il vieillit avec le chantier, au soleil, sous la pluie et dans l’air marin.",
-"03-permis":"Ton permis n’est plus valable si les travaux n’ont pas commencé dans les 3 ans, ou si, passé ce délai, ils s’arrêtent plus d’un an d’affilée.",
+"03-permis":"Ton permis n’est plus valable dans deux cas. Un, les travaux n’ont pas commencé dans les 3 ans qui suivent son obtention. Deux, passé ces 3 ans, le chantier s’arrête pendant plus d’un an d’affilée.",
 "06-will":"Will te demande « Tu vois où je veux en venir ? »",
 "04-abri":"Ce qu’on croit, ton argent est à l’abri. En réalité, ton argent est à l’arrêt.",
 "09-will-methode":"Will te dit « Il te faut juste le bon ordre. »",
