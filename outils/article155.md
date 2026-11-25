@@ -27,26 +27,26 @@
 [IMAGE 10-compte]
 ### Étape 2 — Vérifie où en sont tes&nbsp;papiers
 § Ensuite, avant de relancer quoi que ce soit, passe à la mairie pour vérifier que ton permis de construire est toujours valable, et ce qu’il couvre exactement.
-§ Si c’est le cas, tant mieux. Et si le temps te manque, sache qu’il peut être prolongé.
+§ Si c’est le cas, tant mieux. Et s’il arrive bientôt à sa date limite, sache qu’il peut être prolongé.
 [IMAGE 11-prolonger]
 § Et s’il est périmé, mieux vaut le découvrir maintenant que le jour où le maçon arrive pour l’étage.
 ### Étape 3 — Choisis la partie qui peut rapporter en&nbsp;premier
-§ Une fois tes papiers en ordre, regarde ton chantier avec des yeux de propriétaire bailleur. Quelle partie pourrait devenir un logement indépendant le plus vite, avec le moins de travaux ?
+§ Une fois tes papiers en ordre, regarde ton chantier avec les yeux d’un propriétaire qui veut louer. Quelle partie pourrait devenir un logement indépendant le plus vite, avec le moins de travaux ?
 [IMAGE 12-parties]
 § Ensuite, fais chiffrer **uniquement** cette partie par des professionnels, avec des devis détaillés. Et garde en tête qu’elle devra respecter les critères d’un logement décent, sinon tu ne pourras pas la louer.
 ### Étape 4 — Compare deux façons de financer la&nbsp;fin
 § Reste à savoir comment payer ces travaux. Soit tu continues comme avant, au rythme de ton épargne. Soit tu finances cette partie d’un coup, avec ce que tu as déjà mis de côté et, si besoin, un prêt travaux, pour la louer plus vite.
 § Dans les deux cas, note ce que ça te coûte et le **premier mois** où ça te rapporte. Bien souvent, la différence saute aux yeux.
 § Et si tu penses au prêt, tes devis de l’étape 3 vont te servir une deuxième fois. C’est sur eux que la banque s’appuiera pour décider de te financer.
-§ Dans ce calcul, n’oublie pas non plus le coup de pouce dont on a parlé fin octobre, l’exonération de taxe foncière de 2 ans, totale ou partielle selon ta commune. Pour en profiter, déclare la partie terminée aux impôts dans les **90 jours** qui suivent la fin des travaux.
+§ Dans ce calcul, n’oublie pas non plus le coup de pouce dont on a parlé fin octobre. Pendant 2 ans, tu ne paies pas de taxe foncière sur la partie neuve, ou tu en paies moins, selon ta commune. Pour en profiter, déclare la partie terminée aux impôts dans les **90 jours** qui suivent la fin des travaux.
 § Tu vois, ton chantier n’a pas besoin d’être fini pour commencer à travailler.
 !! Il a juste besoin d’un&nbsp;plan.
 ## Concrètement, à quoi ça&nbsp;ressemble ?
 § Prenons Rodrigue. Il est locataire à Petit-Bourg, en Guadeloupe, et il construit sa maison sur un terrain que ses parents lui ont donné.
 § *(C’est un exemple fictif aux chiffres ronds, juste pour illustrer.)*
 § Depuis 8 ans, il avance petit à petit, et il y a déjà mis 60 000 €. Les murs et la dalle du rez-de-chaussée sont faits, mais rien n’est fini à l’intérieur, et l’étage attend toujours.
-§ Comme il met environ 8 000 € de côté chaque année, il lui faudra encore 5 ou 6 ans pour tout finir. Et pendant tout ce temps, il continue de payer son propre loyer.
-§ Maintenant, imagine qu’il change l’ordre de ses travaux. Il fait chiffrer la fin du rez-de-chaussée en T2 indépendant, et les 25 000 € de travaux, il les finance avec son épargne et un petit prêt. Six mois plus tard, il loue ce T2 600 € par mois.
+§ Il lui reste environ 45 000 € de travaux, et comme il met environ 8 000 € de côté chaque année, il lui faudra encore 5 ou 6 ans pour tout finir. Et pendant tout ce temps, il continue de payer son propre loyer.
+§ Maintenant, imagine qu’il change l’ordre de ses travaux. Il fait chiffrer la fin du rez-de-chaussée en T2 indépendant (un salon et une chambre), et les 25 000 € de travaux, il les finance avec son épargne et un petit prêt. Six mois plus tard, il loue ce T2 600 € par mois.
 [IMAGE 14-rodrigue]
 § Bien sûr, il faudra retirer de ces 18 000 € le coût du prêt, l’assurance et l’entretien. Et l’étage attendra encore un peu, mais au lieu d’un chantier qui dort, Rodrigue a maintenant des loyers pour le financer.
 § Même maison, même terrain, même Rodrigue. La seule chose qui a changé, c’est **l’ordre** dans lequel il construit.

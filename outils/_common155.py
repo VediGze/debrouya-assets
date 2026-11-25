@@ -7,9 +7,10 @@ def hero(ban, num, l1, l2, icon, H=560):
     g+=(f'<path d="M0 520 C60 506 120 532 180 520 S300 506 360 520 S480 534 540 520 S600 514 620 520 V{H} H0 Z" fill="{TEAL_D}"/>'
         f'<path d="M0 536 C60 526 120 546 180 536 S300 526 360 536 S480 546 540 536 S600 532 620 536 V{H} H0 Z" fill="#0A403C"/>')
     return svg(600,H,g,TEAL)
-def rowcards(rows, bg, icon_fn=None, accent=None, size_t=22, size_l=21):
+def rowcards(rows, bg, icon_fn=None, accent=None, size_t=22, size_l=21, head=None):
     """rows: (titre, [lignes]) ; icon_fn(cx,cy,k) -> svg"""
     g=""; y=24
+    if head: g=txt(300,48,head,17,TEAL,800,ls=1); y=70
     for k,(t,lines) in enumerate(rows):
         h=(54 if t else 22)+32*len(lines); hl_=(accent==k)
         g+=f'<rect x="24" y="{y}" width="552" height="{h}" rx="14" fill="{TEAL if hl_ else WHITE}"/>'

@@ -121,14 +121,14 @@ import re as _re
 ALTS={
 "06-will":"Will s’étonne « Et puis… plus rien. »",
 "02-cout":"Des loyers perdus. Du temps gaspillé. Des nuits blanches.",
-"03-garanties":"À partir de la réception, 1 an de parfait achèvement pour les défauts notés à la réception et ceux qui apparaissent dans l’année. 2 ans de bon fonctionnement pour les équipements qu’on peut enlever sans abîmer le bâti. 10 ans de décennale pour les dommages graves, qu’on ne pouvait pas voir à la réception.",
-"05-retenue":"Jusqu’à 5 % du prix TTC mis de côté, bloqués chez un tiers choisi à deux, et rendus à l’artisan 1 an après la réception. Mais si les réserves ne sont pas levées d’ici là, tu peux t’opposer à leur restitution par une lettre recommandée motivée, envoyée au tiers qui les garde.",
+"03-garanties":"Après la réception, l’artisan reste responsable. Pendant 1 an, il répare tous les défauts, ceux notés à la réception et ceux qui apparaissent dans l’année. Pendant 2 ans, il répare les équipements posés pendant les travaux, s’ils tombent en panne. Pendant 10 ans, son assurance décennale paie si un dommage grave apparaît.",
+"05-retenue":"L’argent ne reste pas chez toi, il est bloqué chez un intermédiaire choisi ensemble, par exemple un notaire. Pendant ce temps, l’artisan corrige les réserves. Au plus tard 1 an après la réception, l’argent lui est versé. Défauts toujours là ? Écris en recommandé à cet intermédiaire, en expliquant ce qui n’est pas réparé. L’argent reste alors bloqué.",
 "09-will-methode":"Will te dit « On suit l’ordre, étape par étape. »",
-"10-verif":"Son numéro SIRET, vérifié sur l’Annuaire des entreprises. Son attestation décennale, en cours, et pour les travaux confiés. Un devis écrit et détaillé, poste par poste, avec les délais.",
-"11-paiements":"À la commande, tu verses un acompte raisonnable. À chaque étape visible, tu paies ce qui est fait. Après la réception, tu paies le solde. 1 an après la réception, les 5 % retenus sont rendus.",
+"10-verif":"Son numéro SIRET, l’identité de son entreprise, à vérifier sur le site Annuaire des entreprises. Son attestation d’assurance décennale, encore valable, et qui couvre bien tes travaux. Un devis écrit et détaillé, poste par poste, avec les délais.",
+"11-paiements":"À la commande, un petit acompte, pas la moitié. À chaque étape visible, tu paies ce qui est fait. Après la réception, le reste, moins les 5 % retenus. 1 an après la réception, l’artisan reçoit ces 5 %.",
 "12-reception":"Ouvre les robinets. Teste chaque prise. Manœuvre chaque fenêtre. Regarde les joints de près. Et note chaque défaut dans le procès-verbal, avec des photos datées.",
 "13-dossier":"Ton dossier chantier. Le devis signé, l’attestation d’assurance, les factures, les photos et le procès-verbal de réception.",
-"14-exemple":"Si tu paies la moitié au départ, 8 000 € versés pour des travaux jamais faits. Si tu paies au rythme du chantier, 1 000 € versés pour des travaux jamais faits.",
+"14-exemple":"Si tu as versé la moitié au départ, 8 000 € payés pour rien, puisque tu as versé 10 000 € pour 2 000 € de travaux. Si tu as payé au fur et à mesure, 1 000 € payés pour rien, puisque tu as versé 3 000 € pour 2 000 € de travaux.",
 }
 def _md(t):
     t=_re.sub(r"\*\*(.+?)\*\*",r"<strong>\1</strong>",t)

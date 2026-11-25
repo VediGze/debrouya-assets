@@ -30,35 +30,40 @@ for k,(ic,l1,l2) in enumerate([(coin,"Des loyers","perdus."),(clock,"Du temps","
     g+=ic(x,76)+txt(x,152,l1,22,INK,800)+txt(x,180,l2,22,INK,800)
 out["02-cout"]=svg(600,206,g,MANGO_L)
 
-# 03 LES TROIS GARANTIES DE LA RÉCEPTION
-rows=[("Parfait achèvement","1 an",48,["Les défauts notés à la réception,","et ceux qui apparaissent dans l’année."]),
-      ("Bon fonctionnement","2 ans",96,["Les équipements qu’on peut enlever","sans abîmer le bâti."]),
-      ("Décennale","10 ans",480,["Les dommages graves, qu’on ne","pouvait pas voir à la réception."])]
-g=(f'<rect x="40" y="22" width="150" height="34" rx="17" fill="{INK}"/>'+txt(115,45,"RÉCEPTION",16,WHITE,800,ls=2)
-   +f'<line x1="60" y1="56" x2="60" y2="{56+3*136}" stroke="{INK}" stroke-width="3" stroke-dasharray="6 6"/>')
-for k,(t,d,w,lines) in enumerate(rows):
-    y=74+k*136
-    g+=(txt(76,y+18,t,21,INK,800,anchor="start")+txt(560,y+18,d,22,MANGO_D,800,anchor="end")
-        +f'<rect x="60" y="{y+30}" width="{w}" height="18" rx="9" fill="{TEAL if k==2 else MANGO}"/>'
-        +"".join(txt(76,y+78+j*28,l,19,INK,600,anchor="start") for j,l in enumerate(lines)))
-out["03-garanties"]=svg(600,74+3*136+4,g,WHITE)
+# 03 CE QUE L'ARTISAN TE DOIT APRÈS LA RÉCEPTION
+def dur(cx,cy,k,h):
+    t=["1 an","2 ans","10 ans"][k]
+    return f'<rect x="{cx-42}" y="{cy-30}" width="84" height="60" rx="12" fill="{[MANGO,MANGO,TEAL][k]}"/>'+txt(cx,cy+8,t,22,WHITE,800)
+rows=[("Il répare tous les défauts,",["ceux notés à la réception et ceux","qui apparaissent dans l’année."]),
+      ("Il répare les équipements posés",["pendant les travaux, s’ils","tombent en panne."]),
+      ("Son assurance décennale paie",["si un dommage grave apparaît."])]
+g=txt(300,48,"APRÈS LA RÉCEPTION, L’ARTISAN RESTE RESPONSABLE",17,TEAL,800,ls=1)
+y=70
+for k,(t,lines) in enumerate(rows):
+    hh=54+30*len(lines)
+    g+=f'<rect x="24" y="{y}" width="552" height="{hh}" rx="14" fill="{WHITE}"/>'+dur(84,y+hh/2,k,False)
+    g+=txt(146,y+38,t,21,INK,800,anchor="start")+"".join(txt(146,y+68+jj*28,l,19,INK,600,anchor="start") for jj,l in enumerate(lines))
+    y+=hh+12
+out["03-garanties"]=svg(600,y+12,g,TEAL_L)
 
 # 05 LA RETENUE DE GARANTIE
-steps=[("Jusqu’à 5 %","du prix TTC","mis de côté."),("Bloqués","chez un tiers","choisi à deux."),("1 an","après réception,","rendus à l’artisan.")]
-g=""
-for k,(big,l1,l2) in enumerate(steps):
-    x=24+k*188
-    g+=f'<rect x="{x}" y="24" width="176" height="176" rx="16" fill="{WHITE}"/>'
-    g+=txt(x+88,82,big,30 if len(big)<9 else 25,MANGO_D,800)+txt(x+88,128,l1,18,INK,700)+txt(x+88,154,l2,18,INK,700)
-g+=txt(300,234,"Mais si les réserves ne sont pas levées d’ici là,",19,INK,600)+txt(300,260,"tu peux t’opposer à leur restitution par une lettre",19,INK,600)+txt(300,286,"recommandée motivée, envoyée au tiers qui les garde.",19,INK,600)
-out["05-retenue"]=svg(600,310,g,TEAL_L)
+def ic5(cx,cy,k,h):
+    if k==0: return f'<rect x="{cx-16}" y="{cy-4}" width="32" height="24" rx="4" fill="{TEAL}"/><path d="M{cx-10} {cy-4} v-8 a10 10 0 0 1 20 0 v8" stroke="{TEAL}" stroke-width="5" fill="none"/>'
+    if k==1: return check(cx,cy,MANGO,r=20)
+    if k==2: return f'<circle cx="{cx}" cy="{cy}" r="20" fill="{TEAL}"/>'+txt(cx,cy+8,"€",22,WHITE,800)
+    return f'<circle cx="{cx}" cy="{cy}" r="20" fill="{INK}"/><path d="M{cx-9} {cy-9} l18 18 M{cx+9} {cy-9} l-18 18" stroke="{WHITE}" stroke-width="5" stroke-linecap="round"/>'
+rows=[("L’argent ne reste pas chez toi.",["Il est bloqué chez un intermédiaire choisi","ensemble, par exemple un notaire."]),
+      ("Pendant ce temps,",["l’artisan corrige les réserves."]),
+      ("Au plus tard 1 an après la réception,",["l’argent lui est versé."]),
+      ("Défauts toujours là ?",["Écris en recommandé à cet intermédiaire, en","expliquant ce qui n’est pas réparé. L’argent","reste alors bloqué."])]
+out["05-retenue"]=rowcards(rows,TEAL_L,icon_fn=ic5,size_t=20,size_l=19)
 
 # 10 VÉRIFIER L'ARTISAN
-rows=[("Son numéro SIRET,",["vérifié sur l’Annuaire des entreprises."]),("Son attestation décennale,",["en cours, et pour les travaux confiés."]),("Un devis écrit et détaillé,",["poste par poste, avec les délais."])]
+rows=[("Son numéro SIRET,",["l’identité de son entreprise, à vérifier","sur le site Annuaire des entreprises."]),("Son attestation d’assurance décennale,",["encore valable, et qui couvre bien","tes travaux."]),("Un devis écrit et détaillé,",["poste par poste, avec les délais."])]
 out["10-verif"]=rowcards(rows,TEAL_L,icon_fn=lambda cx,cy,k,h: check(cx,cy,TEAL,r=18))
 
 # 11 PAYER AU RYTHME DU CHANTIER
-steps=[("À la commande","tu verses un acompte raisonnable."),("À chaque étape visible","tu paies ce qui est fait."),("Après la réception","tu paies le solde."),("1 an après la réception","les 5 % retenus sont rendus.")]
+steps=[("À la commande","un petit acompte, pas la moitié."),("À chaque étape visible","tu paies ce qui est fait."),("Après la réception","le reste, moins les 5 % retenus."),("1 an après la réception","l’artisan reçoit ces 5 %.")]
 g=""; y=24
 g+=f'<line x1="70" y1="{y+40}" x2="70" y2="{y+40+3*104}" stroke="{TEAL_M}" stroke-width="5"/>'
 for k,(quand,quoi) in enumerate(steps):
@@ -93,8 +98,8 @@ for k,t in enumerate(items):
 out["13-dossier"]=svg(600,368,g,MANGO_L)
 
 # 14 L'EXEMPLE
-rows=[("Si tu paies la moitié au départ","8 000 €",["versés pour des travaux jamais faits."],GREY_L,INK),
-      ("Si tu paies au rythme du chantier","1 000 €",["versés pour des travaux jamais faits."],TEAL,WHITE)]
+rows=[("Si tu as versé la moitié au départ","8 000 €",["payés pour rien, puisque tu as versé","10 000 € pour 2 000 € de travaux."],GREY_L,INK),
+      ("Si tu as payé au fur et à mesure","1 000 €",["payés pour rien, puisque tu as versé","3 000 € pour 2 000 € de travaux."],TEAL,WHITE)]
 out["14-exemple"]=bigcards(rows,MANGO_L)
 
 if ONLY: out={k:v for k,v in out.items() if k in ONLY}

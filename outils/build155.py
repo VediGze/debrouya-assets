@@ -125,9 +125,9 @@ ALTS={
 "04-abri":"Ce qu’on croit, ton argent est à l’abri. En réalité, ton argent est à l’arrêt.",
 "09-will-methode":"Will te dit « Il te faut juste le bon ordre. »",
 "10-compte":"Ce qui dort dans ton chantier. Ce que tu as mis, hors terrain. Depuis combien d’années. Ce que ça t’a rapporté, 0 €.",
-"11-prolonger":"Ton permis, puis un an de plus, puis encore un an. Ta demande se fait au moins 2 mois avant la fin. Tu peux le prolonger d’un an, jusqu’à 2 fois, si les règles d’urbanisme n’ont pas changé.",
-"12-parties":"Un rez-de-chaussée dont le gros œuvre est fait. Un studio avec sa propre entrée. Un niveau complet, pendant que l’autre attend.",
-"14-rodrigue":"S’il continue comme avant, 0 € de loyers sur les 3 prochaines années. S’il met le rez-de-chaussée au travail, 18 000 € de loyers sur 3 ans, soit 30 mois à 600 €.",
+"11-prolonger":"Ton permis, puis un an de plus, puis encore un an. Ta demande se fait au moins 2 mois avant la fin. Tu peux le prolonger d’un an, jusqu’à 2 fois, si les règles de construction de ta commune n’ont pas changé.",
+"12-parties":"Ce qui peut se louer en premier. Un rez-de-chaussée dont les murs et la dalle sont faits. Un studio avec sa propre entrée. Un étage entier, pendant que l’autre étage attend.",
+"14-rodrigue":"S’il continue comme avant, 0 € de loyers sur les 3 prochaines années. S’il met le rez-de-chaussée au travail, 18 000 € de loyers sur 3 ans, soit 30 mois à 600 €, après 6 mois de travaux.",
 }
 def _md(t):
     t=_re.sub(r"\*\*(.+?)\*\*",r"<strong>\1</strong>",t)
