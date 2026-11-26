@@ -104,9 +104,9 @@ LINK_COACH="https://www.mouvementlyannaj.com/newsletter-devenir-coach/"
 def bigbtn(label,href=LINK_COACH,mb=26):
     return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 {mb}px 0;"><tr><td align="center">'
             f'<a href="{href}" target="_blank" style="display:block;background:{ORANGE};border:2px solid {ORANGE};color:{INK};text-decoration:none;font-family:{FONT};font-size:18px;font-weight:bold;line-height:1.25;border-radius:32px;padding:16px 8px;text-align:center;">{label}</a></td></tr></table>')
-PRE="Ton logement est vide en attendant ton retour ? Il existe un bail pour le louer quelques mois, sans t’engager pour 3 ans."
+PRE="Ton appart reste vide en attendant ton retour ? Ce bail te permet de le louer quelques mois, puis il te revient à la date prévue."
 A('<div style="display:none;font-size:1px;line-height:1px;color:'+BG+';max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">'+PRE+"&zwnj;&nbsp;"*60+'</div>')
-A(png("01-hero","Le Journal Débrouya, édition #152. Louer sans t’engager pour 3 ans. Tu choisis la durée, et tu récupères ton bien.",mb=20))
+A(png("01-hero","Le Journal Débrouya, édition #152. Le bail qui te rend ton appart. Tu le loues quelques mois, puis il te revient.",mb=20))
 A(png("00-will-salut","Will te dit « Salut la famille ! »",mb=20))
 nb=b(NB) if NB else PH("[NB ABONNÉS]")
 A(P(f"Bienvenue aux {nb} nouveaux abonnés qui nous ont rejoints depuis la dernière édition ! Si tu en fais partie, on est très heureux de te compter parmi les membres de la communauté des Débrouya.",size=17,mb=14))
@@ -123,7 +123,7 @@ ALTS={
 "02-ferme":"Ton logement fermé en attendant. Il rapporte 0 €. Mais il te coûte toujours la taxe foncière, l’assurance, les charges et l’entretien.",
 "04-bail":"Le bail mobilité, créé en 2018. C’est pour un logement meublé. Tu choisis la durée, de 1 à 10 mois. Il s’arrête tout seul à la date prévue. Aucun dépôt de garantie n’est demandé.",
 "05-will":"Will te demande « Tu vois ce qui change ? »",
-"06-qui":"Quand il entre dans les lieux, ton locataire est en études supérieures, en apprentissage, en stage, en service civique, muté pour son travail, en mission temporaire ou en formation professionnelle. Et ce motif doit être écrit dans le bail.",
+"06-qui":"Il suffit que ton locataire soit en études supérieures, ou en apprentissage, ou en stage, ou en service civique, ou muté pour son travail, ou en mission temporaire, ou en formation professionnelle. Cette situation compte le jour de son arrivée, et elle doit être écrite dans le bail.",
 "10-will-methode":"Will te prévient « Ça se fait dans les règles, ou ça ne se fait pas. »",
 "09-meuble":"La liste minimum du meublé. Literie avec couverture, rideaux ou volets, plaques de cuisson, four ou micro-ondes, frigo avec congélation, vaisselle, ustensiles de cuisine, table et sièges, étagères, luminaires, matériel d’entretien. Il manque quelque chose ? Complète avant de louer.",
 "11-mentions":"Ce que ton bail doit dire. La durée du bail. Le motif de ton locataire (stage, mutation…). Que c’est un bail mobilité, avec le texte de loi qui l’encadre. Qu’aucun dépôt de garantie n’est demandé. Le montant forfaitaire des charges.",

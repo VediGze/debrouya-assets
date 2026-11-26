@@ -2,7 +2,7 @@
 ## Le dilemme qui laisse des logements&nbsp;vides
 § Beaucoup d’entre nous connaissent cette situation. Tu as un appartement meublé, propre, prêt à vivre, mais tu sais que tu vas en avoir besoin dans quelques mois.
 § Peut-être parce que tu rentres au pays l’année prochaine, que tu veux le vendre, ou qu’un de tes enfants va s’y installer.
-§ Alors tu te demandes s’il vaut le coup de le louer en attendant. Et bien souvent, tu réponds non, parce que dans ta tête, louer, c’est s’engager pour longtemps.
+§ Alors forcément, tu te demandes si ça vaut le coup de le mettre en location en attendant. Et bien souvent, tu réponds non, parce que dans ta tête, louer, c’est s’engager pour longtemps.
 [IMAGE 03-durees]
 § Et même à la fin du bail, tu dois prévenir ton locataire à l’avance, avec une raison prévue par la loi, comme reprendre le logement pour y vivre ou le vendre.
 § Du coup, tu te dis que c’est trop risqué, et tu préfères le laisser fermé. Sauf qu’un logement fermé, ça coûte.
@@ -10,13 +10,12 @@
 ## Le bail fait pour louer quelques&nbsp;mois
 § Et si je te disais qu’il existe un bail fait exactement pour ta situation ? Il s’appelle le **bail mobilité**, et pourtant, peu de propriétaires y pensent.
 [IMAGE 04-bail]
-§ Avec ce bail, tu n’as donc pas de congé à envoyer, cette lettre qui met fin au bail, ni de raison à justifier pour récupérer ton logement. Il te revient tout seul, à la date que tu as choisie.
+§ Avec ce bail, tu n’as donc ni lettre de congé à envoyer, ni raison à justifier pour récupérer ton logement. Il te revient tout seul, à la date que tu as choisie.
 [IMAGE 05-will]
 § Ton logement n’est plus fermé en attendant.
 !! Il travaille en&nbsp;attendant.
 § Seulement, tu ne peux pas le louer à n’importe&nbsp;qui.
 [IMAGE 06-qui]
-§ Un étudiant qui vient pour un semestre, un salarié muté pour quelques mois, un stagiaire… Bref, des gens de passage, exactement ce qu’il te faut.
 ## Ta méthode en 4 étapes pour louer en bail&nbsp;mobilité
 [IMAGE 10-will-methode]
 ### Étape 1 — Vérifie que ton logement est vraiment&nbsp;meublé
@@ -28,12 +27,12 @@
 § C’est l’étape à ne pas bâcler, car ton bail mobilité doit être écrit, et contenir notamment ces informations.
 [IMAGE 11-mentions]
 § Eh oui, pas de dépôt de garantie, c’est même interdit dans ce bail. Et s’il manque la durée, le motif ou la mention « bail mobilité », ton contrat risque d’être considéré comme un bail meublé classique, avec un engagement d’un an.
-§ Joins-y aussi l’état des lieux, c’est-à-dire le constat écrit de l’état du logement, l’inventaire du mobilier et les diagnostics obligatoires.
+§ Joins-y aussi l’inventaire du mobilier, les diagnostics obligatoires et l’état des lieux, ce constat de l’état du logement que tu signes avec ton locataire à son arrivée.
 ### Étape 4 — Fixe tes charges et&nbsp;protège-toi
 § Dans un bail mobilité, les charges sont forfaitaires. Autrement dit, tu fixes un montant dans le bail, et il n’y a pas de rattrapage ensuite. Calcule-le donc à partir de ce que tu paies vraiment, pas au doigt mouillé.
 § Et puisque tu n’as pas de dépôt de garantie, il faut te protéger autrement. Le plus simple, c’est un état des lieux d’entrée très précis, avec des photos.
-§ Tu peux aussi demander un garant. Et si ton locataire n’en a pas, la garantie Visale, s’il y a droit, une caution gratuite d’Action Logement dont on a parlé la semaine dernière, peut jouer ce rôle.
-§ Enfin, le préavis, c’est-à-dire le délai pour prévenir qu’on s’en va, ne joue pas dans les deux sens.
+§ Tu peux aussi demander un garant. Et si ton locataire n’en a pas, il a peut-être droit à Visale, la caution gratuite d’Action Logement dont on a parlé la semaine dernière.
+§ Enfin, pour mettre fin au bail avant la date prévue, ton locataire et toi n’êtes pas logés à la même enseigne.
 [IMAGE 12-preavis]
 ## L’exemple chiffré, pour que ce soit&nbsp;clair
 § Prenons Murielle. Elle vit dans l’Hexagone, a un T2 meublé à Schœlcher, en Martinique, et compte rentrer s’y installer dans 8 mois.

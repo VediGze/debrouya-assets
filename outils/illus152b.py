@@ -17,11 +17,11 @@ H=540
 g=(f'<image href="data:image/jpeg;base64,{ban}" x="0" y="0" width="600" height="229" preserveAspectRatio="xMidYMid slice"/>'
    f'<path d="M0 200 C120 182 240 226 360 206 S540 188 600 204 V{H} H0 Z" fill="{TEAL_M}" opacity="0.55"/>'
    f'<path d="M0 214 C120 196 240 240 360 220 S540 202 600 218 V{H} H0 Z" fill="{TEAL}"/>'
-   + txt(300,272,"ÉDITION #152",18,PEACH,800,ls=4) + txt(300,320,"Louer sans t’engager",38,WHITE,800) + txt(300,362,"pour 3 ans.",34,PEACH,800))
+   + txt(300,272,"ÉDITION #152",18,PEACH,800,ls=4) + txt(300,320,"Le bail qui te rend",38,WHITE,800) + txt(300,362,"ton appart.",34,PEACH,800))
 for k in range(10):
     x=110+k*38; on=k<8
     g+=f'<rect x="{x}" y="412" width="30" height="40" rx="7" fill="{WHITE if on else TEAL_D}" opacity="{1 if on else 0.6}"/>'
-g+=key(110+8*38+44,432,PEACH,0.9)+txt(300,486,"Tu choisis la durée, et tu récupères ton bien.",18,PEACH,700)
+g+=key(110+8*38+44,432,PEACH,0.9)+txt(300,486,"Tu le loues quelques mois, puis il te revient.",18,PEACH,700)
 g+=(f'<path d="M0 512 C60 498 120 524 180 512 S300 498 360 512 S480 526 540 512 S600 506 620 512 V{H} H0 Z" fill="{TEAL_D}"/>'
     f'<path d="M0 526 C60 516 120 536 180 526 S300 516 360 526 S480 536 540 526 S600 522 620 526 V{H} H0 Z" fill="#0A403C"/>')
 out["01-hero"]=svg(600,H,g,TEAL)
@@ -57,16 +57,16 @@ def ic4(cx,cy,k,h):
 rows=[("",["C’est pour un logement meublé."]),("",["Tu choisis la durée, de 1 à 10 mois."]),("",["Il s’arrête tout seul à la date prévue."]),("",["Aucun dépôt de garantie n’est demandé."])]
 out["04-bail"]=rowcards(rows,TEAL_L,icon_fn=ic4,head="LE BAIL MOBILITÉ, CRÉÉ EN 2018")
 
-# 06 À QUI TU PEUX LOUER
-items=["en études supérieures","en apprentissage","en stage","en service civique","muté pour son travail","en mission temporaire","en formation professionnelle"]
-g=txt(300,46,"QUAND IL ENTRE DANS LES LIEUX, TON LOCATAIRE EST…",17,TEAL,800,ls=1)
+# 06 À QUI TU PEUX LOUER (une seule situation suffit)
+items=["en études supérieures,","ou en apprentissage,","ou en stage,","ou en service civique,","ou muté pour son travail,","ou en mission temporaire,","ou en formation professionnelle."]
+g=txt(300,46,"IL SUFFIT QUE TON LOCATAIRE SOIT…",18,TEAL,800,ls=1)
 for k,it in enumerate(items):
     col=k%2; row=k//2; x=24+col*282; y=70+row*62
     w=270
     if k==6: x=130; w=340
-    g+=f'<rect x="{x}" y="{y}" width="{w}" height="50" rx="12" fill="{WHITE}"/>'+check(x+28,y+25,TEAL,r=13)+txt(x+52,y+32,it,18,INK,700,anchor="start")
-g+=txt(300,346,"Et ce motif doit être écrit dans le bail.",19,MANGO_D,800)
-out["06-qui"]=svg(600,372,g,TEAL_L)
+    g+=f'<rect x="{x}" y="{y}" width="{w}" height="50" rx="12" fill="{WHITE}"/>'+txt(x+w/2,y+32,it,19,INK,700)
+g+=txt(300,346,"Cette situation compte le jour de son arrivée,",19,MANGO_D,800)+txt(300,372,"et elle doit être écrite dans le bail.",19,MANGO_D,800)
+out["06-qui"]=svg(600,396,g,TEAL_L)
 
 # 09 LA LISTE DU MEUBLÉ
 items=["Literie avec couverture","Rideaux ou volets","Plaques de cuisson","Four ou micro-ondes","Frigo avec congélation","Vaisselle","Ustensiles de cuisine","Table et sièges","Étagères","Luminaires","Matériel d’entretien"]
