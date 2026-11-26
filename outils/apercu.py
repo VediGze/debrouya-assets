@@ -5,8 +5,8 @@ src, out = os.path.abspath(sys.argv[1]), sys.argv[2]
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
     pg = b.new_page(viewport={"width": 430, "height": 900})
-    pg.goto("file://" + src); pg.wait_for_load_state("networkidle"); pg.wait_for_timeout(500)
+    pg.emulate_media(media="screen"); pg.goto("file://" + src); pg.wait_for_load_state("networkidle"); pg.wait_for_timeout(500)
     h = pg.evaluate("document.body.scrollHeight")
-    pg.pdf(path=out, width="430px", height=f"{h+2}px", print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"})
+    pg.pdf(path=out, width="430px", height=f"{h+60}px", print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"})
     b.close()
 print("ok", h)
