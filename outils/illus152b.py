@@ -1,5 +1,5 @@
-exec(open("/tmp/claude-0/-home-claude/901306cc-9835-5f2f-8144-8b453c5d989e/scratchpad/_head.py").read())
-exec(open("/tmp/claude-0/-home-claude/901306cc-9835-5f2f-8144-8b453c5d989e/scratchpad/_common.py").read())
+exec(open(__import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)),"_head.py")).read())
+exec(open(__import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)),"_common.py")).read())
 out={}
 P=json.loads(sys.argv[3]); ONLY=P.get("only")
 out["00-will-salut"]=will_panel(P["accueil"],["Salut","la famille ! 🔥"],h=330)

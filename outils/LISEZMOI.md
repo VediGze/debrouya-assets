@@ -18,5 +18,10 @@ Règles éditoriales du format visuel :
 - Les visuels parlent au lecteur : « ta liste », « tes critères », « tu fais une offre » — jamais « ma / mes / je », qui ferait croire que c'est la liste de Will.
 
 Poses de Will :
-- `avatar/` : 18 poses détourées (4 d'origine, 8 de base, 6 de saison).
+- `avatar/` : 16 poses détourées (4 d’origine, 6 de base, 6 de saison).
 - `poses.py AAAA-MM-JJ` : donne les poses d'une édition selon sa date d'envoi (rotation sans répéter l'édition précédente, pose de saison à l'accueil pendant les fêtes) ; `historique.json` garde la trace.
+
+Mise à jour du 26/11/2026 :
+- Fonctions communes des illustrations : `_head.py` (couleurs, `txt`, `svg`, `check`, `cross`, `will_panel`…) et `_common.py` (`hero`, `rowcards`, `bigcards`, `numbadge`), chargées par les `illusNNN.py` depuis ce dossier.
+- `apercu.py <html> <pdf>` : aperçu PDF d'une édition (une longue page).
+- Mémoire complète du projet, lisible par n'importe quelle IA : dossier Google Drive « Mémoire IA - Journal Débrouya » (Drive > Newsletter). À tenir à jour à chaque nouvelle information (règle 49 de REGLES.md).
